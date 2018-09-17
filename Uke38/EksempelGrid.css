@@ -3,9 +3,9 @@ body{
 }
 main{
   display:grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-column-gap: 100px;
-  grid-row-gap:5px;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 3px;
   text-align: center;
 
 }
