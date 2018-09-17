@@ -1,0 +1,17 @@
+body{
+  background-color: lightgray;
+}
+main{
+  display:grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-column-gap: 100px;
+  grid-row-gap:5px;
+  text-align: center;
+
+}
+main>p{
+  background-color: blue;
+  text color: red;
+  text-align: center;
+  padding: 30px;
+}
