@@ -15,22 +15,13 @@ main{
 
 main>a{
   font-size: 20px;
-<<<<<<< HEAD
-  padding-left: 30px;
-  padding-right: 30px
-=======
   padding: 30px;
->>>>>>> 67e62ebb0c6ed9485fa3cf9f305219cfdca71c39
   color: black;
 }
 
 nav{
   display: grid;
-<<<<<<< HEAD
   grid-template-columns: 1fr 1fr 1fr;
-=======
-  grid-template-columns: 1fr 1fr 1fr 1fr;
->>>>>>> 67e62ebb0c6ed9485fa3cf9f305219cfdca71c39
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   margin-left: 50px;
