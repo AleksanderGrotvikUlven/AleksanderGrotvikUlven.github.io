@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Det periodiske system</title>
+    <style media="screen">
+      #Periodesystemet{
+        display: grid;
+        grid-template-columns: repeat(18, 1fr);
+        grid-gap: 10px;
+        text-align: center;
+        color: white;
+      }
+      #Periodesystemet>div{
+        border: black solid 2px;
+        border-radius: 3px;
+        padding top: 3px;
+      }
+      body{
+        background-color: beige;
+      }
+      .Luft1{
+        opacity: 0;
+        grid-column: 2 / 18;
+      }
+      .Luft2{
+        opacity: 0;
+        grid-column: 3 / 13;
+      }
+      .Luft3{
+        opacity: 0;
+        grid-column: span 3;
+      }
+      .Luft4{
+        opacity: 0;
+        grid-column:  span 18;
+      }
+      .R{
+        background-color: #bf8080;
+      }
+      .G{
+        background-color: #90bf80;
+      }
+      .B{
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Periodesystemet">
+      <div class="R">H</div>
+      <div class="Luft1"></div>
+      <div class="R">He</div>
+
+      <div class="B">Li</div>
+      <div class="B">Be</div>
+      <div class="Luft2"></div>
+      <div class="G">B</div>
+      <div class="R">C</div>
+      <div class="R">N</div>
+      <div class="R">O</div>
+      <div class="R">F</div>
+      <div class="R">Ne</div>
+
+      <div class="B">Na</div>
+      <div class="B">Mg</div>
+      <div class="Luft2"></div>
+      <div class="B">Al</div>
+      <div class="G">Si</div>
+      <div class="R">P</div>
+      <div class="R">S</div>
+      <div class="R">Cl</div>
+      <div class="R">Ar</div>
+
+      <div class="B">K</div>
+      <div class="B">Ca</div>
+      <div class="B">Sc</div>
+      <div class="B">Ti</div>
+      <div class="B">V</div>
+      <div class="B">Cr</div>
+      <div class="B">Mn</div>
+      <div class="B">Fe</div>
+      <div class="B">Co</div>
+      <div class="B">Ni</div>
+      <div class="B">Cu</div>
+      <div class="B">Zn</div>
+      <div class="B">Ga</div>
+      <div class="G">Ge</div>
+      <div class="G">As</div>
+      <div class="R">Se</div>
+      <div class="R">Br</div>
+      <div class="R">Kr</div>
+
+      <div class="B">Rb</div>
+      <div class="B">Sr</div>
+      <div class="B">Y</div>
+      <div class="B">Zr</div>
+      <div class="B">Nb</div>
+      <div class="B">Mo</div>
+      <div class="B">Tc</div>
+      <div class="B">Ru</div>
+      <div class="B">Rh</div>
+      <div class="B">Pd</div>
+      <div class="B">Ag</div>
+      <div class="B">Cd</div>
+      <div class="B">In</div>
+      <div class="B">Sn</div>
+      <div class="G">Sb</div>
+      <div class="G">Te</div>
+      <div class="R">I</div>
+      <div class="R">Xe</div>
+
+      <div class="B">Cs</div>
+      <div class="B">Ba</div>
+      <div class="B">57-71</div>
+      <div class="B">Hf</div>
+      <div class="B">Ta</div>
+      <div class="B">W</div>
+      <div class="B">Re</div>
+      <div class="B">Os</div>
+      <div class="B">Ir</div>
+      <div class="B">Pt</div>
+      <div class="B">Au</div>
+      <div class="B">Hg</div>
+      <div class="B">Tl</div>
+      <div class="B">Pb</div>
+      <div class="B">Bi</div>
+      <div class="B">Po</div>
+      <div class="R">At</div>
+      <div class="R">Rn</div>
+
+      <div class="B">Fr</div>
+      <div class="B">Ra</div>
+      <div class="B">89-103</div>
+      <div class="B">Rf</div>
+      <div class="B">Db</div>
+      <div class="B">Sg</div>
+      <div class="B">Bh</div>
+      <div class="B">Hs</div>
+      <div class="B">Mt</div>
+      <div class="B">Ds</div>
+      <div class="B">Rg</div>
+      <div class="B">Cn</div>
+      <div class="B">Nb</div>
+      <div class="B">Fl</div>
+      <div class="B">Mc</div>
+      <div class="B">Lv</div>
+      <div class="B">Ts</div>
+      <div class="B">Og</div>
+
+      <div class="Luft4"></div>
+      <div class="Luft3"></div>
+      <div class="B">La</div>
+      <div class="B">Ce</div>
+      <div class="B">Pr</div>
+      <div class="B">Nd</div>
+      <div class="B">Pm</div>
+      <div class="B">Sm</div>
+      <div class="B">Eu</div>
+      <div class="B">Gd</div>
+      <div class="B">Tb</div>
+      <div class="B">Dy</div>
+      <div class="B">Ho</div>
+      <div class="B">Er</div>
+      <div class="B">Tm</div>
+      <div class="B">Yb</div>
+      <div class="B">Lu</div>
+
+      <div class="Luft3">Blank</div>
+      <div class="B">Ac</div>
+      <div class="B">Th</div>
+      <div class="B">Pa</div>
+      <div class="B">U</div>
+      <div class="B">Np</div>
+      <div class="B">Pu</div>
+      <div class="B">Am</div>
+      <div class="B">Cm</div>
+      <div class="B">Bk</div>
+      <div class="B">Cf</div>
+      <div class="B">Es</div>
+      <div class="B">Fm</div>
+      <div class="B">Md</div>
+      <div class="B">No</div>
+      <div class="B">Lr</div>
+
+    </div>
+
+  </body>
+</html>
