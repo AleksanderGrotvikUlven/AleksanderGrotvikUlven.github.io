@@ -1,6 +1,8 @@
 body{
   max-width: 900px;
   background-color: gray;
+  font-family: arial:sans-serif;
+  margin: auto;
 
 }
 header{
@@ -24,9 +26,8 @@ header{
   grid-column: 6 / 7;
 }
 
-main{
-
-
+#logo1{
+  width: 180px;
 }
 #main{
   display: grid;
@@ -38,6 +39,7 @@ main{
 .nyhet{
   grid-column: span 1;
   grid-row: span 2;
+
 }
 .litennyhet{
   grid-column: span 1;
@@ -46,4 +48,15 @@ main{
 .stornyhet{
   grid-column: span 2;
   grid-row: span 2;
+  font-size: 20px;
+  font-style: ;
+}
+.nyhet>img{
+  width: 293px;
+}
+.litennyhet>img{
+  width: 293px;
+}
+.stornyhet>img{
+  width: 596px;
 }
