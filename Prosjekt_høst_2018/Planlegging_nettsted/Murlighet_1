@@ -1,0 +1,46 @@
+Alle sider
+  -Nav bar
+    Hjem(logo,)
+    Nye biler
+    Brukte biler
+    Service
+  -Css
+    Grid oppsett
+    Farger
+    Tekststørrelse
+    bildestørrelse
+
+Hjem
+  -Mest solgte i år
+  -Mest solgte
+  -Våre merker
+    -BMW
+    -Audi
+    -
+
+
+Nye biler
+  -Merke
+    -BMW
+    -Audi
+  -Garanti på ny bil
+    -
+
+Brukte biler
+  -Merke
+    -BMW
+    -Audi
+  -Garanti på bruktbil
+    -
+
+Service(bilde av reprasjonsverktøy)
+  -Deler
+  -Verksted
+  -Skift av rute
+
+
+
+Formål med nettstedet
+  -Selge biler til kjøpere
+  -Selge bilrelaterte tjenester (Gi kjøpere murligheten til å velge oss som srvice personell)
+  -
