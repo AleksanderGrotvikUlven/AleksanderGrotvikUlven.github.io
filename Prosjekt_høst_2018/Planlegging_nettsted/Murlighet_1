@@ -1,9 +1,10 @@
 Alle sider
   -Nav bar
-    Hjem(logo,)
+    Hjem(logo, Asker og Bærum bil)
     Nye biler
     Brukte biler
     Service
+    Om oss
   -Css
     Grid oppsett
     Farger
@@ -12,10 +13,10 @@ Alle sider
 
 Hjem
   -Mest solgte i år
-  -Mest solgte
   -Våre merker
     -BMW
     -Audi
+  -Ting å tenke på ved kjøp av bil
     -
 
 
