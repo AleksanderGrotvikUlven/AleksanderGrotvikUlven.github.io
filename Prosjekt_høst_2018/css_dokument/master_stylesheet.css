@@ -2,10 +2,8 @@
   padding: 10px 10px 10px 10px;
   background-color: gray;
   display: grid;
-  grid-template-columns: repeat(8 , 1fr);
+  grid-template-columns: repeat(6 , 1fr);
   grid-template-rows: repeat(1 , 1fr);
-  font-size: 25px;
-  text-align: center;
   grid-auto-columns: minmax(50px / 150px);
   /*display: inline-block;
   transition: translate(-50%,-50%);
@@ -14,15 +12,22 @@
 }
 
 #logo1{
-  grid-column: 2 / 4;
+  grid-column: 1 / 2;
   height: 120px;
   width: auto;
-  text-align: center;
+}
+#audi{
+  height: 40px;
+  width: auto;
+}
+#bmw{
+  height: 40px;
+  width: auto;
 }
 
 /*Nye Biler Navigasjon*/
-#nye_biler{
-  grid-column: 5 / 6;
+.nye_biler{
+  grid-column: 3 / 4;
   height: 80px;
   width: auto;
 }
@@ -31,44 +36,49 @@
 }
 .dropdown1{
   opacity: 0;
-  height: 0.5px;
-  width: 0.5px;
+  height: 0.1px;
+  width: 0.1px;
 }
-#nye_biler:hover .dropdown1{
+.nye_biler:hover .dropdown1{
   opacity: 1;
   font-size: 20px;
   position: absolute;
 }
 
 /*Brukte Biler Navigasjon*/
-#brukte_biler{
-  grid-column: 6 / 7;
+.brukte_biler{
+  grid-column: 4 / 5;
 }
 #Brukte_Biler{
   height: 80px;
 }
 .dropdown2{
   opacity: 0;
-  height: 0.5px;
-  width: 0.5px;
+  height: 0.1px;
+  width: 0.1px;
 }
-#brukte_biler:hover .dropdown2{
+.brukte_biler:hover .dropdown2{
   opacity: 1;
   font-size: 20px;
   position: absolute;
 }
 
 /*Service Navigasjon*/
-#service{
-  grid-column: 7 / 8;
+.service{
+  grid-column: 5 / 6;
   grid-row: 1 / 2;
+}
+#Service{
+  height: 80px;
 }
 
 /*Om oss Navigasjon*/
-#om_oss{
-  grid-column: 8 / 9;
+.om_oss{
+  grid-column: 6 / 7;
 }
-
+#Om_Oss{
+  height: 80px;
+}
 /*
 .dropdownboks{
   text-align: center;
