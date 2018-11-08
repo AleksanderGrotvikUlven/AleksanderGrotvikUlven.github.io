@@ -41,7 +41,7 @@
 }
 .nye_biler:hover .dropdown1{
   opacity: 1;
-  font-size: 20px;
+  font-size: 22px;
   position: absolute;
 }
 
@@ -59,7 +59,7 @@
 }
 .brukte_biler:hover .dropdown2{
   opacity: 1;
-  font-size: 20px;
+  font-size: 22px;
   position: absolute;
 }
 
