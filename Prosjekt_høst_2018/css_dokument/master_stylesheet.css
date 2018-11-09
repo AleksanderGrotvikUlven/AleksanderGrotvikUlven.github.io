@@ -38,6 +38,7 @@
   opacity: 0;
   height: 0.1px;
   width: 0.1px;
+  transition: 0.4s ease-in-out
 }
 .nye_biler:hover .dropdown1{
   opacity: 1;
