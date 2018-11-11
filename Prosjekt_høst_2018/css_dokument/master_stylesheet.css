@@ -43,6 +43,8 @@
 .nye_biler:hover .dropdown1{
   opacity: 1;
   font-size: 22px;
+  /*border: 4px solid black;
+  background-color: beige;*/
   position: absolute;
 }
 
