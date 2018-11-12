@@ -1,11 +1,11 @@
 /*header*/
 .topnav{
-  padding: 10px 10px 10px 10px;
-  background-color: gray;
   display: grid;
   grid-template-columns: repeat(6 , 1fr);
   grid-template-rows: repeat(1 , 1fr);
   grid-auto-columns: minmax(50px / 150px);
+  padding: 10px 10px 10px 10px;
+  background-color: gray;
 }
 #logo1{
   grid-column: 1 / 2;
@@ -69,4 +69,10 @@
 #Om_Oss{
   height: 80px;
 }
+
+
 /*main*/
+.main_grid{
+  display: grid;
+  grid-template-columns: repeat(9,1fr) ;
+}
