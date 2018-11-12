@@ -1,3 +1,4 @@
+/*header*/
 .topnav{
   padding: 10px 10px 10px 10px;
   background-color: gray;
@@ -5,67 +6,54 @@
   grid-template-columns: repeat(6 , 1fr);
   grid-template-rows: repeat(1 , 1fr);
   grid-auto-columns: minmax(50px / 150px);
-  /*display: inline-block;
-  transition: translate(-50%,-50%);
-  max-height: 120px;
-  width: 1200px;*/
 }
-
 #logo1{
   grid-column: 1 / 2;
   height: 120px;
   width: auto;
 }
-#audi{
-  height: 40px;
-  width: auto;
-}
-#bmw{
-  height: 40px;
-  width: auto;
-}
-
-/*Nye Biler Navigasjon*/
-.nye_biler{
-  grid-column: 3 / 4;
-  height: 80px;
-  width: auto;
-}
-#Nye_Biler{
-  height: 80px;
-}
-.dropdown1{
-  opacity: 0;
-  height: 0.1px;
-  width: 0.1px;
-  transition: 0.4s ease-in-out
-}
-.nye_biler:hover .dropdown1{
-  opacity: 1;
-  font-size: 22px;
-  /*border: 4px solid black;
-  background-color: beige;*/
-  position: absolute;
-}
-
-/*Brukte Biler Navigasjon*/
-.brukte_biler{
+/*velg merke Navigasjon*/
+.velgmerke {
+  position: relative;
+  width: 50%;
   grid-column: 4 / 5;
 }
-#Brukte_Biler{
+#bilmerker{
   height: 80px;
 }
-.dropdown2{
-  opacity: 0;
-  height: 0.1px;
-  width: 0.1px;
-}
-.brukte_biler:hover .dropdown2{
-  opacity: 1;
-  font-size: 22px;
+.dropdown1 {
   position: absolute;
+  top: 25px;
+  bottom: 0;
+  left: 50px;
+  right: 0;
+  height: 50%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  font-size: 22px;
+  background-color: grey;
+  padding-right: 15px;
 }
-
+.icon_grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(1,1fr);
+}
+#audi{
+  grid-column: 1 / 2;
+  grid-row: span 1;
+}
+#bmw{
+  grid-column: 2 / 3;
+  grid-row: span 1;
+}
+.velgmerke:hover .dropdown1 {
+  opacity: 1;
+}
+.icon_grid>div>a{
+  color: black;
+}
 /*Service Navigasjon*/
 .service{
   grid-column: 5 / 6;
@@ -74,7 +62,6 @@
 #Service{
   height: 80px;
 }
-
 /*Om oss Navigasjon*/
 .om_oss{
   grid-column: 6 / 7;
@@ -82,35 +69,4 @@
 #Om_Oss{
   height: 80px;
 }
-/*
-.dropdownboks{
-  text-align: center;
-  color: white;
-  background-color: #8395db;
-  padding: 14px 25px 14px 25px;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin-left: 400px;
-}
-.dropdown{
-  margin-left: auto;
-  height: 400px;
-}
-.dropdownmeny{
-  width: 1%;
-  height: 1%;
-  opacity: 0;
-  font-size: 1px;
-}
-.dropdowncontainer:hover .dropdownmeny {
-  margin-left: 400px;
-  margin-top: 20px;
-  height: 500px;
-  width: 200px;
-  border: 4px solid #8395db;
-  position: absolute;
-  background-color: white;
-  font-size: 36px;
-  opacity: 1;
-}
-*/
+/*main*/
