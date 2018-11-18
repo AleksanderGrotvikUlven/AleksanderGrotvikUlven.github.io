@@ -9,17 +9,12 @@
 }
 #logo1{
   grid-column: 1 / 2;
-  height: 120px;
-  width: auto;
 }
 /*velg merke Navigasjon*/
 .velgmerke {
   position: relative;
   width: 50%;
   grid-column: 4 / 5;
-}
-#bilmerker{
-  height: 80px;
 }
 .dropdown1 {
   position: absolute;
@@ -54,25 +49,58 @@
 .icon_grid>div>a{
   color: black;
 }
-/*Service Navigasjon*/
 .service{
   grid-column: 5 / 6;
   grid-row: 1 / 2;
 }
-#Service{
-  height: 80px;
-}
-/*Om oss Navigasjon*/
 .om_oss{
   grid-column: 6 / 7;
-}
-#Om_Oss{
-  height: 80px;
 }
 
 
 /*main*/
 .main_grid{
   display: grid;
-  grid-template-columns: repeat(9,1fr) ;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+}
+.grid_element1{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+.grid_element2{
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.grid_element3{
+  grid-column: span 1;
+  grid-row: span 2;
+}
+h1{
+  grid-column: 2 / 6;
+  font-size: 30px;
+}
+.list_grid{
+  grid-column: 2 / 6;
+  display: grid;
+  grid-template-columns: repeat(3,1fr) ;
+  grid-template-rows: auto;
+}
+.vi_forhandler{
+  grid-column: 2 / 6;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2,1fr);
+}
+.vi_forhandler>p{
+  grid-column: span 1;
+  grid-row: span 1;
+  font-size: 18px;
+}
+.vi_forhandler>img{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+#text_mainpage{
+  grid-column: 2 / 6;
 }
