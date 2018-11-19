@@ -10,6 +10,14 @@
 #logo1{
   grid-column: 1 / 2;
 }
+#audi{
+  grid-column: 1 / 2;
+  grid-row: span 1;
+}
+#bmw{
+  grid-column: 2 / 3;
+  grid-row: span 1;
+}
 .velgmerke {
   position: relative;
   width: 50%;
@@ -33,14 +41,6 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);
   grid-template-rows: repeat(1,1fr);
-}
-#audi{
-  grid-column: 1 / 2;
-  grid-row: span 1;
-}
-#bmw{
-  grid-column: 2 / 3;
-  grid-row: span 1;
 }
 .velgmerke:hover .dropdown1 {
   opacity: 1;
@@ -66,6 +66,14 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: auto;
 }
+.list_grid{
+  grid-column: 2 / 6;
+  display: grid;
+  grid-template-columns: repeat(3,1fr) ;
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20;
+}
 .grid_element1{
   grid-column: span 1;
   grid-row: span 1;
@@ -90,14 +98,6 @@ h2{
   font-size: 18px;
   text-align: center;
 }
-.list_grid{
-  grid-column: 2 / 6;
-  display: grid;
-  grid-template-columns: repeat(3,1fr) ;
-  grid-template-rows: auto;
-  grid-column-gap: 20px;
-  grid-row-gap: 20;
-}
 .vi_forhandler{
   grid-column: 2 / 6;
   display: grid;
@@ -112,14 +112,24 @@ h2{
   grid-row: span 1;
   font-size: 20px;
 }
-#text_info{
-  grid-column: 3 / 7;
-  font-size: 16px;
-}
 .vi_forhandler>img{
   grid-column: span 1;
   grid-row: span 1;
 }
 #text_mainpage{
   grid-column: 2 / 6;
+}
+#text_info{
+  grid-column: 3 / 7;
+  font-size: 16px;
+}
+
+
+/*footer*/
+.footer{
+  display: grid;
+  grid-template-columns: ;
+  grid-template-rows: ;
+  padding: 10px 10px 10px 10px;
+  background-color: gray;
 }
