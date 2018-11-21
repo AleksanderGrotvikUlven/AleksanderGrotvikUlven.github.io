@@ -45,9 +45,6 @@
 .velgmerke:hover .dropdown1 {
   opacity: 1;
 }
-.icon_grid>div>a{
-  color: black;
-}
 .service{
   grid-column: 5 / 6;
   grid-row: 1 / 2;
@@ -55,12 +52,23 @@
 .om_oss{
   grid-column: 6 / 7;
 }
-
-.grid_element1:hover {
-  opacity: 0.9;
+.service:hover #header_element{
+  background-color: darkgrey;
+}
+.om_oss:hover #header_element{
+  background-color: darkgrey;
+}
+#header_element{
+  border-radius: 15px;
+  transition: 1.2s ease;
 }
 
+
 /*main*/
+.headline{
+  text-align: center;
+  font-size: 34px;
+}
 .main_grid{
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -73,6 +81,8 @@
   grid-template-rows: auto;
   grid-column-gap: 20px;
   grid-row-gap: 20;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .grid_element1{
   grid-column: span 1;
@@ -89,10 +99,11 @@
 .grid_element1:hover {
   opacity: 0.8;
   transform: scale(1.1);
+  transition:
 }
 h1{
   grid-column: 2 / 6;
-  font-size: 30px;
+  font-size: 28px;
 }
 h2{
   font-size: 18px;
@@ -112,7 +123,7 @@ h2{
   grid-row: span 1;
   font-size: 20px;
 }
-.vi_forhandler>img{
+.vi_forhandler>a{
   grid-column: span 1;
   grid-row: span 1;
 }
@@ -128,8 +139,27 @@ h2{
 /*footer*/
 .footer{
   display: grid;
-  grid-template-columns: ;
-  grid-template-rows: ;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(1, 1fr);
   padding: 10px 10px 10px 10px;
   background-color: gray;
+}
+.footer_info{
+  grid-column: 2 / 4;
+  padding-top: 15px;
+}
+.til_toppen{
+  grid-column: 6 / 7;
+  padding: 30px 30px 5px 30px;
+  text-align: center;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.til_toppen>a{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
 }
