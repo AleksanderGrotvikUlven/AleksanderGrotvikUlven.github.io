@@ -52,15 +52,19 @@
 .om_oss{
   grid-column: 6 / 7;
 }
+/*
 .service:hover #header_element{
   background-color: darkgrey;
 }
 .om_oss:hover #header_element{
   background-color: darkgrey;
+}*/
+#header_element:hover{
+  background-color: darkgrey;
 }
 #header_element{
   border-radius: 15px;
-  transition: 1.2s ease;
+  transition: 1s ease;
 }
 
 
