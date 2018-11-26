@@ -150,6 +150,9 @@ ul{
 #tilleggsinfo{
   grid-column: 2 / 6;
 }
+#video1{
+  width: 280px;
+}
 
 
 /*footer*/
