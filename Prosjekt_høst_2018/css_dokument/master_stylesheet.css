@@ -95,10 +95,13 @@
   grid-column: span 1;
   grid-row: span 2;
 }
+.grid_element4{
+  grid-column: span 4;
+  grid-row: span 1;
+}
 .grid_element1:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   transform: scale(1.1);
-  transition:
 }
 h1{
   grid-column: 2 / 6;
@@ -152,8 +155,41 @@ ul{
 }
 #video1{
   width: 280px;
+  margin-bottom: 30px;
 }
-
+.service_grid{
+  grid-column: 2 / 6;
+  display: grid;
+  grid-template-columns: repeat(4,1fr) ;
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.søk_regnr{
+  font-size: 20px;
+  height: 40px;
+  width: 300px;
+}
+.skjema_list{
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 10px;
+}
+.neste_side{
+    border: none;
+    background-color: lightgray;
+    margin-top: 20px;
+    padding: 20px 40px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+.neste_side:hover{
+  background: gray;
+}
 
 /*footer*/
 .footer{
