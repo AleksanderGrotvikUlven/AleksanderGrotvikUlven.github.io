@@ -32,7 +32,7 @@
   height: 50%;
   width: 100%;
   opacity: 0;
-  transition: 0.8s ease;
+  transition: 0.8s ease-in-out;
   font-size: 22px;
   background-color: grey;
   padding-right: 15px;
@@ -57,7 +57,7 @@
 }
 #header_element{
   border-radius: 15px;
-  transition: 0.8s ease;
+  transition: 0.8s ease-in-out;
 }
 
 
@@ -66,6 +66,7 @@
   text-align: center;
   font-size: 34px;
 }
+  /*main-ulike grids*/
 .main_grid{
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -81,6 +82,44 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.list_grid2{
+  grid-column: 2 / 6;
+  display: grid;
+  grid-template-columns: repeat(5,1fr) ;
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.servicegrid{
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
+  height: 240px;
+}
+.pick_grid{
+  grid-column: 2 / 6;
+  display: grid;
+  grid-template-columns: repeat(2,1fr) ;
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.skjema_list1{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-row-gap: 10px;
+}
+.skjema_list2{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 10px;
+}
+
+  /*main-ulike grid element*/
 .grid_element1{
   grid-column: span 1;
   grid-row: span 1;
@@ -96,13 +135,26 @@
   grid-row: span 2;
 }
 .grid_element4{
-  grid-column: span 4;
+  grid-column: span 1;
   grid-row: span 1;
 }
+.grid_element5{
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+  /*main-hover*/
 .grid_element1:hover {
   opacity: 0.9;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
+#bilder_småreprasjoner:hover{
+  opacity: 0;
+}
+.neste_side:hover{
+  background: gray;
+}
+  /*main-ulike divs*/
 h1{
   grid-column: 2 / 6;
   font-size: 28px;
@@ -157,26 +209,27 @@ ul{
   width: 280px;
   margin-bottom: 30px;
 }
-.service_grid{
-  grid-column: 2 / 6;
-  display: grid;
-  grid-template-columns: repeat(4,1fr) ;
-  grid-template-rows: auto;
-  grid-column-gap: 20px;
-  grid-row-gap: 20;
-  padding-top: 20px;
-  padding-bottom: 20px;
+#bilder_småreprasjoner{
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
+#text_småreprasjoner{
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  text-align: center;
+}
+.velg_bil{
+  grid-column: 1 / 4;
+}
+.velg_farge{
+  grid-column: 1 / 6;
 }
 .søk_regnr{
   font-size: 20px;
   height: 40px;
   width: 300px;
-}
-.skjema_list{
-  grid-column: 2 / 3;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 10px;
 }
 .neste_side{
     border: none;
@@ -187,8 +240,27 @@ ul{
     cursor: pointer;
     display: inline-block;
 }
-.neste_side:hover{
-  background: gray;
+label>p{
+  outline: 5px solid lightgray;
+}
+  /*maim-img button*/
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+[type=radio] + img {
+  cursor: pointer;
+}
+[type=radio]:checked + img {
+  outline: 5px solid #f00;
+}
+[type=radio] + p {
+  cursor: pointer;
+}
+[type=radio]:checked + p {
+  outline: 5px solid #f00;
 }
 
 /*footer*/

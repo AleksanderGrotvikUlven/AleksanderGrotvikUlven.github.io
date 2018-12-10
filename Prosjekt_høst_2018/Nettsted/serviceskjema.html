@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Asker og Bærum bil</title>
     <link rel="stylesheet" type="text/css" href="../css_dokument/master_stylesheet.css">
+    <link rel="icon" href="../bilder_og_videoer/andre_bilder/favicon.ico" type="image/x-icon"/>
   </head>
   <body>
     <header id="header">
@@ -33,34 +34,63 @@
     <main>
       <h1 class="headline">Serviceskjema</h1>
       <div class="main_grid">
-        <div class="service_grid">
-          <div class="grid_element4">
+        <div class="pick_grid">
+          <div class="grid_element2">
             <h1>Ditt registrerngsnummer</h1>
             <input class="søk_regnr" type="text" name="reg_nr" placeholder="Skriv ditt registrerngsnummer" required>
           </div>
-          <div class="grid_element2">
+          <div class="grid_element4">
             <h1>Kilometerstand</h1>
-            <div class="skjema_list">
-              <40.000km<input type="radio" name="Service">
-              40.000-70.000km<input type="radio" name="km">
-              70.000-100.000km<input type="radio" name="km">
-              100.000-125.000km<input type="radio" name="km">
-              125.000-160.000km<input type="radio" name="km">
-              160.000-200.000km<input type="radio" name="km">
-              >200.000km<input type="radio" name="km">
+            <div class="skjema_list1">
+              <label>
+                <input type="radio" name="km" value="small" checked>
+                <p>0-40.000km</p>
+              </label>
+              <label>
+                <input type="radio" name="km" value="small">
+                <p>40.000-70.000km</p>
+              </label>
+              <label>
+                <input type="radio" name="km" value="small">
+                <p>70.000-100.000km</p>
+              </label>
+              <label>
+                <input type="radio" name="km" value="small">
+                <p>100.000-125.000km</p>
+              </label>
+              <label>
+                <input type="radio" name="km" value="small">
+                <p>125.000-160.000km</p>
+              </label>
+              <label>
+                <input type="radio" name="km" value="small">
+                <p>160.000-200.000km</p>
+              </label>
+              <label>
+                <input type="radio" name="km" value="small">
+                <p>>-200.000km</p>
+              </label>
             </div>
           </div>
-          <div class="grid_element2">
+          <div class="grid_element4">
             <h1>Småreprasjoner</h1>
-            <div class="skjema_list">
-              Bytte av frontrute<input type="radio" name="Småreprasjoner">
-              Lakkering<input type="radio" name="Småreprasjoner">
-              Dekkskift<input type="radio" name="Småreprasjoner">
+            <div class="skjema_list1">
+              <label>
+                <input type="radio" name="frontrute" value="small">
+                <p>Bytte av frontrute</p>
+              </label>
+              <label>
+                <input type="radio" name="lakkering" value="small">
+                <p>Lakkering</p>
+              </label>
+              <label>
+                <input type="radio" name="dekkskift" value="small">
+                <p>Dekkskift</p>
+              </label>
             </div>
           </div>
           <div class="grid_element2">
             <a href="#"><button class="neste_side">Gå videre</button></a>
-
           </div>
         </div>
       </div>
