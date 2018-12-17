@@ -18,32 +18,34 @@
   grid-column: 2 / 3;
   grid-row: span 1;
 }
-.velgmerke {
+.velgmerke{
   position: relative;
   width: 50%;
   grid-column: 4 / 5;
 }
-.dropdown1 {
+.dropdown1{
   position: absolute;
-  top: 25px;
+  top: 20px;
   bottom: 0;
-  left: 50px;
+  left: 0;
   right: 0;
   height: 50%;
   width: 100%;
   opacity: 0;
-  transition: 0.8s ease-in-out;
-  font-size: 22px;
-  background-color: grey;
-  padding-right: 15px;
+  transition: 0.3s ease-in-out;
+  background-color: lightgrey;
+  padding-right: 70px;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-bottom: 3px;
+}
+.velgmerke:hover .dropdown1{
+  opacity: 1;
 }
 .icon_grid{
   display: grid;
   grid-template-columns: repeat(2,1fr);
   grid-template-rows: repeat(1,1fr);
-}
-.velgmerke:hover .dropdown1 {
-  opacity: 1;
 }
 .service{
   grid-column: 5 / 6;
@@ -52,12 +54,18 @@
 .om_oss{
   grid-column: 6 / 7;
 }
-#header_element:hover{
-  transform: scale(1.2);
+.neste_hovedside{
+    border: none;
+    background-color: gray;
+    margin-top: 20px;
+    padding: 20px 40px;
+    font-size: 30px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.3s ease-in-out;
 }
-#header_element{
-  border-radius: 15px;
-  transition: 0.8s ease-in-out;
+.neste_hovedside:hover{
+  background: lightgray;
 }
 
 
@@ -213,7 +221,7 @@ ul{
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   position: absolute;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 #text_småreprasjoner{
   grid-column: 1 / 2;
