@@ -1,0 +1,99 @@
+
+body{
+  background-color: rgb(200, 171, 255);
+}
+header{
+  background-color: rgb(209, 54, 5);
+  width: 90%;
+  margin: auto;
+  border: solid black 5px;
+}
+header nav{
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-around;*/
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+header nav a{
+  text-decoration: none;
+  color: black;
+  font-size: 23px;
+  padding: 10px 15px 10px 15px;
+
+}
+header nav a:hover{
+  background-color: white;
+  transition: 0.3s ease-in-out;
+  transform: scale 1.05;
+
+}
+header nav a:last-child{
+  margin-left: auto;
+}
+main{
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+@media (max-width: 1200px) {
+  main{
+    grid-template-columns: repeat(3, 1fr)
+  }
+}
+@media (max-width: 900px) {
+  main{
+    grid-template-columns: repeat(2, 1fr)
+  }
+}
+@media (max-width: 600px) {
+  main{
+    grid-template-columns: repeat(1, 1fr)
+  }
+  header nav{
+    flex-direction: column;
+    align-items: center;
+  }
+  header nav a:last-child{
+    margin: auto;
+  }
+}
+article{
+  background-color: rgb(200, 136, 40);
+}
+.link--1{
+  background-color: rgb(33, 218, 10);
+}
+.link--5{
+  background-color: rgb(22, 123, 228);
+}
+
+.medium{
+  width: 100%;
+}
+
+.flexbox{
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.red{
+  background-color: red;
+}
+.blue{
+  background-color: blue;
+}
+.green{
+  background-color: green
+}
+
+/*
+@media (orientation: portrait or lanscape) {
+
+}
+*/

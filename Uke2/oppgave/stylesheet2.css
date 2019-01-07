@@ -1,0 +1,13 @@
+body{
+  background-image: url(bilder/natur1.jpg);
+  background-repeat: no-repeat;
+  background-color: rgb(129, 99, 201)
+}
+@media (max-width: 660px) {
+  body{
+    background-image: url(bilder/natur2.jpg);
+    background-repeat: no-repeat;
+    background-color: rgb(129, 99, 201);
+  }
+
+}
