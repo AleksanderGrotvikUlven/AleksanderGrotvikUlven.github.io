@@ -1,35 +1,54 @@
 
 body{
   background-color: rgb(200, 171, 255);
+  margin: 0;
+  padding: 0;
+  height: 3000px;
 }
 header{
   background-color: rgb(209, 54, 5);
-  width: 90%;
-  margin: auto;
-  border: solid black 5px;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
-header nav{
+.navbar{
   display: flex;
   flex-direction: row;
   /*justify-content: space-around;*/
   padding-top: 15px;
   padding-bottom: 15px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
-header nav a{
+.navbar a{
   text-decoration: none;
   color: black;
-  font-size: 23px;
-  padding: 10px 15px 10px 15px;
-
-}
-header nav a:hover{
-  background-color: white;
+  font-size: 30px;
+  border-radius: 10px;
   transition: 0.3s ease-in-out;
-  transform: scale 1.05;
-
 }
-header nav a:last-child{
+.navbar-text{
+  padding: 10px 15px 10px 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navbar-text:hover{
+  background-color: white;
+}
+.navbar a:nth-child(5){
   margin-left: auto;
+}
+.fa-bars, .fa-user-circle{
+  font-size: 50px;
+}
+.navbar-icon{
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navbar-icon:hover{
+  color: white;
 }
 main{
   width: 90%;
@@ -38,6 +57,7 @@ main{
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
+  margin-top: 100px;
 }
 @media (max-width: 1200px) {
   main{
@@ -53,11 +73,11 @@ main{
   main{
     grid-template-columns: repeat(1, 1fr)
   }
-  header nav{
+  .navbar{
     flex-direction: column;
     align-items: center;
   }
-  header nav a:last-child{
+  .navbar a:nth-child(5){
     margin: auto;
   }
 }
