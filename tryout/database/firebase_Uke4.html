@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyALfmey8ao84GpqdwbZh3R_hbaOP7KiZ0Y",
+        authDomain: "tryout-e097a.firebaseapp.com",
+        databaseURL: "https://tryout-e097a.firebaseio.com",
+        projectId: "tryout-e097a",
+        storageBucket: "",
+        messagingSenderId: "713995171165"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <script>
+     const db = firebase.database();
+     const kontaktliste = db.ref("kontakter");
+
+     const HaakonVippe = kontaktliste.child("11111111");
+     const FrankNilson = kontaktliste.child("11111112");
+     const LisaFohar = kontaktliste.child("11111113");
+     const MarenSongard = kontaktliste.child("11111114");
+
+     HaakonVippe.set({
+       "firstname": "Håkon",
+       "lastname": "Vippe",
+       "age": 23,
+       "address": "Frog Road 335",
+       "city": "Dream Town",
+       "postal code": 3598,
+     });
+     FrankNilson.set({
+       "firstname": "Frank",
+       "lastname": "Nilson",
+       "age": 19,
+       "address": "Yeet Street 49",
+       "city": "San Feeling",
+       "postal code": 4321,
+     });
+     LisaFohar.set({
+       "firstname": "Lisa",
+       "lastname": "Fohar",
+       "age": 32,
+       "address": "Cosy Street 93",
+       "city": "Home city",
+       "postal code": 6183,
+     });
+     MarenSongard.set({
+       "firstname": "Maren",
+       "lastname": "Songard",
+       "age": 47,
+       "address": "Sea Road 142",
+       "city": "Imagine",
+       "postal code": 1354,
+     });
+   </script>
+
+  </body>
+</html>

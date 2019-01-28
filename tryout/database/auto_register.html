@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        margin:0;
+        padding: 0;
+      }
+      .submit{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        margin-top: 50px;
+        background-color: lightgray;
+        padding: 0px 20px 10px 20px;
+      }
+      #headline{
+        background-color: gray;
+        padding: 20px 20px 20px 20px;
+      }
+      .input{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 50px;
+        width: 394px;
+        font-size: 18px;
+      }
+      .button{
+        width: 400px;
+        background-color: gray;
+      }
+
+      html {
+          font-size: 100%;
+      }
+      body {
+          font-family: sans-serif;
+      }
+      #secKontakter {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          max-width: 700px;
+          padding-left: 200px;
+          padding-top: 600px;
+      }
+      #secKontakter div {
+          padding: 1rem;
+      }
+      #secKontakter div:nth-child(6n + 0),
+      #secKontakter div:nth-child(6n - 1),
+      #secKontakter div:nth-child(6n - 2)
+      {
+          background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBkoaW7zIoC9jsZ_VYTrzl2OlV6IaFvsX0",
+        authDomain: "autoregister-53e78.firebaseapp.com",
+        databaseURL: "https://autoregister-53e78.firebaseio.com",
+        projectId: "autoregister-53e78",
+        storageBucket: "autoregister-53e78.appspot.com",
+        messagingSenderId: "125577094872"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <div class="submit">
+      <form id="skjema">
+        <h1 id="headline">Sign in</h1>
+        <input id="inpFornavn" class="input" type="text" required placeholder="Fornavn">
+        <input id="inpEtternavn" class="input" type="text" required placeholder="Etternavn">
+        <input id="inpTelefon" class="input" type="text" required placeholder="Telefonnummer">
+        <button class="input button" type="submit">Registrer</button>
+      </form>
+    </div>
+    <section id="secKontakter">
+    </section>
+
+    <script type="text/javascript">
+      // HTML-elementer
+      const skjema = document.querySelector("#skjema");
+      const inpFornavn = document.querySelector("#inpFornavn");
+      const inpEtternavn = document.querySelector("#inpEtternavn");
+      const inpTelefon = document.querySelector("#inpTelefon");
+      const secKontakter = document.querySelector("#secKontakter");
+      // Firebase
+      const db = firebase.database();
+      const kontakter = db.ref("Kontakter");
+      // Registrere en ny kontakt
+      function Registrer(evt) {
+        evt.preventDefault();
+        const key = inpTelefon.value;
+        const data = {
+            fornavn: inpFornavn.value,
+            etternavn: inpEtternavn.value
+        };
+        const kontakt = kontakter.child(key);
+        kontakt.set(data);
+
+        // Nuller ut skjemaet
+        skjema.reset();
+      }
+      // Knytter funksjonen til hendelsen at skjemaet blir sendt inn
+      skjema.addEventListener("submit", Registrer);
+
+
+      function visKontakt(snap) {
+          const telefon = snap.key; // Primær-nøkkelen
+          const kontakt = snap.val(); // Dataene til kontakten
+          secKontakter.innerHTML += `
+              <div>${kontakt.fornavn}</div>
+              <div>${kontakt.etternavn}</div>
+              <div>${telefon}</div>
+          `;
+      }
+      // Knytter funksjonen til hendelsen at skjemaet blir sendt inn
+      skjema.addEventListener("submit", Registrer);
+      // Starter funksjonen når det blir lagt til en kontakt
+      kontakter.on("child_added", visKontakt);
+    </script>
+
+  </body>
+</html>
