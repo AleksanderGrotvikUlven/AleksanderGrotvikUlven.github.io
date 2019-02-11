@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <link rel="stylesheet" type="text/css" href="nettside.css">
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAhnCyZNR_0cZiY3kizUN259kgk60qZD48",
+        authDomain: "uke7-del2.firebaseapp.com",
+        databaseURL: "https://uke7-del2.firebaseio.com",
+        projectId: "uke7-del2",
+        storageBucket: "uke7-del2.appspot.com",
+        messagingSenderId: "911738355553"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="visAlle()">Alle</button>
+        <button onclick="visIngen()">Ingen</button>
+        <button onclick="visNormal()">Normal</button>
+        <button onclick="visPoison()">Poison</button>
+        <button onclick="visPsychic()">Psychic</button>
+        <button onclick="visGrass()">Grass</button>
+        <button onclick="visGround()">Ground</button>
+        <button onclick="visIce()">Ice</button>
+        <button onclick="visFire()">Fire</button>
+        <button onclick="visRock()">Rock</button>
+        <button onclick="visDragon()">Dragon</button>
+        <button onclick="visWater()">Water</button>
+        <button onclick="visBug()">Bug</button>
+        <button onclick="visDark()">Dark</button>
+        <button onclick="visFighting()">Fighting</button>
+        <button onclick="visGhost()">Ghost</button>
+        <button onclick="visSteel()">Steel</button>
+        <button onclick="visFlying()">Flying</button>
+        <button onclick="visElectric()">Electric</button>
+        <button onclick="visFairy()">Fairy</button>
+      </nav>
+    </header>
+    <main>
+
+    </main>
+    <script>
+        const main = document.querySelector("main"); // Variabel som referer til main-elementet
+
+        // Referanser til databasen
+        const db = firebase.database();
+        const pokemon = db.ref("pokemon"); // Referer til alt som ligger under sko i databasen
+
+        function visPokemon(snapshot){
+            //Javascript-funksjon som skriver varene ut på nettsiden i main-elementet
+            let number = snapshot.val();
+            main.innerHTML +=`
+                <article class="pokemon">
+                    <h1>${number.Name}</h1>
+                    <img src="${number.Image_URL}" alt="img">
+                    <p>${number.Type_1}</p>
+                    <p>${number.Type_2}</p>
+
+                </article>
+            `
+        }
+          pokemon.on("child_added",visPokemon);
+
+          function visAlle(){
+            main.innerHTML = ""
+            pokemon
+              .on("child_added",visPokemon);
+          }
+
+          function visIngen(){
+          pokemon
+            .orderByChild("Type_1")
+            .equalTo
+            .on("child_added",visPokemon);
+          }
+          
+          function visNormal(){
+          pokemon
+            .orderByChild("Type_1")
+            .equalTo("Normal")
+            .on("child_added",visPokemon);
+          }
+
+    </script>
+
+  </body>
+</html>
