@@ -3,5 +3,43 @@ main{
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
+}
+header{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
+nav>button{
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 16px;
+  border-color: black;
 
+}
+article{
+  margin: 15px;
+}
+.hide{
+  visibility: hidden;
+}
+article:hover .hide{
+  visibility: visible;
+}
+nav>input[type=text] {
+  height: 40px;
+  width: 150px;
+  padding-left: 20px;
+  padding-right: 40px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 16px;
+  border-color: black;
+  background-image: url('search_icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
 }
