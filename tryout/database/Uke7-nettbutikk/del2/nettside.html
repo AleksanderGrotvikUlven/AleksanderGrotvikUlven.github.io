@@ -54,7 +54,7 @@
         // Referanser til databasen
         const db = firebase.database();
         const pokemon = db.ref("pokemon"); // Referer til alt som ligger under sko i databasen
-
+        
         function visPokemon(snapshot){
             //Javascript-funksjon som skriver varene ut på nettsiden i main-elementet
             let number = snapshot.val();
@@ -70,13 +70,15 @@
                 </article>
             `
         }
-          pokemon.on("child_added",visPokemon);
+          pokemon
+              .on("child_added",visPokemon);
 
-          searchbar.onkeydown = function() {
-            main.innerHTML = " "
+          searchbar.onkeyup = function() {
+            main.innerHTML = ""
             pokemon
               .orderByChild("Name")
               .startAt(searchbar.value)
+              .limitToFirst(1)
               .on("child_added",visPokemon);
           }
 
@@ -85,7 +87,6 @@
             pokemon
               .on("child_added",visPokemon);
           }
-
           function visNormal(){
             main.innerHTML = ""
               pokemon

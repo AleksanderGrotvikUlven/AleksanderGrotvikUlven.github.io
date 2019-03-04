@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dyreklinikken</title>
+    <!-- Husk å koble til firebase -->
+    <link rel="stylesheet" type="text/css" href="dyreklinikk.css">
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDJKWFv15kijwaHI2GLMQPxhSR9XHFt-vU",
+        authDomain: "dyreklinikk-66941.firebaseapp.com",
+        databaseURL: "https://dyreklinikk-66941.firebaseio.com",
+        projectId: "dyreklinikk-66941",
+        storageBucket: "dyreklinikk-66941.appspot.com",
+        messagingSenderId: "1004556260709"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button onclick="visAlle()">Alle</button> <!-- Gjør ferdig knappene og koblingene her-->
+        <button onclick="visKatter()">Oppgave 3a</button>
+        <button onclick="visEldste()">Oppgave 3b</button>
+        <button onclick="visBeige()">Oppgave 3c</button>
+        <button onclick="visMogt()">Oppgave 3d</button>
+
+      </nav>
+    </header>
+    <main>
+
+    </main>
+
+    <script>
+      const main = document.querySelector("main");
+      const db = firebase.database();
+      const hunder = db.ref("Dyr/Hunder");  //Fyll inn riktig referanse
+      const katter = db.ref("Dyr/Katter")   //Lag en referanse for katter også!
+
+      function genererHTML(snapshot){
+        let dyr = snapshot.val();
+        main.innerHTML +=`
+            <article class="Dyr">
+              <h1>${dyr.Navn}</h1>
+              <img src="${dyr.Bilde}" alt="">
+              <p>Farge: ${dyr.Farge1}, ${dyr.Farge2}</p>
+              <p>Alder: ${dyr.Alder}</p>
+            </article>
+        `
+      }
+
+      function visAlle(){
+        main.innerHTML = ""
+        hunder
+          .on("child_added",genererHTML);
+        katter
+          .on("child_added", genererHTML);
+      }
+      function visKatter(){
+        main.innerHTML = ""
+        katter
+          .orderByChild("Navn")
+          .on("child_added", genererHTML);
+      }
+      function visEldste(){
+        main.innerHTML = ""
+        hunder
+          .orderByChild("Alder")
+          .limitToLast(3)
+          .on("child_added", genererHTML);
+      }
+      function visBeige(){
+        main.innerHTML = ""
+        hunder
+          .orderByChild("Farge1")
+          .equalTo("Beige")
+          .on("child_added", genererHTML);
+        hunder
+          .orderByChild("Farge2")
+          .equalTo("Beige")
+          .on("child_added", genererHTML);
+        katter
+          .orderByChild("Farge1")
+          .equalTo("Beige")
+          .on("child_added", genererHTML);
+        katter
+          .orderByChild("Farge2")
+          .equalTo("Beige")
+          .on("child_added", genererHTML);
+      }
+      function visMogt(){
+        main.innerHTML = ""
+        hunder
+          .orderByChild("Navn")
+          .startAt("M")
+          .endAt("T")
+          .on("child_added", genererHTML);
+        katter
+          .orderByChild("Navn")
+          .startAt("M")
+          .endAt("T")
+          .on("child_added", genererHTML);
+      }
+
+      visAlle();
+
+      // Lag egne funksjoner som tilfredstiller spørringene til oppgave 3A, 3B, 3C og 3D her:
+
+    </script>
+
+  </body>
+</html>

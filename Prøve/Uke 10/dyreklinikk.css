@@ -1,0 +1,51 @@
+body{
+  background-color: lightgray;
+}
+
+main{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-top: 20px;
+}
+
+header{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(109, 110, 184);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+nav>button{
+  height: 40px;
+  width: 140px;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 16px;
+  border-color: black;
+  outline: none;
+  transition: 0.2s ease-in-out;
+}
+
+nav>button:hover {
+  background-color: rgb(227, 196, 136);
+}
+
+article{
+  margin: 20px;
+}
+
+h1{
+  background-color: rgb(109, 110, 184);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+p{
+  padding-left: 10px;
+}
