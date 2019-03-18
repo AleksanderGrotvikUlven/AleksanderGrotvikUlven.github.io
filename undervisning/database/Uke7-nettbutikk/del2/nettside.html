@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <link rel="stylesheet" type="text/css" href="nettside.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAhnCyZNR_0cZiY3kizUN259kgk60qZD48",
+        authDomain: "uke7-del2.firebaseapp.com",
+        databaseURL: "https://uke7-del2.firebaseio.com",
+        projectId: "uke7-del2",
+        storageBucket: "uke7-del2.appspot.com",
+        messagingSenderId: "911738355553"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button style="background-color:rgb(217, 217, 217)" onclick="visAlle()">Alle</button>
+        <button style="background-color:rgb(125, 125, 125)" onclick="visNormal()">Normal</button>
+        <button style="background-color:rgb(91, 19, 125)" onclick="visPoison()">Poison</button>
+        <button style="background-color:rgb(172, 35, 93)" onclick="visPsychic()">Psychic</button>
+        <button style="background-color:rgb(54, 134, 21)" onclick="visGrass()">Grass</button>
+        <button style="background-color:rgb(199, 171, 89)" onclick="visGround()">Ground</button>
+        <button style="background-color:rgb(110, 216, 255)" onclick="visIce()">Ice</button>
+        <button style="background-color:rgb(210, 62, 7)" onclick="visFire()">Fire</button>
+        <button style="background-color:rgb(208, 159, 75)" onclick="visRock()">Rock</button>
+        <button style="background-color:rgb(124, 80, 205)" onclick="visDragon()">Dragon</button>
+        <button style="background-color:rgb(35, 121, 200)" onclick="visWater()">Water</button>
+        <button style="background-color:rgb(117, 237, 81)" onclick="visBug()">Bug</button>
+        <button style="background-color:rgb(84, 67, 8)" onclick="visDark()">Dark</button>
+        <button style="background-color:rgb(162, 96, 43)" onclick="visFighting()">Fighting</button>
+        <button style="background-color:rgb(45, 42, 170)" onclick="visGhost()">Ghost</button>
+        <button style="background-color:rgb(89, 89, 89)" onclick="visSteel()">Steel</button>
+        <button style="background-color:rgb(45, 156, 176)" onclick="visFlying()">Flying</button>
+        <button style="background-color:rgb(226, 169, 0)" onclick="visElectric()">Electric</button>
+        <button style="background-color:rgb(207, 83, 202)" onclick="visFairy()">Fairy</button>
+        <input id="searchbar" type="text" placeholder="Search..">
+      </nav>
+    </header>
+    <main>
+
+    </main>
+    <script>
+        const main = document.querySelector("main"); // Variabel som referer til main-elementet
+        const searchbar = document.querySelector("#searchbar")
+        // Referanser til databasen
+        const db = firebase.database();
+        const pokemon = db.ref("pokemon"); // Referer til alt som ligger under sko i databasen
+        
+        function visPokemon(snapshot){
+            //Javascript-funksjon som skriver varene ut på nettsiden i main-elementet
+            let number = snapshot.val();
+            main.innerHTML +=`
+                <article id="${number.Name}" class="pokemon">
+                    <h1>${number.Name}</h1>
+                    <img src="${number.Image_URL}" alt="img">
+                    <p>${number.Type_1} - ${number.Type_2}</p>
+                    <div class="hide">
+                      <p id="hide">Max HP: ${number.Max_HP}</p>
+                      <p id="hide">Max CP:${number.Max_CP}</p>
+                    </div>
+                </article>
+            `
+        }
+          pokemon
+              .on("child_added",visPokemon);
+
+          searchbar.onkeyup = function() {
+            main.innerHTML = ""
+            pokemon
+              .orderByChild("Name")
+              .startAt(searchbar.value)
+              .limitToFirst(1)
+              .on("child_added",visPokemon);
+          }
+
+          function visAlle(){
+            main.innerHTML = ""
+            pokemon
+              .on("child_added",visPokemon);
+          }
+          function visNormal(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Normal")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Normal")
+                .on("child_added",visPokemon);
+          }
+          function visPoison(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Poison")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Poison")
+                .on("child_added",visPokemon);
+          }
+          function visPsychic(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Psychic")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Psychic")
+                .on("child_added",visPokemon);
+          }
+          function visGrass(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Grass")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Grass")
+                .on("child_added",visPokemon);
+          }
+          function visGround(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Ground")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Ground")
+                .on("child_added",visPokemon);
+          }
+          function visIce(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Ice")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Ice")
+                .on("child_added",visPokemon);
+          }
+          function visFire(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Fire")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Fire")
+                .on("child_added",visPokemon);
+          }
+          function visRock(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Rock")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Rock")
+                .on("child_added",visPokemon);
+          }
+          function visDragon(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Dragon")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Dragon")
+                .on("child_added",visPokemon);
+          }
+          function visWater(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Water")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Water")
+                .on("child_added",visPokemon);
+          }
+          function visBug(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Bug")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Bug")
+                .on("child_added",visPokemon);
+          }
+          function visDark(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Dark")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Dark")
+                .on("child_added",visPokemon);
+          }
+          function visFighting(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Fighting")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Fighting")
+                .on("child_added",visPokemon);
+          }
+          function visGhost(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Ghost")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Ghost")
+                .on("child_added",visPokemon);
+          }
+          function visSteel(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Steel")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Steel")
+                .on("child_added",visPokemon);
+          }
+          function visFlying(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Flying")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Flying")
+                .on("child_added",visPokemon);
+          }
+          function visElectric(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Electric")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Electric")
+                .on("child_added",visPokemon);
+          }
+          function visFairy(){
+            main.innerHTML = ""
+              pokemon
+                .orderByChild("Type_1")
+                .equalTo("Fairy")
+                .on("child_added",visPokemon);
+              pokemon
+                .orderByChild("Type_2")
+                .equalTo("Fairy")
+                .on("child_added",visPokemon);
+          }
+    </script>
+
+  </body>
+</html>

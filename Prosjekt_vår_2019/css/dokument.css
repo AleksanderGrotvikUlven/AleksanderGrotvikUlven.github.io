@@ -1,0 +1,89 @@
+body{
+  background-color: rgb(200, 171, 255);
+  margin: auto;
+  padding: 0;
+  height: 3000px;
+}
+header{
+  background-color: rgb(255, 0, 0);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+.navbar{
+  display: flex;
+  flex-direction: row;
+  /*justify-content: space-around;*/
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.navbar button{
+  color: black;
+  font-size: 30px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  background-color: inherit;
+  border: none;
+}
+.navbar a{
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+.navbar-text{
+  padding: 10px 15px 10px 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navbar-text:hover{
+  background-color: white;
+}
+.navbar :nth-child(6){
+  margin-left: auto;
+}
+.fa-bars, .fa-shopping-cart, .fa-bars{
+  font-size: 40px;
+  padding-top: 5px;
+}
+.navbar-icon{
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navbar-icon:hover{
+  color: white;
+}
+
+main{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+
+}
+.hovedbilde{
+  margin-top: 90px;
+  width: 100%;
+}
+.bildetekst{
+  font-size: 80px;
+  position: absolute;
+  color: rgb(255, 0, 0);
+  text-transform: uppercase;
+  background-image: linear-gradient(white, lightblue);
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 760px;
+}
