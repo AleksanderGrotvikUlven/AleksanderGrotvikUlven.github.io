@@ -1,0 +1,50 @@
+@media (max-width: 1200px){
+  main{
+    width: 800px;
+  }
+  .hovedbilde{
+    width: 100%;
+  }
+  .hovedbilde img{
+    width: 800px;
+  }
+  .bildetekst{
+    margin-top: 120px;
+    font-size: 60px;
+    width: 660px;
+  }
+}
+@media (max-width: 900px) {
+  .navbar-notext{
+    visibility: hidden;
+    position: absolute;
+    top: -300px;
+  }
+  .navbar-noicon{
+    margin-left: auto;
+  }
+  main{
+    width: 500px;
+  }
+  .hovedbilde img{
+    width: 500px;
+  }
+  .bildetekst{
+    margin-top: 80px;
+    font-size: 34px;
+    width: 360px;
+  }
+}
+@media (max-width: 500px) {
+  .navbar{
+
+  }
+  .navbar-text, .navbar-noicon{
+    visibility: hidden;
+    position: absolute;
+    top: -300px;
+  }
+  .navbar i{
+    margin-left: auto;
+  }
+}

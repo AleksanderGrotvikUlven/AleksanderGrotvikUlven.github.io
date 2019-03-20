@@ -3,31 +3,46 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/dokument.css">
+    <link rel="stylesheet" type="text/css" href="../css/media.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script type="text/javascript" src="../script/script.js">
+
+    </script>
     <title></title>
   </head>
   <body>
     <header>
       <nav class="navbar">
-        <img src="" alt="Logo">
+        <img src="../bilder/logo.png" alt="Logo">
         <a class="navbar-text" href="forside.html">Hjem</a>
-        <button class="navbar-text" type="button" name="button">Dame</button>
-        <button class="navbar-text" type="button" name="button">Herre</button>
-        <button class="navbar-text" type="button" name="button">Barn</button>
-        <a class="navbar-icon" href="nyheter.html"><i class="fas fa-shopping-cart"></i></a>
-        <a class="navbar-icon" href="nyheter.html"><i class="fas fa-bars"></i></a>
+        <a class="navbar-text navbar-notext" href="">Dame</a>
+        <a class="navbar-text navbar-notext" href="">Herre</a>
+        <a class="navbar-text navbar-notext" href="">Barn</a>
+        <a class="navbar-icon navbar-noicon" href=""><i class="fas fa-shopping-cart"></i></a>
+        <i onclick="visMeny()" id="bars" class="fas fa-bars navbar-icon"></i>
+        <div id="dropdown" class="dropdown hidden">
+          <a href="#">Forside</a>
+          <a href="#">Dame</a>
+          <a href="#">Herre</a>
+          <a href="#">Barn</a>
+          <a href="#">Handlekurv</a>
+
+        </div>
       </nav>
     </header>
     <main>
+      <!--
       <div class="video">
         <video src="../bilder/hoved.mp4" loop preload="auto" controls autoplay>
 
         </video>
 
       </div>
+      -->
       <div class="hovedbilde">
         <h1 class="bildetekst">Online shopping</h1>
         <img src="../bilder/butikk.jpg" alt="Butikk">
+
 
       </div>
 

@@ -11,6 +11,9 @@ header{
   top: 0;
   z-index: 2;
 }
+nav img {
+  height: 56px;
+}
 .navbar{
   display: flex;
   flex-direction: row;
@@ -20,25 +23,18 @@ header{
   padding-left: 60px;
   padding-right: 60px;
 }
-.navbar button{
-  color: black;
-  font-size: 30px;
-  border-radius: 10px;
-  transition: 0.3s ease-in-out;
-  background-color: inherit;
-  border: none;
-}
 .navbar a{
   text-decoration: none;
   color: black;
   font-size: 30px;
   border-radius: 10px;
-  transition: 0.3s ease-in-out;
 }
+
 .navbar-text{
   padding: 10px 15px 10px 15px;
   margin-left: 10px;
   margin-right: 10px;
+  transition: 0.2s ease-in-out;
 }
 .navbar-text:hover{
   background-color: white;
@@ -46,9 +42,12 @@ header{
 .navbar :nth-child(6){
   margin-left: auto;
 }
-.fa-bars, .fa-shopping-cart, .fa-bars{
+.fa-bars, .fa-shopping-cart{
   font-size: 40px;
   padding-top: 5px;
+}
+.fa-times{
+  font-size: 50px;
 }
 .navbar-icon{
   padding-left: 15px;
@@ -59,17 +58,39 @@ header{
 .navbar-icon:hover{
   color: white;
 }
+.dropdown{
+  position: absolute;
+  padding: 30px;
+  background-color: black;
+  right: 15px;
+  top: 86px;
+  transition: .2s;
+}
+.dropdown a{
+  font-size: 20px;
+  display: block;
+  color: white;
+  margin-top: 5px;
+
+}
+.dropdown a:hover{
+  text-decoration: underline;
+}
 
 main{
-  width: 90%;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   flex-direction: row;
 
 }
 .hovedbilde{
+  width: 90%;
+  margin: auto;
   margin-top: 90px;
-  width: 100%;
+}
+.hovedbilde img{
+  width: 1080px;
 }
 .bildetekst{
   font-size: 80px;
@@ -78,12 +99,17 @@ main{
   text-transform: uppercase;
   background-image: linear-gradient(white, lightblue);
   text-align: center;
-  margin-top: 100px;
+  margin-top: 160px;
   margin-left: 50px;
   margin-right: 50px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  width: 760px;
+  width: 820px;
+}
+.hidden{
+  visibility: hidden;
+  transition: .2s ease-out;
+  top: -200px;
 }
