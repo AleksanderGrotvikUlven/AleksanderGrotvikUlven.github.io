@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/dokument.css">
+    <link rel="stylesheet" type="text/css" href="../css/media.css">
+    <link rel="stylesheet" type="text/css" href="../css/slider.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAaavjuJxHorsIogd9otdUENnELN3R6n2g",
+        authDomain: "proskjekt-2019.firebaseapp.com",
+        databaseURL: "https://proskjekt-2019.firebaseio.com",
+        projectId: "proskjekt-2019",
+        storageBucket: "proskjekt-2019.appspot.com",
+        messagingSenderId: "979799291726"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="../script/script.js">
+
+    </script>
+    <title>Nettshopping.no/Produkt</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img src="../bilder/logo.png" alt="Logo">
+        <a class="navbar-text" href="hjem.html">Hjem</a>
+        <a class="navbar-text navbar-notext" href="dame.html">Dame</a>
+        <a class="navbar-text navbar-notext" href="herre.html">Herre</a>
+        <a class="navbar-text navbar-notext" href="barn.html">Barn</a>
+        <a class="navbar-icon navbar-noicon" href=""><i class="fas fa-shopping-cart"></i></a>
+        <i onclick="visMeny()" id="bars" class="fas fa-bars navbar-icon"></i>
+        <div id="dropdown" class="dropdown hidden transition">
+          <a href="hjem.html">Hjem <i class="fas fa-home menu-fas"></i></a>
+          <a href="dame.html">Dame <i class="fas fa-female menu-fas"></i></a>
+          <a href="herre.html">Herre <i class="fas fa-male menu-fas"></i></a>
+          <a href="barn.html">Barn <i class="fas fa-child menu-fas"></i></a>
+          <a href="#">Handlekurv <i class="fas fa-shopping-cart menu-fas"></i></a>
+
+        </div>
+      </nav>
+    </header>
+    <main>
+
+    </main>
+    <script>
+      const main = document.querySelector("main");
+
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var id = url.searchParams.get("id");
+
+      const db = firebase.database();
+      let herreGensere = db.ref("klær/herre/gensere/" + id );
+      let herreBukser = db.ref("klær/herre/bukser/" + id );
+      let dameGensere = db.ref("klær/dame/gensere/" + id );
+      let dameBukser = db.ref("klær/dame/bukser/" + id );
+      let barnGensere = db.ref("klær/barn/gensere/" + id );
+      let barnBukser = db.ref("klær/barn/bukser/" + id );
+
+      function genererHTML(snapshot){
+        let visKlær = snapshot.val();
+
+        main.innerHTML +=`
+        <div class="slidershow middle">
+          <div class="slides">
+            <input type="radio" name="r" id="r1" checked>
+            <input type="radio" name="r" id="r2">
+            <input type="radio" name="r" id="r3">
+            <input type="radio" name="r" id="r4">
+            <input type="radio" name="r" id="r5">
+
+            <div class="slide s1">
+              <img src="${visKlær.bilde1}" alt="image 1">
+            </div>
+            <div class="slide">
+              <img src="${visKlær.bilde2}" alt="image 2">
+            </div>
+            <div class="slide">
+              <img src="${visKlær.bilde3}" alt="image 3">
+            </div>
+            <div class="slide">
+              <img src="${visKlær.bilde4}" alt="image 4">
+            </div>
+            <div class="slide">
+              <img src="${visKlær.bilde5}" alt="image 5">
+            </div>
+          </div>
+
+          <div class="navigation">
+             <label for="r1" class="bar"></label>
+             <label for="r2" class="bar"></label>
+             <label for="r3" class="bar"></label>
+             <label for="r4" class="bar"></label>
+             <label for="r5" class="bar"></label>
+          </div>
+        </div>
+        <h1>${visKlær.navn1} ${visKlær.navn2}</h1>
+        `
+      }
+      function visKlær() {
+        main.innerHTML = "";
+        herreGensere.on("value", genererHTML);
+        herreBukser.on("value", genererHTML);
+        dameGensere.on("value", genererHTML);
+        dameBukser.on("value", genererHTML);
+        barnGensere.on("value", genererHTML);
+        barnBukser.on("value", genererHTML);
+
+      }
+
+      visKlær();
+
+    </script>
+
+    <footer>
+      <div class="footerlink">
+        <a class="linkbutton linkbutton-left"href="#">Til toppen</a>
+        <a class="linkbutton" href="https://www.adidas.no/">Adidas</a>
+        <a class="linkbutton" href="https://www.ralphlauren.com/">Polo Ralph Lauren</a>
+        <a class="linkbutton" href="https://www.lee.com/">Lee</a>
+        <a class="linkbutton" href="https://www.levi.com/NO/en/">Levi's</a>
+        <a class="linkbutton" href="https://www.gap.com/">Gap</a>
+        <a class="linkbutton" href="https://www.nameit.com/no/no/home">Name It</a>
+        <a class="linkbutton" href="https://www.nike.com/no/en_gb/">Nike</a>
+        <a class="linkbutton" href="https://world.benetton.com/">Benneton</a>
+        <a class="linkbutton" href="https://www.abercrombie.com/shop/eu">Abercrombie & Fitch</a>
+        <a class="linkbutton" href="https://www.holzweiler.no/">Holzweiler</a>
+        <a class="linkbutton" href="https://www.champion.com/">Champion</a>
+      </div>
+      <a class="linkbutton linkbutton-right tiltoppen" href="#">Til toppen</a>
+    </footer>
+
+  </body>
+</html>

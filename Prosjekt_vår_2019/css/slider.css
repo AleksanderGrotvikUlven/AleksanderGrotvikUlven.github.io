@@ -1,0 +1,75 @@
+main{
+  margin-top: 100px;
+  }
+.slidershow{
+  width: 500px;
+  overflow: hidden;
+}
+.middle{
+  margin: auto;
+}
+.navigation{
+  position: absolute;
+  top: 780px;
+  margin: auto;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 98%;
+  display: flex;
+  flex-direction: row;
+}
+.bar{
+  width: 60px;
+  height: 15px;
+  border: 2px solid rgb(255, 0, 0);
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.bar:hover{
+  background: rgb(255, 0, 0);
+}
+input[name="r"]{
+  position: absolute;
+  visibility: hidden;
+}
+.slides{
+  width: 500%;
+  height: 100%;
+  display: flex;
+}
+.slide{
+  width: 20%;
+  transition: 0.6s;
+}
+.slide img{
+  width: 100%;
+  height: 100%;
+}
+input#r1:checked ~ .s1{
+  margin-left: 0;
+}
+input#r2:checked ~ .s1{
+  margin-left: -20%;
+}
+input#r3:checked ~ .s1{
+  margin-left: -40%;
+}
+input#r4:checked ~ .s1{
+  margin-left: -60%;
+}
+input#r5:checked ~ .s1{
+  margin-left: -80%;
+}
+@media (max-width: 800px) {
+  .slidershow{
+    width: 525px;
+    height: 300px;
+  }
+}
+@media (max-width: 600px) {
+  .slidershow{
+    width: 350px;
+    height: 200px;
+  }
+}

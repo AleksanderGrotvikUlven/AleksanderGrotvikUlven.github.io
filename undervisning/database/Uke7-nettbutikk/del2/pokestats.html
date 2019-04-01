@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAhnCyZNR_0cZiY3kizUN259kgk60qZD48",
+        authDomain: "uke7-del2.firebaseapp.com",
+        databaseURL: "https://uke7-del2.firebaseio.com",
+        projectId: "uke7-del2",
+        storageBucket: "uke7-del2.appspot.com",
+        messagingSenderId: "911738355553"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <main>
+
+    </main>
+
+    <script>
+    const main =document.querySelector("main");
+    //hente id fra url
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var id = url.searchParams.get("id");
+
+    //Referanse til databasen
+    const db = firebase.database();
+    const pokemon = db.ref("pokemon/" + id)
+
+    function visPokemon(snapshot){
+        //Javascript-funksjon som skriver varene ut på nettsiden i main-elementet
+        let number = snapshot.val();
+        main.innerHTML +=`
+            <article class="pokemon">
+                <h1>${number.Name}</h1>
+                <img src="${number.Image_URL}" alt="img">
+                <p>Type 1: ${number.Type_1}</p>
+                <p>Type 2: ${number.Type_2}</p>
+                <p>Max HP: ${number.Max_HP}</p>
+                <p>Max CP:${number.Max_CP}</p>
+            </article>
+        `
+    }
+    pokemon.on("value",visPokemon);
+
+    </script>
+
+  </body>
+</html>

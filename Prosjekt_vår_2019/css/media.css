@@ -10,8 +10,26 @@
   }
   .bildetekst{
     margin-top: 120px;
-    font-size: 60px;
-    width: 660px;
+    font-size: 40px;
+    width: 460px;
+  }
+  .footerlink{
+    width: auto;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding: 0;
+    justify-content: center;
+  }
+  .linkbutton-left{
+    visibility: visible;
+    position: relative;
+    top: 0;
+    background-color: white;
+  }
+  .linkbutton-right{
+    visibility: hidden;
+    position: absolute;
+    top: -200px;
   }
 }
 @media (max-width: 900px) {
@@ -31,14 +49,16 @@
   }
   .bildetekst{
     margin-top: 80px;
-    font-size: 34px;
-    width: 360px;
+    font-size: 26px;
+    width: 260px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  footer{
+    height: auto;
   }
 }
 @media (max-width: 500px) {
-  .navbar{
-
-  }
   .navbar-text, .navbar-noicon{
     visibility: hidden;
     position: absolute;
@@ -46,5 +66,18 @@
   }
   .navbar i{
     margin-left: auto;
+  }
+  main{
+    width: 400px;
+  }
+  .hovedbilde img{
+    width: 400px;
+  }
+  .bildetekst{
+    margin-top: 60px;
+    font-size: 22px;
+    width: 260px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 }

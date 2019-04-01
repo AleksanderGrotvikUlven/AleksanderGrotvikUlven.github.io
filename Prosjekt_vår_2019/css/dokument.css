@@ -1,27 +1,29 @@
 body{
-  background-color: rgb(200, 171, 255);
+  background-color: rgb(180, 180, 180);
   margin: auto;
   padding: 0;
-  height: 3000px;
 }
 header{
-  background-color: rgb(255, 0, 0);
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 2;
+  box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.75);
 }
 nav img {
   height: 56px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .navbar{
   display: flex;
   flex-direction: row;
-  /*justify-content: space-around;*/
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 60px;
   padding-right: 60px;
+  background-color: rgb(255, 0, 0);
+  z-index: 2;
 }
 .navbar a{
   text-decoration: none;
@@ -29,7 +31,6 @@ nav img {
   font-size: 30px;
   border-radius: 10px;
 }
-
 .navbar-text{
   padding: 10px 15px 10px 15px;
   margin-left: 10px;
@@ -60,28 +61,41 @@ nav img {
 }
 .dropdown{
   position: absolute;
-  padding: 30px;
+  padding: 40px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: black;
   right: 15px;
   top: 86px;
+  z-index: -1;
   transition: .2s;
+  box-shadow: -2px 4px 15px 0px rgba(0,0,0,0.75);
 }
 .dropdown a{
   font-size: 20px;
   display: block;
   color: white;
-  margin-top: 5px;
-
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 .dropdown a:hover{
   text-decoration: underline;
 }
+.menu-fas{
+  font-size: 15px;
+}
+.transition{
+  transition: .2s ease-out;
+}
+
+
 
 main{
   max-width: 1200px;
+  height: auto;
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
 }
 .hovedbilde{
@@ -93,23 +107,127 @@ main{
   width: 1080px;
 }
 .bildetekst{
-  font-size: 80px;
+  font-size: 60px;
   position: absolute;
   color: rgb(255, 0, 0);
   text-transform: uppercase;
-  background-image: linear-gradient(white, lightblue);
+  background-image: linear-gradient(white, rgb(0, 180, 240, 0.80));
   text-align: center;
   margin-top: 160px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 150px;
+  margin-right: 150px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-  width: 820px;
+  width: 740px;
 }
-.hidden{
+.sorteringsknapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.sorteringsknapp{
+  height: 40px;
+  width: 140px;
+  border-radius: 5px;
+  margin: 15px;
+  margin-top: 0px;
+  font-size: 16px;
+  border-color: black;
+  outline: none;
+  transition: 0.2s ease-in-out;
+}
+.produkter{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: white;
+  justify-content: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+.produkter a {
+  text-decoration: none;
+  color: black;
+}
+.produkt{
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid black;
+  width: 200px;
+  background-color: rgb(180, 180, 180);
+  transition: 0.3s ease-out;
+}
+.produkt img{
+  margin: auto;
+  width: 200px;
+}
+.produkt:hover{
+  transform: scale(1.05);
+  box-shadow: -5px 10px 5px 0px rgba(0,0,0,0.60);
+}
+.merke{
+  font-size: 22px;
+}
+.navn{
+  font-size: 18px;
+}
+
+
+
+footer{
+  background-color: rgb(255, 0, 0);
+  display: flex;
+  flex-direction: row;
+  height: 216px;
+}
+.footerlink{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 60px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 980px;
+}
+.linkbutton{
+  padding: 10px 15px 10px 15px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  margin: 10px;
+  border: 2px solid black;
+  width: 140px;
+  text-align: center;
+}
+.linkbutton:hover {
+  text-decoration: underline;
+  background-color: white;
+  transition: 0.2s ease-in-out;
+}
+.tiltoppen{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 50%;
+  margin-right: 60px;
+  margin-left: auto;
+  background-color: white;
+}
+.linkbutton-left{
   visibility: hidden;
-  transition: .2s ease-out;
+  position: absolute;
+  top: -200px;
+}
+.linkbutton-right{
+  visibility: visible;
+  height: 18px;
+}
+
+
+
+.hidden{
+  position: absolute;
+  visibility: hidden;
   top: -200px;
 }
