@@ -56,19 +56,18 @@
 
 
       </div>
+      <div class="underside">
+        <a class="link" href="dame.html">Klær til Dame</a>
+        <a class="link" href="herre.html">Klær til Herre</a>
+        <a class="link" href="barn.html">Klær til Barn</a>
+
+      </div>
       <div class="">
-        <h2 class"underoverskrift">Populære i dag</h2>
-        <div class="sorteringsknapper">
-          <button  class="sorteringsknapp" onclick=""></button>
-
-
-        </div>
+        <h2>Mest populære i dag</h2>
       </div>
       <div id="produkter" class="produkter">
 
-
       </div>
-
     </main>
     <script>
       const produkter = document.getElementById("produkter");
@@ -84,113 +83,34 @@
       var y = Math.floor((Math.random() * 3 ) + 1);
       var z = Math.floor((Math.random() * 3 ) + 1);
       var v = Math.floor((Math.random() * 3 ) + 1);
-      var w = Math.floor((Math.random() * 3 ) + 1);
-      var l = Math.floor((Math.random() * 3 ) + 1);
+      var w = Math.floor((Math.random() * 4 ) + 1);
+      var l = Math.floor((Math.random() * 4 ) + 1);
 
-      function bukseDame(snapshot){
-        let bukse_dame = snapshot.val();
+      function klær(snapshot){
+        let klær = snapshot.val();
         let key = snapshot.key;
 
         produkter.innerHTML +=`
             <a href="produkter.html?id=${key}">
               <article class="produkt">
-                <h3 class="merke">${bukse_dame.merke}</h3>
-                <img src="${bukse_dame.bilde1}" alt="">
-                <h4 class="navn">${bukse_dame.navn1} ${bukse_dame.navn2}</h4>
-                <p>${bukse_dame.farge} ${bukse_dame.type} til ${bukse_dame.kjønn}</p>
-                <h4>Pris: ${bukse_dame.pris} kr</h4>
+                <h3 class="merke">${klær.merke}</h3>
+                <img src="${klær.bilde1}" alt="">
+                <h4 class="navn">${klær.navn1} ${klær.navn2}</h4>
+                <p>${klær.farge} ${klær.type} til ${klær.kjønn}</p>
+                <h4>Pris: ${klær.pris} kr</h4>
               </article>
             </a>
         `
       }
-      function genserDame(snapshot){
-        let genser_dame = snapshot.val();
-        let key = snapshot.key;
 
-        produkter.innerHTML +=`
-            <a href="produkter.html?id${key}">
-              <article class="produkt">
-                <h3 class="merke">${genser_dame.merke}</h3>
-                <img src="${genser_dame.bilde1}" alt="">
-                <h4 class="navn">${genser_dame.navn1} ${genser_dame.navn2}</h4>
-                <p>${genser_dame.farge} ${genser_dame.type} til ${genser_dame.kjønn}</p>
-                <h4>Pris: ${genser_dame.pris} kr</h4>
-              </article>
-            </a>
-        `
-      }
-      function bukseHerre(snapshot){
-        let bukse_herre = snapshot.val();
-        let key = snapshot.key;
-
-        produkter.innerHTML +=`
-            <a href="produkter.html?id=${key}">
-              <article class="produkt">
-                <h3 class="merke">${bukse_herre.merke}</h3>
-                <img src="${bukse_herre.bilde1}" alt="">
-                <h4 class="navn">${bukse_herre.navn1} ${bukse_herre.navn2}</h4>
-                <p>${bukse_herre.farge} ${bukse_herre.type} til ${bukse_herre.kjønn}</p>
-                <h4>Pris: ${bukse_herre.pris} kr</h4>
-              </article>
-            </a>
-        `
-      }
-      function genserHerre(snapshot){
-        let genser_herre = snapshot.val();
-        let key = snapshot.key;
-
-        produkter.innerHTML +=`
-            <a href="produkter.html?id=${key}">
-              <article class="produkt">
-                <h3 class="merke">${genser_herre.merke}</h3>
-                <img src="${genser_herre.bilde1}" alt="">
-                <h4 class="navn">${genser_herre.navn1} ${genser_herre.navn2}</h4>
-                <p>${genser_herre.farge} ${genser_herre.type} til ${genser_herre.kjønn}</p>
-                <h4>Pris: ${genser_herre.pris} kr</h4>
-              </article>
-            </a>
-        `
-      }
-      function bukseBarn(snapshot){
-        let bukse_barn = snapshot.val();
-        let key = snapshot.key;
-
-        produkter.innerHTML +=`
-            <a href="produkter.html?id=${key}">
-              <article class="produkt">
-                <h3 class="merke">${bukse_barn.merke}</h3>
-                <img src="${bukse_barn.bilde1}" alt="">
-                <h4 class="navn">${bukse_barn.navn1} ${bukse_barn.navn2}</h4>
-                <p>${bukse_barn.farge} ${bukse_barn.type} til ${bukse_barn.kjønn}</p>
-                <h4>Pris: ${bukse_barn.pris} kr</h4>
-              </article>
-            </a>
-        `
-      }
-      function genserBarn(snapshot){
-        let genser_barn = snapshot.val();
-        let key = snapshot.key;
-
-        produkter.innerHTML +=`
-            <a href="produkter.html?id=${key}">
-              <article class="produkt">
-                <h3 class="merke">${genser_barn.merke}</h3>
-                <img src="${genser_barn.bilde1}" alt="">
-                <h4 class="navn">${genser_barn.navn1} ${genser_barn.navn2}</h4>
-                <p>${genser_barn.farge} ${genser_barn.type} til ${genser_barn.kjønn}</p>
-                <h4>Pris: ${genser_barn.pris} kr</h4>
-              </article>
-            </a>
-        `
-      }
       function visKlær() {
         produkter.innerHTML = "";
-        bukser_dame.orderByChild("verdi").equalTo(x).on("child_added", bukseDame);
-        gensere_dame.orderByChild("verdi").equalTo(y).on("child_added", genserDame);
-        bukser_herre.orderByChild("verdi").equalTo(z).on("child_added", bukseHerre);
-        gensere_herre.orderByChild("verdi").equalTo(v).on("child_added", genserHerre);
-        bukser_barn.orderByChild("verdi").equalTo(w).on("child_added", bukseBarn);
-        gensere_barn.orderByChild("verdi").equalTo(l).on("child_added", genserBarn);
+        bukser_dame.orderByChild("verdi").equalTo(x).on("child_added", klær);
+        gensere_dame.orderByChild("verdi").equalTo(y).on("child_added", klær);
+        bukser_herre.orderByChild("verdi").equalTo(z).on("child_added", klær);
+        gensere_herre.orderByChild("verdi").equalTo(v).on("child_added", klær);
+        bukser_barn.orderByChild("verdi").equalTo(w).on("child_added", klær);
+        gensere_barn.orderByChild("verdi").equalTo(l).on("child_added", klær);
       }
 
       visKlær();

@@ -28,7 +28,7 @@ nav img {
 .navbar a{
   text-decoration: none;
   color: black;
-  font-size: 30px;
+  font-size: 32px;
   border-radius: 10px;
 }
 .navbar-text{
@@ -111,7 +111,7 @@ main{
   position: absolute;
   color: rgb(255, 0, 0);
   text-transform: uppercase;
-  background-image: linear-gradient(white, rgb(0, 180, 240, 0.80));
+  background-image: linear-gradient(white, rgb(140, 140, 140, 0.60));
   text-align: center;
   margin-top: 160px;
   margin-left: 150px;
@@ -122,21 +122,56 @@ main{
   padding-bottom: 20px;
   width: 740px;
 }
+.underside{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+.link{
+  background-color: rgb(255, 0, 0);
+  padding: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: black;
+  border-radius: 5px;
+  box-shadow: -3px 5px 5px 0px rgba(0,0,0,0.60);
+  transition: 0.2s ease-in-out;
+  margin: auto;
+}
+.link:hover{
+  transform: scale(1.05);
+}
+h2{
+  margin-left: 50px;
+}
 .sorteringsknapper{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .sorteringsknapp{
-  height: 40px;
+  height: 30px;
   width: 140px;
   border-radius: 5px;
+  border: 1px solid black;
+  border-color: black;
   margin: 15px;
   margin-top: 0px;
   font-size: 16px;
-  border-color: black;
   outline: none;
   transition: 0.2s ease-in-out;
+  color: black;
+}
+.sorteringsknapp2{
+  width: 100px;
+}
+.sorteringsknapp:hover{
+  text-decoration: underline;
+  box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.60);
 }
 .produkter{
   display: flex;
@@ -173,7 +208,51 @@ main{
 .navn{
   font-size: 18px;
 }
-
+.info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.infotekst{
+  width: 45%;
+}
+.produktinfo{
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background-color: white;
+  box-shadow: -3px 5px 5px 0px rgba(0,0,0,0.60);
+}
+.produkt2 h1{
+  font-size: 35px;
+}
+.produkt2 h2{
+  font-size: 25px;
+  margin: 0px;
+  text-align: right;
+  text-decoration: underline;
+  font-weight: normal;
+}
+.produkt2 h3{
+  font-size: 25px;
+}
+.handlekurv{
+  background-color: rgb(255, 0, 0);
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+}
+.handlekurv:hover{
+  transform: scale(1.04);
+}
+.shopping-cart{
+  font-size: 26px;
+}
 
 
 footer{
@@ -200,6 +279,7 @@ footer{
   border: 2px solid black;
   width: 140px;
   text-align: center;
+
 }
 .linkbutton:hover {
   text-decoration: underline;

@@ -56,15 +56,31 @@
 
       </div>
       <div class="">
-        <h2 class"underoverskrift">Sorter etter</h2>
+        <h2 class"underoverskrift">Sorter etter type</h2>
         <div class="sorteringsknapper">
-          <button  class="sorteringsknapp" onclick=""></button>
-          <button  class="sorteringsknapp" onclick=""></button>
-          <button  class="sorteringsknapp" onclick=""></button>
-          <button  class="sorteringsknapp" onclick=""></button>
-
-
-
+          <button  class="sorteringsknapp" onclick="visAlle()">Alle kategorier</button>
+          <button  class="sorteringsknapp" onclick="visBukser()">Bukser</button>
+          <button  class="sorteringsknapp" onclick="visGensere()">Gensere</button>
+          <button  class="sorteringsknapp" onclick="visT-Skjorter()">T-Skjorter</button>
+        </div>
+        <h2 class"underoverskrift">Sorter etter farge</h2>
+        <div class="sorteringsknapper">
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visSvart()">Svart</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visHvit()">Hvit</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visBeige()">Beige</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visBrun()">Brun</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visGrå()">Grå</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visRød()">Rød</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visBlå()">Blå</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visRosa()">Rosa</button>
+          <button  class="sorteringsknapp sorteringsknapp2" onclick="visOransje()">Oransje</button>
+        </div>
+        <h2 class"underoverskrift">Sorter etter pris</h2>
+        <div class="sorteringsknapper">
+          <button  class="sorteringsknapp sorteringsknapp3" onclick="visHøylav()">Høy til lav</button>
+          <button  class="sorteringsknapp sorteringsknapp3" onclick="visLavhøy()">Lav til høy</button>
+          <button  class="sorteringsknapp sorteringsknapp3" onclick="visBillige()">4 billigste</button>
+          <button  class="sorteringsknapp sorteringsknapp3" onclick="visDyre()">4 dyreste</button>
         </div>
       </div>
       <div id="produkter" class="produkter">
@@ -79,42 +95,181 @@
       const bukser_dame = db.ref("klær/dame/bukser");
       const gensere_dame = db.ref("klær/dame/gensere");
 
-      function bukseDame(snapshot){
-        let bukse_dame = snapshot.val();
+      function klær(snapshot){
+        let klær = snapshot.val();
         let key = snapshot.key;
 
         produkter.innerHTML +=`
             <a href="produkter.html?id=${key}">
               <article class="produkt">
-                <h3 class="merke">${bukse_dame.merke}</h3>
-                <img src="${bukse_dame.bilde1}" alt="">
-                <h4 class="navn">${bukse_dame.navn1} ${bukse_dame.navn2}</h4>
-                <p>${bukse_dame.farge} ${bukse_dame.type} til ${bukse_dame.kjønn}</p>
-                <h4>Pris: ${bukse_dame.pris} kr</h4>
+                <h3 class="merke">${klær.merke}</h3>
+                <img src="${klær.bilde1}" alt="">
+                <h4 class="navn">${klær.navn1} ${klær.navn2}</h4>
+                <p>${klær.farge} ${klær.type} til ${klær.kjønn}</p>
+                <h4>Pris: ${klær.pris} kr</h4>
               </article>
             </a>
         `
       }
-      function genserDame(snapshot){
-        let genser_dame = snapshot.val();
-        let key = snapshot.key;
 
-        produkter.innerHTML +=`
-            <a href="produkter.html?id${key}">
-              <article class="produkt">
-                <h3 class="merke">${genser_dame.merke}</h3>
-                <img src="${genser_dame.bilde1}" alt="">
-                <h4 class="navn">${genser_dame.navn1} ${genser_dame.navn2}</h4>
-                <p>${genser_dame.farge} ${genser_dame.type} til ${genser_dame.kjønn}</p>
-                <h4>Pris: ${genser_dame.pris} kr</h4>
-              </article>
-            </a>
-        `
+      function visAlle(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .on("child_added", klær);
+        gensere_dame
+          .on("child_added", klær);
       }
+      function visBukser(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("plagg")
+          .equalTo("Bukse")
+          .on("child_added", klær);
+      }
+      function visGensere(){
+        produkter.innerHTML = "";
+        gensere_dame
+          .orderByChild("plagg")
+          .equalTo("Genser")
+          .on("child_added", klær);
+      }
+
+      function visSvart(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Svart")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Svart")
+          .on("child_added", klær);
+      }
+      function visHvit(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Hvit")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Hvit")
+          .on("child_added", klær);
+      }
+      function visBeige(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Beige")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Beige")
+          .on("child_added", klær);
+      }
+      function visBrun(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Brun")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Brun")
+          .on("child_added", klær);
+      }
+      function visGrå(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Grå")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Grå")
+          .on("child_added", klær);
+      }
+      function visRød(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Rød")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Rød")
+          .on("child_added", klær);
+      }
+      function visBlå(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Blå")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Blå")
+          .on("child_added", klær);
+      }
+      function visRosa(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Rosa")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Rosa")
+          .on("child_added", klær);
+      }
+      function visOransje(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("farge")
+          .equalTo("Oransje")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("farge")
+          .equalTo("Oransje")
+          .on("child_added", klær);
+      }
+
+      function visLavhøy(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("pris")
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("pris")
+          .on("child_added", klær);
+      }
+      function visDyre(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("pris")
+          .limitToLast(2)
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("pris")
+          .limitToLast(2)
+          .on("child_added", klær);
+      }
+      function visBillige(){
+        produkter.innerHTML = "";
+        bukser_dame
+          .orderByChild("pris")
+          .limitToFirst(2)
+          .on("child_added", klær);
+        gensere_dame
+          .orderByChild("pris")
+          .limitToFirst(2)
+          .on("child_added", klær);
+      }
+
       function visKlær() {
         produkter.innerHTML = "";
-        bukser_dame.on("child_added", bukseDame);
-        gensere_dame.on("child_added", genserDame);
+        bukser_dame.on("child_added", klær);
+        gensere_dame.on("child_added", klær);
       }
 
       visKlær();

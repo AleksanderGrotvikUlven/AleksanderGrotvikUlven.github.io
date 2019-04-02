@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/dokument.css">
-    <link rel="stylesheet" type="text/css" href="../css/media.css">
     <link rel="stylesheet" type="text/css" href="../css/slider.css">
+    <link rel="stylesheet" type="text/css" href="../css/media.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
     <script>
@@ -63,43 +63,60 @@
       let barnBukser = db.ref("klær/barn/bukser/" + id );
 
       function genererHTML(snapshot){
-        let visKlær = snapshot.val();
+        let klær = snapshot.val();
 
         main.innerHTML +=`
-        <div class="slidershow middle">
-          <div class="slides">
-            <input type="radio" name="r" id="r1" checked>
-            <input type="radio" name="r" id="r2">
-            <input type="radio" name="r" id="r3">
-            <input type="radio" name="r" id="r4">
-            <input type="radio" name="r" id="r5">
+        <div class="info">
+          <div class="slidershow middle">
+            <div class="slides">
+              <input type="radio" name="r" id="r1" checked>
+              <input type="radio" name="r" id="r2">
+              <input type="radio" name="r" id="r3">
+              <input type="radio" name="r" id="r4">
+              <input type="radio" name="r" id="r5">
 
-            <div class="slide s1">
-              <img src="${visKlær.bilde1}" alt="image 1">
+              <div class="slide s1">
+                <img src="${klær.bilde1}" alt="image 1">
+              </div>
+              <div class="slide">
+                <img src="${klær.bilde2}" alt="image 2">
+              </div>
+              <div class="slide">
+                <img src="${klær.bilde3}" alt="image 3">
+              </div>
+              <div class="slide">
+                <img src="${klær.bilde4}" alt="image 4">
+              </div>
+              <div class="slide">
+                <img src="${klær.bilde5}" alt="image 5">
+              </div>
             </div>
-            <div class="slide">
-              <img src="${visKlær.bilde2}" alt="image 2">
-            </div>
-            <div class="slide">
-              <img src="${visKlær.bilde3}" alt="image 3">
-            </div>
-            <div class="slide">
-              <img src="${visKlær.bilde4}" alt="image 4">
-            </div>
-            <div class="slide">
-              <img src="${visKlær.bilde5}" alt="image 5">
-            </div>
+
+            <div class="navigation">
+              <label for="r1" class="bar"></label>
+              <label for="r2" class="bar"></label>
+              <label for="r3" class="bar"></label>
+              <label for="r4" class="bar"></label>
+              <label for="r5" class="bar"></label>
+             </div>
           </div>
-
-          <div class="navigation">
-             <label for="r1" class="bar"></label>
-             <label for="r2" class="bar"></label>
-             <label for="r3" class="bar"></label>
-             <label for="r4" class="bar"></label>
-             <label for="r5" class="bar"></label>
+          <div class="infotekst">
+            <div class="produktinfo">
+              <article class="produkt2">
+                <h1 class="merke">${klær.merke}</h1>
+                <h3 class="navn">${klær.navn1} ${klær.navn2} - ${klær.farge}</h3>
+                <h2>${klær.pris} kr</h2>
+              </article>
+            </div>
+            <div class="produktinfo">
+              <article class="produkt2">
+                <h3>${klær.type} til ${klær.kjønn}</h3>
+                <p>${klær.produktinformasjon}</p>
+              </article>
+            </div>
           </div>
         </div>
-        <h1>${visKlær.navn1} ${visKlær.navn2}</h1>
+        <a class="produktinfo handlekurv" href="#">Legg til i Handlekurv<i class="fas fa-shopping-cart shopping-cart"></i></a>
         `
       }
       function visKlær() {

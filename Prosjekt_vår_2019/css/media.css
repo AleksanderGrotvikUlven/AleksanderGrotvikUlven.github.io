@@ -31,6 +31,15 @@
     position: absolute;
     top: -200px;
   }
+  .produkt2 h1{
+    font-size: 25px;
+  }
+  .produkt2 h2{
+    font-size: 20px;
+  }
+  .produkt2 h3{
+    font-size: 20px;
+  }
 }
 @media (max-width: 900px) {
   .navbar-notext{
@@ -53,6 +62,34 @@
     width: 260px;
     margin-left: 100px;
     margin-right: 100px;
+  }
+  .link{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .produktinfo{
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 15px;
+    width: 90%;
+  }
+  .produkt2 h1{
+    font-size: 20px;
+  }
+  .produkt2 h2{
+    font-size: 16px;
+  }
+  .produkt2 h3{
+    font-size: 16px;
+  }
+  .navigation{
+    top: 260px;
+  }
+  .bar{
+    width: 30px;
+    height: 30px;
   }
   footer{
     height: auto;
@@ -79,5 +116,8 @@
     width: 260px;
     margin-left: 50px;
     margin-right: 50px;
+  }
+  .produkt2 h1{
+    font-size: 16px;
   }
 }
