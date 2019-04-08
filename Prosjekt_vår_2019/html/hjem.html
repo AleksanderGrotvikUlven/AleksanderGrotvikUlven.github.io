@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="icon" href="../bilder/logo.ico">
     <link rel="stylesheet" type="text/css" href="../css/dokument.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -21,7 +22,7 @@
     <script type="text/javascript" src="../script/script.js">
 
     </script>
-    <title>Nettshopping.no/Hjem</title>
+    <title>Nettshopping.no</title>
   </head>
   <body>
     <header>
@@ -47,14 +48,6 @@
       <div class="hovedbilde">
         <h1 class="bildetekst">Nettshopping.no</h1>
         <img src="../bilder/nettshopping.png" alt="">
-      <!--
-      <div class="video">
-        <video src="../bilder/hoved.mp4" loop preload="auto" controls autoplay>
-        </video>
-      </div>
-      -->
-
-
       </div>
       <div class="underside">
         <a class="link" href="dame.html">Klær til Dame</a>
@@ -68,23 +61,33 @@
       <div id="produkter" class="produkter">
 
       </div>
+      <div class="om_nettsiden">
+        <h3 class="">Om nettsiden</h3>
+        <p>Nettshopping.no ble påtenkt i starten av 2019. Nettsiden startet som et ønske om å tilby en enkel og forståelig nettbasert klesbutikk til alle våre kunder. Av erfaringer har vi sett at det kan være vanskelig for flere brukere å navigere seg rundt på ulike nettsider, og ikke minst finne frem til det produktet de ønsker. Vi ønsker å kunne tilby nettopp dette til våre kunder.</p>
+      </div>
     </main>
     <script>
       const produkter = document.getElementById("produkter");
       const db = firebase.database();
       const bukser_dame = db.ref("klær/dame/bukser");
       const gensere_dame = db.ref("klær/dame/gensere");
+      const tskjorter_dame = db.ref("klær/dame/t-skjorter")
+      const sko_dame = db.ref("klær/dame/sko")
       const bukser_herre = db.ref("klær/herre/bukser");
       const gensere_herre = db.ref("klær/herre/gensere");
+      const tskjorter_herre = db.ref("klær/herre/t-skjorter")
+      const sko_herre = db.ref("klær/herre/sko")
       const bukser_barn = db.ref("klær/barn/bukser");
       const gensere_barn = db.ref("klær/barn/gensere");
+      const tskjorter_barn = db.ref("klær/barn/t-skjorter")
+      const sko_barn = db.ref("klær/barn/sko")
 
-      var x = Math.floor((Math.random() * 3 ) + 1);
-      var y = Math.floor((Math.random() * 3 ) + 1);
-      var z = Math.floor((Math.random() * 3 ) + 1);
-      var v = Math.floor((Math.random() * 3 ) + 1);
-      var w = Math.floor((Math.random() * 4 ) + 1);
-      var l = Math.floor((Math.random() * 4 ) + 1);
+
+      var x = Math.floor((Math.random() * 10 ) + 1);
+      var y = Math.floor((Math.random() * 10 ) + 1);
+      var z = Math.floor((Math.random() * 10 ) + 1);
+      var v = Math.floor((Math.random() * 10 ) + 1);
+
 
       function klær(snapshot){
         let klær = snapshot.val();
@@ -107,10 +110,16 @@
         produkter.innerHTML = "";
         bukser_dame.orderByChild("verdi").equalTo(x).on("child_added", klær);
         gensere_dame.orderByChild("verdi").equalTo(y).on("child_added", klær);
-        bukser_herre.orderByChild("verdi").equalTo(z).on("child_added", klær);
-        gensere_herre.orderByChild("verdi").equalTo(v).on("child_added", klær);
-        bukser_barn.orderByChild("verdi").equalTo(w).on("child_added", klær);
-        gensere_barn.orderByChild("verdi").equalTo(l).on("child_added", klær);
+        tskjorter_dame.orderByChild("verdi").equalTo(z).on("child_added", klær);
+        sko_dame.orderByChild("verdi").equalTo(v).on("child_added", klær);
+        bukser_herre.orderByChild("verdi").equalTo(x).on("child_added", klær);
+        gensere_herre.orderByChild("verdi").equalTo(y).on("child_added", klær);
+        tskjorter_herre.orderByChild("verdi").equalTo(z).on("child_added", klær);
+        sko_herre.orderByChild("verdi").equalTo(v).on("child_added", klær);
+        bukser_barn.orderByChild("verdi").equalTo(x).on("child_added", klær);
+        gensere_barn.orderByChild("verdi").equalTo(y).on("child_added", klær);
+        tskjorter_barn.orderByChild("verdi").equalTo(z).on("child_added", klær);
+        sko_barn.orderByChild("verdi").equalTo(v).on("child_added", klær);
       }
 
       visKlær();
@@ -130,6 +139,9 @@
         <a class="linkbutton" href="https://www.abercrombie.com/shop/eu">Abercrombie & Fitch</a>
         <a class="linkbutton" href="https://www.holzweiler.no/">Holzweiler</a>
         <a class="linkbutton" href="https://www.champion.com/">Champion</a>
+        <a class="linkbutton" href="https://www.gant.com/">Gant</a>
+        <a class="linkbutton" href="https://www.geox.com/int/">Geox</a>
+        <a class="linkbutton" href="https://www.vans.eu/">Vans</a>
       </div>
       <a class="linkbutton linkbutton-right tiltoppen" href="#">Til toppen</a>
     </footer>

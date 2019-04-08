@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="icon" href="../bilder/logo.ico">
     <link rel="stylesheet" type="text/css" href="../css/dokument.css">
     <link rel="stylesheet" type="text/css" href="../css/slider.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">
@@ -57,10 +58,16 @@
       const db = firebase.database();
       let herreGensere = db.ref("klær/herre/gensere/" + id );
       let herreBukser = db.ref("klær/herre/bukser/" + id );
+      let herreTskjorter = db.ref("klær/herre/t-skjorter/" + id );
+      let herreSko = db.ref("klær/herre/sko/" + id );
       let dameGensere = db.ref("klær/dame/gensere/" + id );
       let dameBukser = db.ref("klær/dame/bukser/" + id );
+      let dameTskjorter = db.ref("klær/dame/t-skjorter/" + id );
+      let dameSko = db.ref("klær/dame/sko/" + id );
       let barnGensere = db.ref("klær/barn/gensere/" + id );
       let barnBukser = db.ref("klær/barn/bukser/" + id );
+      let barnTskjorter = db.ref("klær/barn/t-skjorter/" + id );
+      let barnSko = db.ref("klær/barn/sko/" + id );
 
       function genererHTML(snapshot){
         let klær = snapshot.val();
@@ -93,11 +100,11 @@
             </div>
 
             <div class="navigation">
-              <label for="r1" class="bar"></label>
-              <label for="r2" class="bar"></label>
-              <label for="r3" class="bar"></label>
-              <label for="r4" class="bar"></label>
-              <label for="r5" class="bar"></label>
+              <label for="r1" class="bar"><img src="${klær.bilde1}" alt="image 1"></label>
+              <label for="r2" class="bar"><img src="${klær.bilde2}" alt="image 2"></label>
+              <label for="r3" class="bar"><img src="${klær.bilde3}" alt="image 3"></label>
+              <label for="r4" class="bar"><img src="${klær.bilde4}" alt="image 4"></label>
+              <label for="r5" class="bar"><img src="${klær.bilde5}" alt="image 5"></label>
              </div>
           </div>
           <div class="infotekst">
@@ -123,11 +130,16 @@
         main.innerHTML = "";
         herreGensere.on("value", genererHTML);
         herreBukser.on("value", genererHTML);
+        herreTskjorter.on("value", genererHTML);
+        herreSko.on("value", genererHTML);
         dameGensere.on("value", genererHTML);
         dameBukser.on("value", genererHTML);
+        dameTskjorter.on("value", genererHTML);
+        dameSko.on("value", genererHTML);
         barnGensere.on("value", genererHTML);
         barnBukser.on("value", genererHTML);
-
+        barnTskjorter.on("value", genererHTML);
+        barnSko.on("value", genererHTML);
       }
 
       visKlær();
@@ -148,6 +160,9 @@
         <a class="linkbutton" href="https://www.abercrombie.com/shop/eu">Abercrombie & Fitch</a>
         <a class="linkbutton" href="https://www.holzweiler.no/">Holzweiler</a>
         <a class="linkbutton" href="https://www.champion.com/">Champion</a>
+        <a class="linkbutton" href="https://www.gant.com/">Gant</a>
+        <a class="linkbutton" href="https://www.geox.com/int/">Geox</a>
+        <a class="linkbutton" href="https://www.vans.eu/">Vans</a>
       </div>
       <a class="linkbutton linkbutton-right tiltoppen" href="#">Til toppen</a>
     </footer>

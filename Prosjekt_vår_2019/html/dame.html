@@ -1,6 +1,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="icon" href="../bilder/logo.ico">
     <link rel="stylesheet" type="text/css" href="../css/dokument.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -46,54 +47,47 @@
       <div class="hovedbilde">
         <h1 class="bildetekst">Klær til dame</h1>
         <img src="../bilder/dame.png" alt="">
-      <!--
-      <div class="video">
-        <video src="../bilder/hoved.mp4" loop preload="auto" controls autoplay>
-        </video>
       </div>
-      -->
-
-
+      <div class="underside">
+        <button onclick="visButton1()" class="button">Sorter etter type<i class="fas fa-angle-right"></i></button>
+        <button onclick="visButton2()" class="button">Sorter etter farge<i class="fas fa-angle-right"></i></button>
+        <button onclick="visButton3()" class="button">Sorter etter pris<i class="fas fa-angle-right"></i></button>
       </div>
-      <div class="">
-        <h2 class"underoverskrift">Sorter etter type</h2>
-        <div class="sorteringsknapper">
-          <button  class="sorteringsknapp" onclick="visAlle()">Alle kategorier</button>
-          <button  class="sorteringsknapp" onclick="visBukser()">Bukser</button>
-          <button  class="sorteringsknapp" onclick="visGensere()">Gensere</button>
-          <button  class="sorteringsknapp" onclick="visT-Skjorter()">T-Skjorter</button>
-        </div>
-        <h2 class"underoverskrift">Sorter etter farge</h2>
-        <div class="sorteringsknapper">
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visSvart()">Svart</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visHvit()">Hvit</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visBeige()">Beige</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visBrun()">Brun</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visGrå()">Grå</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visRød()">Rød</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visBlå()">Blå</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visRosa()">Rosa</button>
-          <button  class="sorteringsknapp sorteringsknapp2" onclick="visOransje()">Oransje</button>
-        </div>
-        <h2 class"underoverskrift">Sorter etter pris</h2>
-        <div class="sorteringsknapper">
-          <button  class="sorteringsknapp sorteringsknapp3" onclick="visHøylav()">Høy til lav</button>
-          <button  class="sorteringsknapp sorteringsknapp3" onclick="visLavhøy()">Lav til høy</button>
-          <button  class="sorteringsknapp sorteringsknapp3" onclick="visBillige()">4 billigste</button>
-          <button  class="sorteringsknapp sorteringsknapp3" onclick="visDyre()">4 dyreste</button>
-        </div>
-      </div>
-      <div id="produkter" class="produkter">
 
+      <div id="produkter" class="produkter space">
 
       </div>
 
     </main>
+    <div id="sorteringsknapp1" class="sorteringsknapper hidden">
+      <button  class="sorteringsknapp" onclick="visAlle()">Alle kategorier</button>
+      <button  class="sorteringsknapp" onclick="visBukser()">Bukser</button>
+      <button  class="sorteringsknapp" onclick="visGensere()">Gensere</button>
+      <button  class="sorteringsknapp" onclick="visTskjorter()">T-skjorter</button>
+      <button  class="sorteringsknapp" onclick="visSko()">Sko</button>
+    </div>
+    <div id="sorteringsknapp2" class="sorteringsknapper hidden">
+      <button  class="sorteringsknapp sorteringsknapp2" onclick="visSvart()">Svart</button>
+      <button  class="sorteringsknapp sorteringsknapp2" onclick="visHvit()">Hvit</button>
+      <button  class="sorteringsknapp sorteringsknapp2" onclick="visGrå()">Grå</button>
+      <button  class="sorteringsknapp sorteringsknapp2" onclick="visRød()">Rød</button>
+      <button  class="sorteringsknapp sorteringsknapp2" onclick="visBlå()">Blå</button>
+      <button  class="sorteringsknapp sorteringsknapp2" onclick="visRosa()">Rosa</button>
+    </div>
+    <div id="sorteringsknapp3" class="sorteringsknapper hidden">
+      <button  class="sorteringsknapp" onclick="visHøylav()">Høy til lav</button>
+      <button  class="sorteringsknapp" onclick="visLavhøy()">Lav til høy</button>
+      <button  class="sorteringsknapp" onclick="visBillige()">4 billigste</button>
+      <button  class="sorteringsknapp" onclick="visDyre()">4 dyreste</button>
+    </div>
+
     <script>
       const produkter = document.getElementById('produkter');
       const db = firebase.database();
       const bukser_dame = db.ref("klær/dame/bukser");
       const gensere_dame = db.ref("klær/dame/gensere");
+      const tskjorter_dame = db.ref("klær/dame/t-skjorter");
+      const sko_dame = db.ref("klær/dame/sko");
 
       function klær(snapshot){
         let klær = snapshot.val();
@@ -118,6 +112,10 @@
           .on("child_added", klær);
         gensere_dame
           .on("child_added", klær);
+        tskjorter_dame
+          .on("child_added", klær);
+        sko_dame
+          .on("child_added", klær);
       }
       function visBukser(){
         produkter.innerHTML = "";
@@ -133,7 +131,20 @@
           .equalTo("Genser")
           .on("child_added", klær);
       }
-
+      function visTskjorter(){
+        produkter.innerHTML = "";
+        tskjorter_dame
+          .orderByChild("plagg")
+          .equalTo("T-skjorte")
+          .on("child_added", klær);
+      }
+      function visSko(){
+        produkter.innerHTML = "";
+        sko_dame
+          .orderByChild("plagg")
+          .equalTo("Sko")
+          .on("child_added", klær);
+      }
       function visSvart(){
         produkter.innerHTML = "";
         bukser_dame
@@ -141,6 +152,14 @@
           .equalTo("Svart")
           .on("child_added", klær);
         gensere_dame
+          .orderByChild("farge")
+          .equalTo("Svart")
+          .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("farge")
+          .equalTo("Svart")
+          .on("child_added", klær);
+        sko_dame
           .orderByChild("farge")
           .equalTo("Svart")
           .on("child_added", klær);
@@ -155,27 +174,13 @@
           .orderByChild("farge")
           .equalTo("Hvit")
           .on("child_added", klær);
-      }
-      function visBeige(){
-        produkter.innerHTML = "";
-        bukser_dame
+        tskjorter_dame
           .orderByChild("farge")
-          .equalTo("Beige")
+          .equalTo("Hvit")
           .on("child_added", klær);
-        gensere_dame
+        sko_dame
           .orderByChild("farge")
-          .equalTo("Beige")
-          .on("child_added", klær);
-      }
-      function visBrun(){
-        produkter.innerHTML = "";
-        bukser_dame
-          .orderByChild("farge")
-          .equalTo("Brun")
-          .on("child_added", klær);
-        gensere_dame
-          .orderByChild("farge")
-          .equalTo("Brun")
+          .equalTo("Hvit")
           .on("child_added", klær);
       }
       function visGrå(){
@@ -185,6 +190,14 @@
           .equalTo("Grå")
           .on("child_added", klær);
         gensere_dame
+          .orderByChild("farge")
+          .equalTo("Grå")
+          .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("farge")
+          .equalTo("Grå")
+          .on("child_added", klær);
+        sko_dame
           .orderByChild("farge")
           .equalTo("Grå")
           .on("child_added", klær);
@@ -199,6 +212,14 @@
           .orderByChild("farge")
           .equalTo("Rød")
           .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("farge")
+          .equalTo("Rød")
+          .on("child_added", klær);
+        sko_dame
+          .orderByChild("farge")
+          .equalTo("Rød")
+          .on("child_added", klær);
       }
       function visBlå(){
         produkter.innerHTML = "";
@@ -207,6 +228,14 @@
           .equalTo("Blå")
           .on("child_added", klær);
         gensere_dame
+          .orderByChild("farge")
+          .equalTo("Blå")
+          .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("farge")
+          .equalTo("Blå")
+          .on("child_added", klær);
+        sko_dame
           .orderByChild("farge")
           .equalTo("Blå")
           .on("child_added", klær);
@@ -221,19 +250,42 @@
           .orderByChild("farge")
           .equalTo("Rosa")
           .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("farge")
+          .equalTo("Rosa")
+          .on("child_added", klær);
+        sko_dame
+          .orderByChild("farge")
+          .equalTo("Rosa")
+          .on("child_added", klær);
       }
-      function visOransje(){
+      function visHøyLav() {
         produkter.innerHTML = "";
         bukser_dame
-          .orderByChild("farge")
-          .equalTo("Oransje")
+          <!--
+          Jeg jobber med å få laget en spørring som gjør
+          at jeg kan vise elemnter sortert etter pris fra høy til lav.
+          -->
           .on("child_added", klær);
         gensere_dame
-          .orderByChild("farge")
-          .equalTo("Oransje")
+          <!--
+          Jeg jobber med å få laget en spørring som gjør
+          at jeg kan vise elemnter sortert etter pris fra høy til lav.
+          -->
+          .on("child_added", klær);
+        tskjorter_dame
+          <!--
+          Jeg jobber med å få laget en spørring som gjør
+          at jeg kan vise elemnter sortert etter pris fra høy til lav.
+          -->
+          .on("child_added", klær);
+        sko_dame
+          <!--
+          Jeg jobber med å få laget en spørring som gjør
+          at jeg kan vise elemnter sortert etter pris fra høy til lav.
+          -->
           .on("child_added", klær);
       }
-
       function visLavhøy(){
         produkter.innerHTML = "";
         bukser_dame
@@ -242,27 +294,49 @@
         gensere_dame
           .orderByChild("pris")
           .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("pris")
+          .on("child_added", klær);
+        sko_dame
+          .orderByChild("pris")
+          .on("child_added", klær);
       }
       function visDyre(){
         produkter.innerHTML = "";
         bukser_dame
           .orderByChild("pris")
-          .limitToLast(2)
+          .limitToLast(1)
           .on("child_added", klær);
         gensere_dame
           .orderByChild("pris")
-          .limitToLast(2)
+          .limitToLast(1)
+          .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("pris")
+          .limitToLast(1)
+          .on("child_added", klær);
+        sko_dame
+          .orderByChild("pris")
+          .limitToLast(1)
           .on("child_added", klær);
       }
       function visBillige(){
         produkter.innerHTML = "";
         bukser_dame
           .orderByChild("pris")
-          .limitToFirst(2)
+          .limitToFirst(1)
           .on("child_added", klær);
         gensere_dame
           .orderByChild("pris")
-          .limitToFirst(2)
+          .limitToFirst(1)
+          .on("child_added", klær);
+        tskjorter_dame
+          .orderByChild("pris")
+          .limitToFirst(1)
+          .on("child_added", klær);
+        sko_dame
+          .orderByChild("pris")
+          .limitToFirst(1)
           .on("child_added", klær);
       }
 
@@ -270,6 +344,8 @@
         produkter.innerHTML = "";
         bukser_dame.on("child_added", klær);
         gensere_dame.on("child_added", klær);
+        tskjorter_dame.on("child_added", klær);
+        sko_dame.on("child_added", klær);
       }
 
       visKlær();
@@ -289,6 +365,9 @@
         <a class="linkbutton" href="https://www.abercrombie.com/shop/eu">Abercrombie & Fitch</a>
         <a class="linkbutton" href="https://www.holzweiler.no/">Holzweiler</a>
         <a class="linkbutton" href="https://www.champion.com/">Champion</a>
+        <a class="linkbutton" href="https://www.gant.com/">Gant</a>
+        <a class="linkbutton" href="https://www.geox.com/int/">Geox</a>
+        <a class="linkbutton" href="https://www.vans.eu/">Vans</a>
       </div>
       <a class="linkbutton linkbutton-right tiltoppen" href="#">Til toppen</a>
     </footer>

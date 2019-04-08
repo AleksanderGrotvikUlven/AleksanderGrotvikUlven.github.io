@@ -43,9 +43,20 @@ nav img {
 .navbar :nth-child(6){
   margin-left: auto;
 }
+.input{
+  height: 36px;
+  width: 200px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+}
 .fa-bars, .fa-shopping-cart{
   font-size: 40px;
   padding-top: 5px;
+  cursor: pointer;
 }
 .fa-times{
   font-size: 50px;
@@ -127,7 +138,7 @@ main{
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-bottom: 15px;
   font-size: 24px;
 }
@@ -145,26 +156,53 @@ main{
 .link:hover{
   transform: scale(1.05);
 }
-h2{
-  margin-left: 50px;
+.button{
+  cursor: pointer;
+  text-align: center;
+  background-color: rgb(255, 0, 0);
+  font-size: 20px;
+  border: none;
+  margin: auto;
+  padding: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: -3px 5px 5px 0px rgba(0,0,0,0.60);
+  transition: 0.2s ease-in-out;
+}
+.button i{
+  margin-left: 10px;
+  font-size: 25px;
+}
+.button:hover{
+  transform: scale(1.05);
 }
 .sorteringsknapper{
+  margin-bottom: 30px;
+  position: absolute;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 80%;
+  background-color: gray;
+  box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.60);
+  transform: translate(-50%, -50%);
+  top: 655px;
+  left: 50%;
 }
 .sorteringsknapp{
-  height: 30px;
+  height: 40px;
   width: 140px;
   border-radius: 5px;
   border: 1px solid black;
   border-color: black;
-  margin: 15px;
-  margin-top: 0px;
   font-size: 16px;
   outline: none;
   transition: 0.2s ease-in-out;
   color: black;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 .sorteringsknapp2{
   width: 100px;
@@ -180,11 +218,16 @@ h2{
   background-color: white;
   justify-content: center;
   padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 .produkter a {
   text-decoration: none;
   color: black;
+}
+.space{
+  margin-top: 60px;
 }
 .produkt{
   padding: 20px;
@@ -203,7 +246,30 @@ h2{
   box-shadow: -5px 10px 5px 0px rgba(0,0,0,0.60);
 }
 .merke{
-  font-size: 22px;
+  font-size: 20px;
+}
+.om_nettsiden{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: white;
+}
+.om_nettsiden h3{
+  grid-column: span 1;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  padding-top: 35px;
+  border-right: 2px solid black;
+  margin: 10px;
+}
+.om_nettsiden p{
+  grid-column: span 2;
+  padding: 20px;
+  font-size: 16px;
+  font-family: Mukta, sans-serif;
 }
 .navn{
   font-size: 18px;
@@ -259,7 +325,6 @@ footer{
   background-color: rgb(255, 0, 0);
   display: flex;
   flex-direction: row;
-  height: 216px;
 }
 .footerlink{
   display: flex;
