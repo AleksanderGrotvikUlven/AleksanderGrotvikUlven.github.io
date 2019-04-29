@@ -122,12 +122,11 @@
     font-size: 16px;
   }
   .navigation{
-    top: 260px;
+    top: 580px;
     flex-direction: row;
-    transform: translate(-50%, 340%);
   }
   .handlekurv{
-    margin-top: 80px;
+    margin-top: 100px;
   }
 }
 @media (max-width: 500px) {
@@ -153,9 +152,12 @@
     margin-right: 50px;
   }
   .sorteringsknapper{
-    top: 610px;
+    top: 620px;
   }
   .produkt2 h1{
     font-size: 16px;
+  }
+  .navigation{
+    top: 600px;
   }
 }

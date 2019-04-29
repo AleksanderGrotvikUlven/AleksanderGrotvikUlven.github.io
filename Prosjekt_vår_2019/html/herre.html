@@ -106,236 +106,124 @@
             </a>
         `
       }
+      function klærRevers(snapshot) {
+        let klær = snapshot.val();
+        let key = snapshot.key;
+        let nyttElement = document.createElement("article");
+        
+        nyttElement.innerHTML =`
+          <h3 class="merke">${klær.merke}</h3>
+          <img src="${klær.bilde1}" alt="">
+          <h4 class="navn">${klær.navn1} ${klær.navn2}</h4>
+          <p>${klær.farge} ${klær.type} til ${klær.kjønn}</p>
+          <h4>Pris: ${klær.pris} kr</h4>
+        `;
+        nyttElement.classList.add("produkt");
+        produkter.insertBefore(nyttElement, produkter.childNodes[0]);
+      }
+
       function visAlle(){
         produkter.innerHTML = "";
-        bukser_herre
-          .on("child_added", klær);
-        gensere_herre
-          .on("child_added", klær);
-        tskjorter_herre
-          .on("child_added", klær);
-        sko_herre
-          .on("child_added", klær);
+        bukser_herre.on("child_added", klær);
+        gensere_herre.on("child_added", klær);
+        tskjorter_herre.on("child_added", klær);
+        sko_herre.on("child_added", klær);
       }
       function visBukser(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("plagg")
-          .equalTo("Bukse")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("plagg").equalTo("Bukse").on("child_added", klær);
       }
       function visGensere(){
         produkter.innerHTML = "";
-        gensere_herre
-          .orderByChild("plagg")
-          .equalTo("Genser")
-          .on("child_added", klær);
+        gensere_herre.orderByChild("plagg").equalTo("Genser").on("child_added", klær);
       }
       function visTskjorter(){
         produkter.innerHTML = "";
-        tskjorter_herre
-          .orderByChild("plagg")
-          .equalTo("T-skjorte")
-          .on("child_added", klær);
+        tskjorter_herre.orderByChild("plagg").equalTo("T-skjorte").on("child_added", klær);
       }
       function visSko(){
         produkter.innerHTML = "";
-        sko_herre
-          .orderByChild("plagg")
-          .equalTo("Sko")
-          .on("child_added", klær);
+        sko_herre.orderByChild("plagg").equalTo("Sko").on("child_added", klær);
       }
 
       function visSvart(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("farge")
-          .equalTo("Svart")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("farge")
-          .equalTo("Svart")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("farge")
-          .equalTo("Svart")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("farge")
-          .equalTo("Svart")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("farge").equalTo("Svart").on("child_added", klær);
+        gensere_herre.orderByChild("farge").equalTo("Svart").on("child_added", klær);
+        tskjorter_herre.orderByChild("farge").equalTo("Svart").on("child_added", klær);
+        sko_herre.orderByChild("farge").equalTo("Svart").on("child_added", klær);
       }
       function visHvit(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("farge")
-          .equalTo("Hvit")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("farge")
-          .equalTo("Hvit")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("farge")
-          .equalTo("Hvit")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("farge")
-          .equalTo("Hvit")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("farge").equalTo("Hvit").on("child_added", klær);
+        gensere_herre.orderByChild("farge").equalTo("Hvit").on("child_added", klær);
+        tskjorter_herre.orderByChild("farge").equalTo("Hvit").on("child_added", klær);
+        sko_herre.orderByChild("farge").equalTo("Hvit").on("child_added", klær);
       }
       function visBeige(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("farge")
-          .equalTo("Beige")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("farge")
-          .equalTo("Beige")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("farge")
-          .equalTo("Beige")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("farge")
-          .equalTo("Beige")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("farge").equalTo("Beige").on("child_added", klær);
+        gensere_herre.orderByChild("farge").equalTo("Beige").on("child_added", klær);
+        tskjorter_herre.orderByChild("farge").equalTo("Beige").on("child_added", klær);
+        sko_herre.orderByChild("farge").equalTo("Beige").on("child_added", klær);
       }
       function visBrun(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("farge")
-          .equalTo("Brun")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("farge")
-          .equalTo("Brun")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("farge")
-          .equalTo("Brun")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("farge")
-          .equalTo("Brun")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("farge").equalTo("Brun").on("child_added", klær);
+        gensere_herre.orderByChild("farge").equalTo("Brun").on("child_added", klær);
+        tskjorter_herre.orderByChild("farge").equalTo("Brun").on("child_added", klær);
+        sko_herre.orderByChild("farge").equalTo("Brun").on("child_added", klær);
       }
       function visGrå(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("farge")
-          .equalTo("Grå")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("farge")
-          .equalTo("Grå")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("farge")
-          .equalTo("Grå")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("farge")
-          .equalTo("Grå")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("farge").equalTo("Grå").on("child_added", klær);
+        gensere_herre.orderByChild("farge").equalTo("Grå").on("child_added", klær);
+        tskjorter_herre.orderByChild("farge").equalTo("Grå").on("child_added", klær);
+        sko_herre.orderByChild("farge").equalTo("Grå").on("child_added", klær);
       }
       function visRød(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("farge")
-          .equalTo("Rød")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("farge")
-          .equalTo("Rød")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("farge")
-          .equalTo("Rød")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("farge")
-          .equalTo("Rød")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("farge").equalTo("Rød").on("child_added", klær);
+        gensere_herre.orderByChild("farge").equalTo("Rød").on("child_added", klær);
+        tskjorter_herre.orderByChild("farge").equalTo("Rød").on("child_added", klær);
+        sko_herre.orderByChild("farge").equalTo("Rød").on("child_added", klær);
       }
       function visBlå(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("farge")
-          .equalTo("Blå")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("farge")
-          .equalTo("Blå")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("farge")
-          .equalTo("Blå")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("farge")
-          .equalTo("Blå")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("farge").equalTo("Blå").on("child_added", klær);
+        gensere_herre.orderByChild("farge").equalTo("Blå").on("child_added", klær);
+        tskjorter_herre.orderByChild("farge").equalTo("Blå").on("child_added", klær);
+        sko_herre.orderByChild("farge").equalTo("Blå").on("child_added", klær);
       }
 
-//Jeg jobber med å få laget en spørring som gjør at jeg kan vise elemnter sortert etter pris fra høy til lav.
-
+      function visHøylav() {
+        produkter.innerHTML = "";
+        bukser_herre.orderByChild("pris").on("child_added", klærRevers);
+        gensere_herre.orderByChild("pris").on("child_added", klærRevers);
+        tskjorter_herre.orderByChild("pris").on("child_added", klærRevers);
+        sko_herre.orderByChild("pris").on("child_added", klærRevers);
+      }
       function visLavhøy(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("pris")
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("pris")
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("pris")
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("pris")
-          .on("child_added", klær);
+        bukser_herre.orderByChild("pris").on("child_added", klær);
+        gensere_herre.orderByChild("pris").on("child_added", klær);
+        tskjorter_herre.orderByChild("pris").on("child_added", klær);
+        sko_herre.orderByChild("pris").on("child_added", klær);
       }
       function visDyre(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("pris")
-          .limitToLast(1)
-          .on("child_added", klær);
+        bukser_herre.orderByChild("pris").limitToLast(1).on("child_added", klær);
+        gensere_herre.orderByChild("pris").limitToLast(1).on("child_added", klær);
+        tskjorter_herre.orderByChild("pris").limitToLast(1).on("child_added", klær);
+        sko_herre.orderByChild("pris").limitToLast(1).on("child_added", klær);
       }
       function visBillige(){
         produkter.innerHTML = "";
-        bukser_herre
-          .orderByChild("pris")
-          .limitToFirst(1)
-          .on("child_added", klær);
-        gensere_herre
-          .orderByChild("pris")
-          .limitToFirst(1)
-          .on("child_added", klær);
-        tskjorter_herre
-          .orderByChild("pris")
-          .limitToFirst(1)
-          .on("child_added", klær);
-        sko_herre
-          .orderByChild("pris")
-          .limitToFirst(1)
-          .on("child_added", klær);
+        bukser_herre.orderByChild("pris").limitToFirst(1).on("child_added", klær);
+        gensere_herre.orderByChild("pris").limitToFirst(1).on("child_added", klær);
+        tskjorter_herre.orderByChild("pris").limitToFirst(1).on("child_added", klær);
+        sko_herre.orderByChild("pris").limitToFirst(1).on("child_added", klær);
       }
-
 
       function visKlær() {
         produkter.innerHTML = "";
