@@ -46,7 +46,7 @@
     <main>
       <div class="hovedbilde">
         <h1 class="bildetekst">Klær til dame</h1>
-        <img src="../bilder/dame.png" alt="">
+        <video class="hovedbilde--video" src="../bilder/dame.mp4" autoplay muted loop poster="posterimage.jpg">
       </div>
       <div class="underside">
         <button onclick="visButton1()" class="button">Sorter etter type<i class="fas fa-angle-right"></i></button>
@@ -109,7 +109,6 @@
         let klær = snapshot.val();
         let key = snapshot.key;
         let nyttElement = document.createElement("article");
-        
         nyttElement.innerHTML =`
           <h3 class="merke">${klær.merke}</h3>
           <img src="${klær.bilde1}" alt="">

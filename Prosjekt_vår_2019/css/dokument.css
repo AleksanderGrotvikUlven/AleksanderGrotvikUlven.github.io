@@ -100,21 +100,19 @@ nav img {
 }
 
 
-
 main{
   max-width: 1200px;
   height: auto;
   margin: auto;
   display: flex;
   flex-direction: column;
-
 }
 .hovedbilde{
   width: 90%;
   margin: auto;
   margin-top: 90px;
 }
-.hovedbilde img{
+.hovedbilde--video{
   width: 1080px;
 }
 .bildetekst{
@@ -132,6 +130,42 @@ main{
   padding-top: 20px;
   padding-bottom: 20px;
   width: 740px;
+}
+.search-box{
+  text-align: center;
+  width: 350px;
+  padding: 15px;
+  margin: 30px auto;
+  background-color: rgb(255, 0, 0);
+  border-radius: 20px;
+  box-shadow: -3px 5px 5px 0px rgba(0,0,0,0.60);
+}
+.search-txt{
+  color: rgb(180, 180, 180);
+  border: 1px solid black;
+  background: white;
+  outline: none;
+  float: left;
+  font-size: 20px;
+  text-transform: capitalize;
+  width: 250px;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+.search-btn{
+  color: rgb(180, 180, 180);
+  float: right;
+  padding: 0px;
+  margin: 0px;
+  height: 40px;
+  width: 40px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 .underside{
   display: flex;
@@ -187,7 +221,7 @@ main{
   background-color: gray;
   box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.60);
   transform: translate(-50%, -50%);
-  top: 655px;
+  top: 815px;
   left: 50%;
 }
 .sorteringsknapp{
@@ -218,8 +252,6 @@ main{
   flex-wrap: wrap;
   background-color: white;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
 }

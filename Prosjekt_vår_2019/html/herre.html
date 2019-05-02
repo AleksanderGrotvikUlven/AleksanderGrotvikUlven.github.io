@@ -46,7 +46,7 @@
     <main>
       <div class="hovedbilde">
         <h1 class="bildetekst">Klær til herre</h1>
-        <img src="../bilder/herre.png" alt="">
+        <video class="hovedbilde--video" src="../bilder/herre.mp4" autoplay muted loop poster="posterimage.jpg">
       </div>
       <div class="underside">
         <button onclick="visButton1()" class="button">Sorter etter type<i class="fas fa-angle-right"></i></button>
@@ -110,13 +110,17 @@
         let klær = snapshot.val();
         let key = snapshot.key;
         let nyttElement = document.createElement("article");
-        
+
         nyttElement.innerHTML =`
-          <h3 class="merke">${klær.merke}</h3>
-          <img src="${klær.bilde1}" alt="">
-          <h4 class="navn">${klær.navn1} ${klær.navn2}</h4>
-          <p>${klær.farge} ${klær.type} til ${klær.kjønn}</p>
-          <h4>Pris: ${klær.pris} kr</h4>
+            <a href="produkter.html?id=${key}">
+              <article class="produkt">
+                <h3 class="merke">${klær.merke}</h3>
+                <img src="${klær.bilde1}" alt="">
+                <h4 class="navn">${klær.navn1} ${klær.navn2}</h4>
+                <p>${klær.farge} ${klær.type} til ${klær.kjønn}</p>
+                <h4>Pris: ${klær.pris} kr</h4>
+              </article>
+            </a>
         `;
         nyttElement.classList.add("produkt");
         produkter.insertBefore(nyttElement, produkter.childNodes[0]);

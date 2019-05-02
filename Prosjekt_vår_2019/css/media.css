@@ -5,7 +5,7 @@
   .hovedbilde{
     width: 100%;
   }
-  .hovedbilde img{
+  .hovedbilde--video{
     width: 800px;
   }
   .bildetekst{
@@ -14,7 +14,7 @@
     width: 460px;
   }
   .sorteringsknapper{
-    top: 570px;
+    top: 700px;
   }
   .space{
     margin-top: 150px;
@@ -71,15 +71,15 @@
   main{
     width: 500px;
   }
-  .hovedbilde img{
-    width: 500px;
-  }
   .bildetekst{
     margin-top: 80px;
     font-size: 26px;
     width: 260px;
     margin-left: 100px;
     margin-right: 100px;
+  }
+  .hovedbilde--video{
+    width: 500px;
   }
   .link{
     width: 100%;
@@ -93,7 +93,7 @@
     margin-bottom: 10px;
   }
   .sorteringsknapper{
-    top: 650px;
+    top: 730px;
   }
   .space{
     margin-top: 170px;
@@ -141,7 +141,7 @@
   main{
     width: 400px;
   }
-  .hovedbilde img{
+  .hovedbilde--video{
     width: 400px;
   }
   .bildetekst{
@@ -152,7 +152,7 @@
     margin-right: 50px;
   }
   .sorteringsknapper{
-    top: 620px;
+    top: 675px;
   }
   .produkt2 h1{
     font-size: 16px;

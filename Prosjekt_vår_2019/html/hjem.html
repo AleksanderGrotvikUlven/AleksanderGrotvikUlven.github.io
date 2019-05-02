@@ -47,7 +47,16 @@
     <main>
       <div class="hovedbilde">
         <h1 class="bildetekst">Nettshopping.no</h1>
-        <img src="../bilder/nettshopping.png" alt="">
+        <video class="hovedbilde--video" src="../bilder/hoved.mp4" autoplay muted loop poster="posterimage.jpg">
+      </div>
+      <div class="search-box">
+        <input id="searchbar" value="" class="search-txt" type="text" name="" placeholder="Søk etter merke...">
+        <p class="search-btn">
+          <i class="fas fa-search"></i>
+        </p>
+      </div>
+      <div id="searchtarget" class="produkter">
+
       </div>
       <div class="underside">
         <a class="link" href="dame.html">Klær til Dame</a>
@@ -55,9 +64,7 @@
         <a class="link" href="barn.html">Klær til Barn</a>
 
       </div>
-      <div class="">
-        <h2>Mest populære i dag</h2>
-      </div>
+      <h2>Mest populære i dag</h2>
       <div id="produkter" class="produkter">
 
       </div>
@@ -81,6 +88,8 @@
       const gensere_barn = db.ref("klær/barn/gensere");
       const tskjorter_barn = db.ref("klær/barn/t-skjorter")
       const sko_barn = db.ref("klær/barn/sko")
+      const searchmain = document.getElementById("searchtarget")
+      const searchbar = document.querySelector("#searchbar")
 
 
       var x = Math.floor((Math.random() * 10 ) + 1);
@@ -104,6 +113,47 @@
               </article>
             </a>
         `
+      }
+      function klærsrch(snapshot){
+        let klær = snapshot.val();
+        let key = snapshot.key;
+
+        searchmain.innerHTML +=`
+            <a href="produkter.html?id=${key}">
+              <article class="produkt">
+                <h3 class="merke">${klær.merke}</h3>
+                <img src="${klær.bilde1}" alt="">
+                <h4 class="navn">${klær.navn1} ${klær.navn2}</h4>
+                <p>${klær.farge} ${klær.type} til ${klær.kjønn}</p>
+                <h4>Pris: ${klær.pris} kr</h4>
+              </article>
+            </a>
+        `
+      }
+
+      function search(){
+        searchmain.innerHTML = "";
+        bukser_dame.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        gensere_dame.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        tskjorter_dame.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        sko_dame.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        bukser_herre.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        gensere_herre.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        tskjorter_herre.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        sko_herre.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        bukser_barn.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        gensere_barn.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        tskjorter_barn.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+        sko_barn.orderByChild("merke").startAt(searchbar.value).endAt(searchbar.value+"uf8ff").on("child_added", klærsrch);
+      }
+      searchbar.onkeyup = function(){
+        var a = searchbar.value;
+        if (a == "") {
+          searchmain.innerHTML = "";
+        }
+        else {
+          search()
+        }
       }
 
       function visKlær() {
