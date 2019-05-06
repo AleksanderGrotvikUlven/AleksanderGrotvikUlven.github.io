@@ -28,3 +28,7 @@ function visButton3() {
   sorteringsknapp2.classList.add("hidden");
   sorteringsknapp3.classList.toggle("hidden");
 }
+function visTxt() {
+  var show = document.getElementById("searchtxt");
+  show.classList.toggle("hidden");
+}

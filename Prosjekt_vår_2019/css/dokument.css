@@ -147,7 +147,6 @@ main{
   outline: none;
   float: left;
   font-size: 20px;
-  text-transform: capitalize;
   width: 250px;
   height: 40px;
   padding-left: 20px;
@@ -166,6 +165,34 @@ main{
   justify-content: center;
   align-items: center;
   text-decoration: none;
+}
+.searchtxt{
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 0, 0);
+  top: 650px;
+}
+.searchtxt::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 6%;
+  top: 86%;
+  background-color: #fff;
+  transform: rotate(45deg);
+  border-right: 1px solid rgb(255, 0, 0);
+  border-bottom: 1px solid rgb(255, 0, 0);
+}
+.searchtxt h3{
+  margin: 5px;
+  text-decoration: underline;
+}
+.searchtxt p{
+  margin: 5px;
 }
 .underside{
   display: flex;
@@ -289,6 +316,7 @@ main{
   padding: 20px;
   background-color: white;
 }
+
 .om_nettsiden h3{
   grid-column: span 1;
   text-align: center;
@@ -297,6 +325,10 @@ main{
   padding-top: 35px;
   border-right: 2px solid black;
   margin: 10px;
+}
+.om_nettsiden2 h3{
+  border-right: 0px solid black;
+  border-left: 2px solid black;
 }
 .om_nettsiden p{
   grid-column: span 2;

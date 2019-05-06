@@ -49,8 +49,13 @@
         <h1 class="bildetekst">Nettshopping.no</h1>
         <video class="hovedbilde--video" src="../bilder/hoved.mp4" autoplay muted loop poster="posterimage.jpg">
       </div>
-      <div class="search-box">
+      <div class="search-box" onclick="visTxt()">
         <input id="searchbar" value="" class="search-txt" type="text" name="" placeholder="Søk etter merke...">
+        <div id="searchtxt" class="searchtxt hidden">
+          <h3>Merk:</h3>
+          <p>Skriv merket med stor forbokstav</p>
+        </div>
+        <!-- For at searchbaren skal funke, så må man skrive første bokstav i hvert ord med stor bokstav. -->
         <p class="search-btn">
           <i class="fas fa-search"></i>
         </p>
@@ -71,6 +76,12 @@
       <div class="om_nettsiden">
         <h3 class="">Om nettsiden</h3>
         <p>Nettshopping.no ble påtenkt i starten av 2019. Nettsiden startet som et ønske om å tilby en enkel og forståelig nettbasert klesbutikk til alle våre kunder. Av erfaringer har vi sett at det kan være vanskelig for flere brukere å navigere seg rundt på ulike nettsider, og ikke minst finne frem til det produktet de ønsker. Vi ønsker å kunne tilby nettopp dette til våre kunder.</p>
+      </div>
+      <div class="om_nettsiden om_nettsiden2">
+        <p>Vi ønsker å konkurere på pris mot flere nettbasserte klesbutikker, og for å gjøre det trenger vi deres hjelp. Får at vi skal kunne gi våre kunder den beste prisen på klær, er det viktig at vi er kjent av flest mulig. Vi ville satt stor pris på at dere bruker vår hashtagg når dere deler deres bilder på sosiale medier.</p>
+        <h3>#nettshopping.no</h3>
+
+
       </div>
     </main>
     <script>
