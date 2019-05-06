@@ -174,7 +174,7 @@ main{
   border: 1px solid rgb(255, 0, 0);
   top: 650px;
 }
-.searchtxt::after {
+.searchtxt::after{
   content: "";
   width: 20px;
   height: 20px;

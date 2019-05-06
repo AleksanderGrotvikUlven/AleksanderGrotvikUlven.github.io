@@ -13,6 +13,9 @@
     font-size: 40px;
     width: 460px;
   }
+  .searchtxt{
+    top: 495px;
+  }
   .sorteringsknapper{
     top: 700px;
   }
@@ -80,6 +83,9 @@
   }
   .hovedbilde--video{
     width: 500px;
+  }
+  .searchtxt{
+    top: 325px;
   }
   .link{
     width: 100%;
@@ -150,6 +156,9 @@
     width: 260px;
     margin-left: 50px;
     margin-right: 50px;
+  }
+  .searchtxt{
+    top: 270px;
   }
   .sorteringsknapper{
     top: 675px;
