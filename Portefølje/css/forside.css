@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  border-spacing: 0;
+}
+html {
+  height: auto;
+  width: auto;
+}
+body{
+  margin: 0;
+  padding: 0;
+  top: 0;
+  overflow: hidden;
+  background-image: url("../bilder/bakgrunn.png");
+}
+header{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(200, 200, 200);
+  margin: 0px;
+  text-align: center;
+  box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+  padding-top: 10px;
+}
+header h2{
+  font-size: 30px;
+  margin: 0px 150px;
+  padding: 20px 0px;
+  border: 2px solid black;
+}
+.fa-bars{
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 36px;
+  cursor: pointer;
+  transition: .2s;
+}
+.fa-bars:hover{
+  color: white;
+}
+.fa-times{
+  font-size: 36px;
+  color: white;
+  z-index: 1;
+}
+.dropdown{
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: black;
+  padding: 120px 20px 20px 20px;
+  width: 250px;
+  height: 500px;
+  transition: .1s;
+  box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.75);
+}
+.list_item{
+  padding: 10px;
+}
+.list_item a{
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+.list_item a:hover{
+  text-decoration: underline;
+}
+
+main{
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: rgb(40, 140, 240, 0.50);
+}
+.nettsider{
+  margin: 50px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nettside__overskrift{
+  width: 100%;
+  margin: 20px 150px;
+  padding: 20px;
+  border: 2px solid rgb(99, 99, 99);
+  text-align: center;
+  background-color: white;
+}
+.nettside{
+  margin: 10px 20px;
+  padding: 10px 20px;
+  width: 500px;
+  height: ;
+  border: 2px solid white;
+  text-align: center;
+  background-color: rgb(100, 100, 100);
+}
+
+
+.hidden{
+  position: absolute;
+  visibility: hidden;
+  right: -200px;
+}

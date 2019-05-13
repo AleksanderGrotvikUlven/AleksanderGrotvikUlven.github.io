@@ -1,0 +1,12 @@
+@media (max-width: 900px){
+  header h2{
+    padding: 20px 150px 20px 0px;
+    margin: 0px 50px 0px 50px;
+  }
+  .fa-bars{
+    right: 80px;
+  }
+  .nettside__overskrift{
+    margin: 20px;
+  }
+}
