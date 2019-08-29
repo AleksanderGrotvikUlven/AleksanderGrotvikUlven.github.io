@@ -13,8 +13,10 @@ body{
   margin: 0;
   padding: 0;
   top: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   background-image: url("../bilder/bakgrunn.png");
+  background-repeat: no-repeat;
+  background-color: rgb(10, 10, 10);
 }
 header{
   position: relative;
@@ -76,14 +78,36 @@ header h2{
 main{
   margin-left: 50px;
   margin-right: 50px;
-  background-color: rgb(40, 140, 240, 0.50);
+}
+.om_meg{
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(252, 252, 252, 0.95);
+  padding: 10px;
+  margin-top: 20px;
+}
+.om_meg_h2{
+  width: 800px;
+  border-right: 2px solid black;
+  padding: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 30px;
+}
+.om_meg_p{
+  padding: 10px;
+  font-size: 16px;
+  font-family: merriweather;
 }
 .nettsider{
-  margin: 50px 0px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: rgb(40, 140, 240, 0.50);
 }
 .nettside__overskrift{
   width: 100%;
@@ -102,7 +126,38 @@ main{
   text-align: center;
   background-color: rgb(100, 100, 100);
 }
-
+.nettside>h2{
+  margin: 10px;
+}
+.nettside__grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+.nettside__tekst{
+  padding: 10px;
+  font-family: merriweather;
+  font-size: 14px;
+  text-align: left;
+}
+.nettside__bilde{
+  padding: 10px;
+  width: 228px;
+  height: auto;
+}
+.nettside__bilde>img{
+  width: 100%;
+}
+.link>h3{
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+  transition: 0.2s;
+}
+.link>h3:hover{
+  box-shadow: -1px 2px 5px 0px rgba(0,0,0,0.75)
+}
 
 .hidden{
   position: absolute;

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>første kodefil</title>
+  </head>
+  <body>
+    <h1 id="minOverskrift">Velkommen til siden min</h1>
+    <p>Den er fin</p>
+    <img id="imgBilde" src="bilde1.jpeg" alt="Bilde">
+    <script type="text/javascript">
+      //String: innhold i annførselstegn
+      /*
+      alert("hallo verden");//varselboks
+      document.write("hallo igjen verden");//viser tekst på siden
+      prompt("hvor mange timer har du i dag");//innskivingsfelt
+      */
+      /*
+      document.body.innerHTML = "<h1>Nytt innhold</h1>"
+      +"<p>Det er enda finere</p>";
+      */
+
+      document.getElementById("minOverskrift").innerHTML = "Dette er en ny overskrift";
+
+      document.getElementById("imgBilde").width = "300";
+      document.getElementById("imgBilde").width = window.innerWidth;
+
+      document.getElementById("imgBilde").src = "bilde2.jpeg";
+    </script>
+
+  </body>
+</html>

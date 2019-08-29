@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #gruppe1{
+        background-color: lightgray;
+      }
+      #gruppe2{
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="avsnitt">Hei dette er overskriften min</h1>
+    <img id="bilde" src="bilde1.jpeg" alt="Bilde">
+    <div id="gruppe1">
+      <h3>Gruppe1</h3>
+      <p>Tekst i gruppe 1</p>
+    </div>
+    <div id="gruppe2">
+      <h3>Gruppe2</h3>
+      <p>Tekst i gruppe 2</p>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("avsnitt").innerHTML = "Ny overskrift"
+      document.getElementById("bilde").src = "bilde2.jpeg"
+      document.getElementById("gruppe2").innerHTML = document.getElementById("gruppe1").innerHTML
+
+    </script>
+  </body>
+</html>

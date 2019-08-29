@@ -9,4 +9,12 @@
   .nettside__overskrift{
     margin: 20px;
   }
+  .om_meg{
+    flex-direction: column;
+  }
+  .om_meg_h2{
+    border-right: 0px;
+    border-bottom: 2px solid black;
+    width: 100%
+  }
 }
