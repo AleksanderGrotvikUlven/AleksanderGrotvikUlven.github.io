@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>oppgaver</title>
+  </head>
+  <body>
+    <h2>Oppgave 2</h2>
+      <p id="o2"></p>
+    <h2>Oppgave 4</h2>
+      <p id="o4"><ul> </ul></p>
+    <h2>Oppgave 5</h2>
+      <div>
+        <img src="" id="Bilde">
+      </div>
+    <script type="text/javascript">
+      //Oppgave 2
+      var alder = prompt("Skriv inn din alder");
+      var o2 = document.querySelector("#o2");
+      o2.innerHTML = (alder);
+
+      //Oppgave 4
+      var o2 = document.querySelector("#o4");
+      var forrett = prompt("Hva ønsker du til forrett");
+      var hovedrett = prompt("Hva ønsker du til hovedrett");
+      var dessert = prompt("Hva ønsker du til dessert");
+
+      o2.innerHTML = "<li>Forrett: "+forrett+"</li>";
+      o2.innerHTML += "<li>Hovedrett: "+hovedrett+"</li>";
+      o2.innerHTML += "<li>Dessert: "+dessert+"</li>";
+
+      //Oppgave 5
+      var bilde = document.querySelector("#Bilde");
+      var random = Math.floor(Math.random()*3)+1;
+      if (random === 1) {
+        bilde.src = "../bilder/bilde1.jpeg";
+      } else if (random === 2){
+        bilde.src = "../bilder/bilde2.jpeg";
+      } else {
+        bilde.src = "../bilder/bilde3.jpeg";
+      }
+
+    </script>
+
+  </body>
+</html>
