@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Knapp og Input</title>
+  </head>
+  <body>
+    <div>
+      Skriv inn et tall: <input type="number" id="inpTall1">
+      Skriv inn et tall: <input type="number" id="inpTall2">
+      <button type="button" id="btnAddisjon">+</button>
+      <button type="button" id="btnSubtraksjon">-</button>
+      <button type="button" id="btnMultiplikasjon">*</button>
+      <button type="button" id="btnDivisjon">/</button>
+      <p id="print"></p>
+    </div>
+
+    <div>
+      Skriv inn din fart i m/s: <input type="number" id="inpM">
+      <button type="button" id="btnKm">Regn ut</button>
+      <p id="print2"></p>
+      Skriv inn din fart i km/h: <input type="number" id="inpKm">
+      <button type="button" id="btnM">Regn ut</button>
+      <p id="print3"></p>
+    </div>
+
+    <div>
+      Skriv inn bredde i px: <input type="number" id="inpBre">
+      Skriv inn høyde i px: <input type="number" id="inpHøy">
+      <button type="button" id="btnVis">Vis figur</button>
+      <br>
+      <canvas id="canvas" width="300" height="400"></canvas>
+    </div>
+
+
+
+    <script type="text/javascript">
+      //oppgave 3
+      var inpTall1 = document.querySelector("#inpTall1");
+      var inpTall2 = document.querySelector("#inpTall2");
+      var btnAddisjon = document.querySelector("#btnAddisjon");
+      var btnSubtraksjon = document.querySelector("#btnSubtraksjon");
+      var btnMultiplikasjon = document.querySelector("#btnMultiplikasjon");
+      var btnDivisjon = document.querySelector("#btnDivisjon");
+      var print = document.querySelector("#print");
+
+      btnAddisjon.onclick = function(){
+        var sum = Number(inpTall1.value) + Number(inpTall2.value);
+        print.innerHTML = "Svaret er " + sum;
+      };
+      btnSubtraksjon.onclick = function(){
+        var sum = Number(inpTall1.value) - Number(inpTall2.value);
+        print.innerHTML = "Svaret er " + sum;
+      };
+      btnMultiplikasjon.onclick = function(){
+        var sum = Number(inpTall1.value) * Number(inpTall2.value);
+        print.innerHTML = "Svaret er " + sum;
+      };
+      btnDivisjon.onclick = function(){
+        var sum = Number(inpTall1.value) / Number(inpTall2.value);
+        print.innerHTML = "Svaret er " + sum;
+      };
+
+      //Oppgave 4
+      var inpM = document.querySelector("#inpM");
+      var inpKm = document.querySelector("#inpKm");
+      var btnKm = document.querySelector("#btnKm");
+      var btnM = document.querySelector("#btnM");
+      var print2 =document.querySelector("#print2")
+      var print3 =document.querySelector("#print3")
+
+      btnKm.onclick = function() {
+        var regnUt = Number(inpM.value) * 3.6;
+        print2.innerHTML = inpM.value + "m/s = " + regnUt + "km/h";
+      };
+      btnM.onclick = function() {
+        var regnTilbake = Number(inpKm.value) / 3.6;
+        print3.innerHTML = inpKm.value + "km/h = " + regnTilbake + "m/s";
+      };
+
+      //Oppgave 5
+      var inpBre = document.querySelector("#inpBre");
+      var inpHøy = document.querySelector("#inpHøy");
+      var btnVis = document.querySelector("#btnVis");
+
+      btnVis.onclick = function() {
+        var canvas = document.querySelector("#canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+          ctx.fillStyle = "red";
+          ctx.fillRect(50,50,Number(inpBre.value),Number(inpHøy.value));
+          ctx.fill();
+        ctx.closePath();
+      };
+
+    </script>
+
+  </body>
+</html>

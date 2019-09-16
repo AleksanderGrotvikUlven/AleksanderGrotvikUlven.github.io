@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Knapp og input</title>
+  </head>
+  <body>
+    Skriv navnet ditt: <input type="text" id="inpNavn">
+    <button type="button" id="btnSkrivUt">Trykk her</button>
+    <p id="utskrift"></p>
+    <script type="text/javascript">
+      var inpNavn = document.querySelector("#inpNavn");
+      var btnSkrivUt = document.querySelector("#btnSkrivUt");
+      var utskrift = document.querySelector("#utskrift");
+
+      btnSkrivUt.onclick = function() {
+        utskrift.innerHTML = "Hei " + inpNavn.value;
+        utskrift.innerHTML += " Vi har trykket på knappen";
+      }; 
+
+    </script>
+
+  </body>
+</html>

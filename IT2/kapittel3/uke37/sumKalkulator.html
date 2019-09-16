@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kalkultor</title>
+  </head>
+  <body>
+    Skriv ett tall her: <input type="number" id="inpTall1">
+    <br>
+    Skriv ett annet tall her: <input type="number" id="inpTall2">
+    <br>
+    <button type="button" id="btnAddisjon">+</button>
+    <button type="button" id="btnDivisjon">-</button>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var inpTall1 = document.querySelector("#inpTall1");
+      var inpTall2 = document.querySelector("#inpTall2");
+      var btnAddisjon = document.querySelector("#btnAddisjon");
+      var btnDivisjon = document.querySelector("#btnDivisjon");
+      var utskrift = document.querySelector("#utskrift");
+
+      btnAddisjon.onclick = function(){
+        var sum = Number(inpTall1.value) + Number(inpTall2.value);
+        utskrift.innerHTML = "Svaret er " + sum;
+      };
+      btnDivisjon.onclick = function(){
+        var sum = Number(inpTall1.value) - Number(inpTall2.value);
+        utskrift.innerHTML = "Svaret er " + sum;
+      };
+    </script>
+
+  </body>
+</html>
