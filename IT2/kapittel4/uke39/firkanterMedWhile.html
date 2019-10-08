@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>while</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="text/javascript">
+    var canvas = document.querySelector("#canvas");
+    var ctx = canvas.getContext("2d");
+    var side = 150;
+    var xPos = 0;
+    var yPos =0;
+    while(side>0){
+      ctx.rect(xPos, yPos, side, side);
+      ctx.stroke();
+      side = side-10
+      xPos = xPos+5
+      yPos = yPos+5
+    }
+    </script>
+  </body>
+</html>

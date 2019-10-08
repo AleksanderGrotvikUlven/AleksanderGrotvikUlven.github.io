@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .oppgaver{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+    }
+    .oppgave{
+      margin: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="oppgaver">
+      <div class="oppgave">
+        <h2>Oppgave 1</h2>
+        <canvas id="canvas" width="400" height="400"></canvas>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 2</h2>
+        <h4>Konverter fra fahrenheit til celsius</h4>
+        <input type="number" id="fahrenheit">
+        <button type="button" id="btnKonverter">Konverter</button>
+        <p id="utskrift2"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 3</h2>
+        <h4>Skriv inn din høyde i cm. for å se de attraksjonene du kan ta.</h4>
+        <input type="number" id="hoyde">
+        <button type="button" id="btnAttraksjoner">Se attraksjoner</button>
+        <p id="utskrift3"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 4</h2>
+        <h4>Skriv inn et tall.</h4>
+        <input type="number" id="tall">
+        <button type="button" id="btnVisTall">Vis oddetall</button>
+        <p id="utskrift4"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 5</h2>
+        <h4>Gjett tallet</h4>
+        <input type="number" id="gjettTall">
+        <button type="button" id="btnGjett">Gjett</button>
+        <p id="utskrift5"></p>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      //Oppgave 1
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var x = 200;
+      var y = 200;
+
+      for (var i = 1; i <= 10; i++) {
+        var radius = 200-(15*i);
+        ctx.arc(x,y,radius, 0, 2*Math.PI);
+        ctx.stroke();
+      }
+
+      //Oppgave 2
+      var fahrenheit = document.querySelector("#fahrenheit");
+      var btnKonverter = document.querySelector("#btnKonverter");
+      var utskrift2 = document.querySelector("#utskrift2");
+      var celsius = 0;
+
+      btnKonverter.onclick = function() {
+        celsius = (Number(fahrenheit.value)-32)/1.8;
+        utskrift2.innerHTML = "Du skrev inn "+fahrenheit.value+" grader fahrenheit. Dette er "+celsius+" grader celsius";
+      }
+
+      //Oppgave 3
+      var hoyde = document.querySelector("#hoyde");
+      var btnAttraksjoner = document.querySelector("#btnAttraksjoner");
+      var utskrift3 = document.querySelector("#utskrift3");
+
+      btnAttraksjoner.onclick = function() {
+        if (hoyde.value >= 140) {
+          utskrift3.innerHTML = "Du kan kjøre alle berg og dalbanene."
+        }
+        else if(hoyde.value >= 130) {
+          utskrift3.innerHTML = "Du kan kjøre to av berg og dalbanene."
+        }
+        else if(hoyde.value >=120 && hoyde.value < 130) {
+          utskrift3.innerHTML = "Du må ha med deg en voksen."
+        }
+        else {
+          utskrift3.innerHTML = "Prøv noen andre attraksjoner."
+        }
+      }
+
+      //Oppgave 4
+      var tall = document.querySelector("#tall");
+      var btnVisTall = document.querySelector("#btnVisTall");
+      var utskrift4 = document.querySelector("#utskrift4");
+
+      btnVisTall.onclick = function() {
+        for (var i = tall.value; i >= 1; i--) {
+          var sum = i%2;
+          if (sum == 0) {
+            utskrift4.innerHTML += i-1+"<br>";
+          }
+        }
+      }
+
+      //Oppgave 5
+      var gjettTall = document.querySelector("#gjettTall");
+      var btnGjett = document.querySelector("#btnGjett");
+      var utskrift5 = document.querySelector("#utskrift5");
+
+      btnGjett.onclick = function() {
+        var tilfeldigTall = Math.floor(Math.random()*100)+1; //Tilfeldig tall mellom 1 og 100
+        if (gjettTall.value == tilfeldigTall.value) {
+          utskrift5.innerHTML = "Gratulerer, du gjettet riktig."+"<br>";
+        }
+        else if (gjettTall.value <= tilfeldigTall.value) {
+          utskrift5.innerHTML = "For lavt, prøv igjen."+"<br>";
+        }
+        else if (gjettTall.value >= tilfeldigTall.value) {
+          utskrift5.innerHTML = "For høyt, prøv igjen."+"<br>";
+        }
+        utskrift5.innerHTML += tilfeldigTall+"<br>";
+      }
+
+
+
+
+    </script>
+  </body>
+</html>

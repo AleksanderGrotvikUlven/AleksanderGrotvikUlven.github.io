@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Oppgave 2</h3>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <h3>Oppgave 1</h3>
+    <p id="output1"></p>
+
+    <h3>Oppgave 3</h3>
+    <p id="output3"></p>
+
+    <h3>Oppgave 4</h3>
+    <p id="output4"></p>
+
+    <script type="text/javascript">
+      //Oppgave 2
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var strek = 300;
+      var xPos = 0;
+      var yPos = 0;
+
+      while (yPos<300) {
+        ctx.moveTo(xPos, yPos);
+        ctx.lineTo(xPos+strek, yPos);
+        ctx.stroke();
+        yPos = yPos+10;
+      }
+
+      //Oppgave 1
+      var tall = Math.floor(Math.random()*10)+1;
+      var output1 = document.querySelector("#output1");
+      while (tall!==10) {
+        output1.innerHTML += "Du fikk "+tall+", Game over!"+"<br>"
+        tall = Math.floor(Math.random()*10)+1;
+      }
+      output1.innerHTML += "Du fikk "+tall+", Winner!";
+
+      //Oppgave 3
+      var antKast = 0;
+      var terningSum = 0;
+      var output3 = document.querySelector("#output3");
+      while (terningSum<50) {
+        terningSum = terningSum + Math.floor(Math.random()*6)+1;
+        output3.innerHTML += "Summen er nå "+terningSum+"<br>";
+        antKast++;
+      }
+      output3.innerHTML += "Antall kast er "+antKast+"<br>"+"<br>";
+      var i = 10;
+      while (i<=30) {
+        i = i+2;
+        output3.innerHTML += i + ", "
+      }
+
+      //Oppgave 4
+      var gangeTabell = 0;
+      var output4 = document.querySelector("#output4");
+      while (gangeTabell<80) {
+        gangeTabell = gangeTabell+8;
+        output4.innerHTML += gangeTabell+", ";
+      }
+    </script>
+  </body>
+</html>

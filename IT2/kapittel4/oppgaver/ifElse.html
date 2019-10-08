@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>oppgaver</title>
+    <style media="screen">
+      .oppgaver{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      }
+      .oppgave{
+        margin: 20px;
+      }
+      button{
+        background-color: lightgray;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="oppgaver">
+      <div class="oppgave">
+        <h2>Oppgave 1</h2>
+        <h4>Skriv et tall</h4>
+        <input type="number" id="inp11">
+        <h4>Skriv et annet tall</h4>
+        <input type="number" id="inp12">
+        <br><br>
+        <button type="button" id="btn1">Gå videre</button>
+        <p id="output1"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 2</h2>
+        <h4>Skriv inn din alder</h4>
+        <input type="number" id="inp2">
+        <button type="button" id="btn2">Se din billett</button>
+        <p id="output2"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 3</h2>
+        <h4>Skriv inn en figur</h4>
+        <input type="text" id="inp3">
+        <button type="button" id="btn3">Vis figur</button>
+        <p id="output3"></p>
+        <canvas id="canvas3" width="300" height="300"></canvas>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 4</h2>
+        <button type="button" id="btn4">Kast 3 terninger</button>
+        <p id="output4"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 5</h2>
+        <p id="output5"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 6</h2>
+        <h4>Skriv et tall mellom 1 og 6</h4>
+        <input type="number" id="inp6">
+        <button type="button" id="btn6">Gjettet du riktig?</button>
+        <p id="output6"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 7</h2>
+        <h4>Hvilket kjønn er du?</h4>
+        <button type="button" id="btn71">Mann</button>
+        <button type="button" id="btn72">Kvinne</button>
+        <p id="output7"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 8</h2>
+        <input type="text" id="inp8">
+        <button type="button" id="btn8">Submit</button>
+        <canvas id="canvas8" width="300" height="300"></canvas>
+        <p id="output8"></p>
+      </div>
+      <div class="oppgave">
+        <h2>Oppgave 9</h2>
+        <h4>Skriv inn et tall</h4>
+        <input type="number" id="inp9">
+        <button type="button" id="btn9">Gå videre</button>
+        <p id="output9"></p>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    //Oppgave 1
+    var inp11 = document.querySelector("#inp11");
+    var inp12 = document.querySelector("#inp12");
+    var btn1 = document.querySelector("#btn1");
+    var output1 = document.querySelector("#output1");
+
+    btn1.onclick = function() {
+      var t11 = Number(inp11.value);
+      var t12 = Number(inp12.value);
+
+      if (t11 > t12) {
+        output1.innerHTML = "Tall 1 er større enn tall 2: " + inp11.value + ">" + inp12.value
+      }
+      else if (t11 == t12) {
+        output1.innerHTML = "Tallene er like store: " + inp11.value + "=" + inp12.value
+      }
+      else {
+        output1.innerHTML = "Tall 1 er mindre enn tall 2: " + inp11.value + "<" + inp12.value
+      }
+    }
+
+    //Oppgave 2
+    var inp2 = document.querySelector("#inp2");
+    var btn2 = document.querySelector("#btn2");
+    var output2 = document.querySelector("#output2");
+
+    btn2.onclick = function() {
+      var alder = Number(inp2.value);
+
+      if (alder >= 67) {
+        output2.innerHTML = "Du kan kjøpe honnørbillett siden du er " + inp2.value + "år.";
+      }
+      else if (alder > 16) {
+        output2.innerHTML = "Du må kjøpe voksenbillett siden du er " + inp2.value + "år.";
+      }
+      else {
+        output2.innerHTML = "Du kan kjøpe barnebillett siden du er " + inp2.value + "år.";
+      }
+    }
+
+    //Oppgave 3
+    var inp3 = document.querySelector("#inp3");
+    var btn3 = document.querySelector("#btn3");
+    var output3 = document.querySelector("#output3");
+    var canvas3 = document.querySelector("#canvas3");
+    var ctx3 = canvas3.getContext("2d");
+
+    btn3.onclick = function() {
+      if (inp3.value.toLowerCase() == "sirkel") {
+        output3.innerHTML = "Du skrev inn Sirkel";
+        ctx3.beginPath();
+        ctx3.fillStyle = "darkgray";
+        var x = 50;
+        var y = 50;
+        var radius = 50;
+        ctx3.arc(x,y,radius, 0, 2*Math.PI);
+        ctx3.fill();
+        ctx3.closePath();
+      }
+      else if (inp3.value.toLowerCase() == "firkant") {
+        output3.innerHTML = "Du skrev inn Firkant";
+        ctx.beginPath();
+        ctx.fillStyle = "lightgray"; //Farge rektangel
+        ctx.fillRect(100,0,100,100); //x,y,bredde,høyde
+        ctx.closePath();
+      }
+      else {
+        output3.innerHTML = "Du må skrive inn Firkant eller Sirkel";
+      }
+    }
+
+    //Oppgave 4
+    var btn4 = document.querySelector("#btn4");
+    var output4 = document.querySelector("#output4");
+
+    btn4.onclick = function() {
+      var t1 = Math.floor(Math.random()*6)+1;
+      var t2 = Math.floor(Math.random()*6)+1;
+      var t3 = Math.floor(Math.random()*6)+1;
+      var sum = t1+t2+t3
+      if (sum == 18) {
+        output4.innerHTML = "Gratulerer! Du vant."
+      }
+      else if (sum >= 16) {
+        output4.innerHTML = "Du fikk minst en sekser."
+      }
+      else {
+        output4.innerHTML = "Du tapte."
+      }
+    }
+
+    //Oppgave5
+
+    var output5 = document.querySelector("#output5");
+    var sum = 0
+    output5.innerHTML = '<input type="text" id="inp51" placeholder="Hovedstaden i Norge?"><button type="button" id="btn51">Neste spørsmål</button>'
+    var inp51 = document.querySelector("#inp51");
+    var btn51 = document.querySelector("#btn51");
+
+    btn51.onclick = function() {
+      if (inp51.value.toLowerCase() == "oslo") {
+        sum = sum+1
+      }
+      output5.innerHTML = 'Du har nå '+sum+' poeng.<br><input type="text" id="inp52" placeholder="Hvor ligger Sandvika?"><button type="button" id="btn52">Ferdig</button>'
+    }
+
+    var inp52 = document.querySelector("#inp52");
+    var btn52 = document.querySelector("#btn52");
+    btn52.onclick = function() {
+      if (inp52.value.toLowerCase() == bærum) {
+        sum = sum+1
+      }
+      output5.innerHTML = 'Du har nå '+sum+' poeng. Ingen flere spørsmål.'
+    }
+
+
+    //Oppgave 6
+    var inp6 = document.querySelector("#inp6");
+    var btn6 = document.querySelector("#btn6");
+    var output6 = document.querySelector("#output6");
+    btn6.onclick = function() {
+      var t1 = Math.floor(Math.random()*6)+1;
+      if (t1==Number(inp6.value)) {
+        output6.innerHTML = "Du vant"
+      }
+      else {
+        output6.innerHTML = "Du tapte"
+      }
+    }
+
+    //Oppgave 7
+    var btn71 = document.querySelector("#btn71");
+    var btn72 = document.querySelector("#btn72");
+    var output7 = document.querySelector("#output7");
+
+    btn71.onclick = function() {
+      output7.innerHTML = '<p>Hva er din alder?</p> <br> <input type="number "id="alderMann"></input> <span onclick="showMann()">submit</span>'
+    }
+    function showMann() {
+      var alderMann = document.querySelector("#alderMann");
+      if (alderMann.value >= 16 && alderMann.value <= 18) {
+        output7.innerHTML = "Gratulerer, du er med i klubben."
+      } else {
+        output7.innerHTML = "Beklager, du er ikke med i klubben."
+      }
+    }
+
+    btn72.onclick = function() {
+      output7.innerHTML = '<p>Hva er din alder?</p> <br> <input type="number "id="alderKvinne"></input> <br>'
+      output7.innerHTML += '<p>Hva er din høyde?</p> <br> <input type="number "id="hoydeKvinne"></input> <span onclick="showKvinne()">submit</span><br>'
+    }
+    function showKvinne() {
+      var alder = document.querySelector("#alderKvinne");
+      var hoyde = document.querySelector("#hoydeKvinne");
+
+      if (alder.value == 25 && hoyde.value >= 190) {
+        output7.innerHTML = "Gratulerer, du er med i klubben."
+      } else {
+        output7.innerHTML = "Beklager, du er ikke med i klubben."
+      }
+    }
+
+    //Oppgave 8
+    var inp8 = document.querySelector("#inp8");
+    var btn8 = document.querySelector("#btn8");
+    var output = document.querySelector("#output8");
+    var canvas8 = document.querySelector("#canvas8");
+    var ctx8 = canvas8.getContext("2d");
+
+    btn8.onclick = function() {
+      if (inp8.value.toLowerCase() == "dag") {
+        document.body.style.background = "blue"
+        ctx8.beginPath();
+        ctx8.fillStyle = "yellow";
+        var x = 100;
+        var y = 100;
+        var radius = 100;
+        ctx8.arc(x,y,radius, 0, 2*Math.PI);
+        ctx8.fill();
+        ctx8.closePath();
+      }
+      else if (inp8.value.toLowerCase() == "natt") {
+        document.body.style.background = "black"
+        ctx8.beginPath();
+        ctx8.fillStyle = "yellow";
+        var x = 50;
+        var y = 50;
+        var radius = 50;
+        ctx8.arc(x,y,radius, 0, 2*Math.PI);
+        ctx8.fill();
+        ctx8.closePath();
+      }
+      else {
+        output8.innerHTML = "Det har oppstått en feil."
+      }
+
+    }
+
+    //Oppgave 9
+    var inp9 = document.querySelector("#inp9");
+    var btn9 = document.querySelector("#btn9");
+    var output9 = document.querySelector("#output9");
+
+    btn9.onclick = function() {
+      var tall9 = Number(inp9.value)%2
+      if (tall9 == 0) {
+        output9.innerHTML = inp9.value + " er ett partall."
+      }
+      else {
+        output9.innerHTML = inp9.value + " er ett oddetall."
+      }
+    }
+
+    </script>
+
+  </body>
+</html>

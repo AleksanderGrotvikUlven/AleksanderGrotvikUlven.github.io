@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Oppgave 1</h3>
+    <p id="output1"></p>
+
+    <h3>Oppgave 2</h3>
+    <p id="output2"></p>
+
+    <h3>Oppgave 3</h3>
+    <p id="output3"></p>
+
+    <h3>Oppgave 4</h3>
+    <p id="output4"></p>
+
+    <h3>Oppgave 5</h3>
+    <p id="output5"></p>
+
+    <h3>Oppgave 6</h3>
+    <p id="output6"></p>
+
+    <h3>Oppgave 7</h3>
+    <p id="output7"></p>
+
+    <h3>Oppgave 8</h3>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <h3>Oppgave 9</h3>
+    Skriv inn et tall:<input type="number" id="inp9">
+    <button type="button" id="btn9">se nå</button>
+    <p id="output9"></p>
+
+    <h3>Oppgave 10</h3>
+    <input type="number" id="inp10">
+    <button type="button" id="btn10">Se fakultet</button>
+    <p id="output10"></p>
+
+    <script type="text/javascript">
+      //Oppgave 1
+      var output1 = document.querySelector("#output1");
+      for (var i = 1; i <= 50; i++) {
+        output1.innerHTML += i + ", ";
+      }
+
+      //Oppgave 2
+      var output2 = document.querySelector("#output2");
+      for (var i = 20; i >= 0; i--) {
+        output2.innerHTML += i + ", ";
+      }
+
+      //Oppgave 3
+      var output3 = document.querySelector("#output3");
+      for (var i = 1; i < 1000; i++) {
+        if (i%3==0) {
+          output3.innerHTML += i + ", ";
+        }
+      }
+
+      //Oppgave 4
+      var output4 = document.querySelector("#output4");
+      for (var i = 1; i <= 100; i++) {
+        if (i%2==0) {
+          output4.innerHTML += i + ", "
+        }
+      }
+
+      //Oppgave 5
+      var output5 = document.querySelector("#output5");
+      var tekst = "#";
+      for (var i = 0; i <= 5; i++) {
+        output5.innerHTML += tekst+"<br>";
+        tekst = tekst + "#";
+      }
+
+      //Oppgave 6
+      var output6 = document.querySelector("#output6")
+      for (var i = -20; i <= 20; i++) {
+        if (i==13) {
+        }
+        else if (i==(-13)) {
+        }
+        else {
+          output6.innerHTML += i+ ", ";
+        }
+      }
+
+      //Oppgave 7
+      var output7 = document.querySelector("#output7")
+      for (var i = 1; i <= 100; i++) {
+        if (i%3 == 0 && i%5 == 0) {
+          output7.innerHTML += "fizzbuzz, "
+        }
+        else if (i%3 == 0) {
+          output7.innerHTML += "fizz, "
+        }
+        else if (i%5 == 0) {
+          output7.innerHTML += "buzz, "
+        }
+        else {
+          output7.innerHTML += i+", "
+        }
+      }
+
+      //Oppgave 8
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var xPos = -50; //Startposisjon, -50 for at det visuelt på siden skal starte i (0,0) i canvas
+      var yPos = -50; //Startposisjon, -50 for at det visuelt på siden skal starte i (0,0) i canvas
+      var lengde = 50;
+      for (var i = 1; i <= 5; i++) {
+        ctx.fillRect(xPos+(i*lengde), yPos+(i*lengde), lengde, lengde);
+        ctx.stroke();
+      }
+
+      //Oppgave 9
+      var inp9 = document.querySelector("#inp9");
+      var btn9 = document.querySelector("#btn9");
+      var output9 = document.querySelector("#output9");
+      btn9.onclick = function() {
+        for (var i = 0; i <= 100; i++) {
+          if (i%inp9.value == 0) {
+            output9.innerHTML += i+", ";
+          }
+        }
+      }
+
+      //Oppgave 10
+      var inp10 = document.querySelector("#inp10");
+      var btn10 = document.querySelector("#btn10");
+      var output10 = document.querySelector("#output10");
+      btn10.onclick = function() {
+        var sum = 1;
+        for (var i = inp10.value; i > 1; i--) {
+          output10.innerHTML += i + " * "
+          sum = sum*i;
+        }
+        output10.innerHTML += "1 = " + sum
+      }
+
+
+    </script>
+  </body>
+</html>

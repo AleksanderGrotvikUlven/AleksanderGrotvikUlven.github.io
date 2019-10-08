@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>handletur</title>
+  </head>
+  <body>
+    <div class="">
+      Pris vare 1: <input type="number" id="inp1">
+      Pris vare 2: <input type="number" id="inp2">
+      <button type="button" id="btnSum">Sjekk pris</button>
+
+    </div>
+    <p id="output"></p>
+
+    <script type="text/javascript">
+    var inp1 = document.querySelector("#inp1");
+    var inp2 = document.querySelector("#inp2");
+    var btnSum = document.querySelector("#btnSum");
+    var output = document.querySelector("#output");
+    var belop = 100;
+
+    btnSum.onclick = function() {
+      var t1 = Number(inp1.value);
+      var t2 = Number(inp2.value);
+      var sum = t1+t2
+
+      if (sum > belop) {
+        output.innerHTML = "Du har ikke råd. Du mangler " + (sum-belop) + "kr.";
+      }
+      else if (sum == belop) {
+        output.innerHTML = "Du har akkuratt råd."
+      }
+      else {
+        output.innerHTML = "Du har råd, du har nå " + (belop-sum) + "kr igjen."
+      }
+    }
+
+    </script>
+  </body>
+</html>

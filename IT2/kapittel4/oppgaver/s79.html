@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>oppgaver</title>
+  </head>
+  <body>
+    <h2>Oppgave 2</h2>
+    <h3>Hvilket bilmerke er kjent for sine "Boxer" motorer?</h3>
+    <input type="text" id="input">
+    <button type="button" id="btn">Svar avgitt</button>
+    <p id="output"></p>
+    <img id="bilde" src="" alt="">
+
+    <script type="text/javascript">
+    var inp = document.querySelector("#input")
+    var btn = document.querySelector("#btn")
+    var output = document.querySelector("#output")
+    var bilde = document.querySelector("#bilde")
+
+    btn.onclick = function() {
+      if (inp.value.toLowerCase() == "subaru") {
+        output.innerHTML = "Subaru er riktig svar!" + "<br>";
+        bilde.src = "../bilder/pokal.jpg";
+      } else {
+        output.innerHTML = inp.value + " er feil svar, Det riktig svaret er Subaru." + "<br>";
+        bilde.src = "../bilder/narr.png";
+      }
+    }
+
+    </script>
+
+  </body>
+</html>

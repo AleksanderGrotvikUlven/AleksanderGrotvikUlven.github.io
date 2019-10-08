@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>boolean</title>
+  </head>
+  <body>
+    <p>Har du valgt IT2?</p>
+    <p>Svar: <input type="text" id="inpSvar" value="ja"></p>
+    <button type="button" id="btnSvar">Registrer</button>
+
+    <script type="text/javascript">
+      var inpSvar = document.querySelector("#inpSvar");
+      var btnSvar = document.querySelector("#btnSvar");
+      var it2 = true;
+
+      btnSvar.onclick = function() {
+        it2 = (inpSvar.value === "ja");
+        if (it2) {
+          document.write("Du er smart");
+        }
+        else {
+          document.write("Synd for deg");
+        }
+      }
+      //Næstede if-setninger
+      var tall = 6
+      if (tall<10) {
+        document.write("<br>" + "<br>" + "under 10 ");
+        if (tall<8) {
+          document.write("under 8 ");
+        }
+      }
+
+    </script>
+  </body>
+</html>

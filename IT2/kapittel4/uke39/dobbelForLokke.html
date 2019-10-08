@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      for (var i = 0; i < 2; i++) {
+        for (var j = 0; j < 3; j++) {
+          document.write("i: "+i+" j: "+j);
+        }
+      }
+
+      //Den lille gangeTabell
+      var produkt;
+      for (var faktor1 = 1; faktor1 <= 10; faktor1++) {
+        for (var faktor2 = 1; faktor2 <= 10; faktor2++) {
+          produkt = faktor1*faktor2;
+          document.write(faktor1+"*"+faktor2+"="+produkt+"<br>");
+        }
+        document.write("<br>");
+      }
+    </script>
+
+  </body>
+</html>

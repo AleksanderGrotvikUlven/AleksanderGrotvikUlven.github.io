@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>flere if'er</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var terning1 = Math.floor(Math.random()*6+1);
+      var terning2 = Math.floor(Math.random()*6+1);
+      var sum = terning1 + terning2;
+
+      document.write("Tallene er " + terning1 + " og " + terning2 + "<br>");
+      if (terning1 == terning2) {
+        document.write("Du fikk to like tall" + "<br>");
+      }
+      if (sum > 8) {
+        document.write("Du fikk en sum større enn 8" + "<br>");
+      }
+      if (terning1 > terning2) {
+        document.write("Kast nr. 1 var størst" + "<br>");
+      }
+
+    </script>
+
+  </body>
+</html>
