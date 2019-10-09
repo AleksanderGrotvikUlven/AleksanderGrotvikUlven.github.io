@@ -112,19 +112,21 @@
       var gjettTall = document.querySelector("#gjettTall");
       var btnGjett = document.querySelector("#btnGjett");
       var utskrift5 = document.querySelector("#utskrift5");
+      var tilfeldigTall = Math.floor(Math.random()*100)+1;
+      var forsok = 0
 
       btnGjett.onclick = function() {
-        var tilfeldigTall = Math.floor(Math.random()*100)+1; //Tilfeldig tall mellom 1 og 100
-        if (gjettTall.value == tilfeldigTall.value) {
+        if (gjettTall.value == tilfeldigTall) {
           utskrift5.innerHTML = "Gratulerer, du gjettet riktig."+"<br>";
         }
-        else if (gjettTall.value <= tilfeldigTall.value) {
-          utskrift5.innerHTML = "For lavt, prøv igjen."+"<br>";
+        else if (gjettTall.value < tilfeldigTall) {
+          utskrift5.innerHTML = "For lavt, prøv igjen.";
         }
-        else if (gjettTall.value >= tilfeldigTall.value) {
-          utskrift5.innerHTML = "For høyt, prøv igjen."+"<br>";
+        else if (gjettTall.value > tilfeldigTall) {
+          utskrift5.innerHTML = "For høyt, prøv igjen.";
         }
-        utskrift5.innerHTML += tilfeldigTall+"<br>";
+        forsok = forsok + 1
+        utskrift5.innerHTML += "<br><br>Antall forsøk: "+forsok
       }
 
 
