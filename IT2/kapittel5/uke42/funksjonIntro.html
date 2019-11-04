@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Intro</title>
+  </head>
+  <body>
+    <h1>Funksjoner</h1>
+    <p>
+      Funksjoner kalles også delprogrammer. <br>
+      Vi kan dele programmet opp i flere deler.
+    </p>
+
+    <script type="text/javascript">
+      /*function functionName() {
+        //Kode
+      }*/
+
+      function siHei() {
+        console.log("Hei")
+      }
+      siHei();
+
+      function endreStil() {
+        document.body.style.backgroundColor="lightblue";
+        document.body.style.color="gray";
+        document.body.style.fontSize="150%";
+      }
+      endreStil();
+
+      /*function functionName(parameter) {
+      }
+      functionName(argument eller parameterverdi);*/
+
+      function sayHei(navn) {
+        console.log("Hei " + navn);
+      }
+      sayHei("Ola");
+
+      function arealRektangel(lengde,bredde) {
+        var areal = lengde*bredde;
+        //document.write("Arealet er " + areal);
+        return areal;
+        //return lengde*bredde
+      }
+      arealRektangel(2,3);
+      var mittAreal = arealRektangel(3,4);
+      document.write(mittAreal+"<br>");
+
+      var minSkatt = beregnSkatt(600000,40);
+      document.write(minSkatt+"<br>");
+
+      function beregnSkatt(inntekt,prosent) {
+        var skatt = inntekt*prosent/100;
+        return skatt;
+      }
+
+      function sjekkMyndig(alder) {
+        if (alder>=18) {
+          return "myndig";
+        }
+        return "ikke myndig";
+      }
+      var erMyndig = sjekkMyndig(17);
+      document.write(erMyndig+"<br>");
+      erMyndig = sjekkMyndig(20);
+      document.write(erMyndig+"<br>");
+
+    </script>
+  </body>
+</html>

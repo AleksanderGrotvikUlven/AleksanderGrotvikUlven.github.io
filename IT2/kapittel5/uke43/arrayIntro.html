@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var landeliste = ["Norge", "Sverige", "Danmark", "Italia"];//[0,1,2,3]
+      document.write(landeliste[2]+"<br>");//Henter ut verdi 2
+      landeliste[0] = "Storbritania" //Bytter norge til storbritania
+      document.write(landeliste[0]+"<br>");//Henter ut verdi 0
+
+      //For å finne indexen til et element
+      document.write("indeks "+ landeliste.indexOf("Sverige")+"<br>");//Returnerer index tallet
+      document.write("indeks "+ landeliste.indexOf("Ukjent")+"<br>");//Returnerer index = -1 når ladet ikke finnes
+
+      var poeng = [];
+      poeng[0] = 12;
+      poeng[1] = 73;
+      poeng[2] = 26;
+      poeng[12] = 29;
+      document.write(poeng[4]+"<br>");//Søker etter 4 som ikke er der
+      document.write(poeng.length+"<br>");//skriver lengden på arrayet som tall
+      document.write(poeng+"<br>");
+      poeng[poeng.length]=8 //legger til 8 som verdi på siste index nummer
+      document.write(poeng+"<br>");
+
+      var sum = 0;
+      for (var i = 0; i < poeng.length; i++) {
+        if (poeng[i] !== undefined) {
+          document.write("element nr "+i+" er "+poeng[i]+"<br>");
+          sum = sum + poeng[i];
+        }
+      }
+      document.write("Summen er "+sum+"<br>");
+
+
+    </script>
+  </body>
+</html>

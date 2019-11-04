@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Metoder til array</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var landliste = ["Frankrike", "Norge", "Sverige", "Danmark", "USA", "Tyrkia"];
+      document.write(landliste+"<br>");
+
+      landliste.pop();//Tar bort siste verdi i arrayet
+      document.write(landliste+"<br>");
+
+      landliste.push("England");//Legger til en ny verdi på slutten av arrayet
+      document.write(landliste+"<br>");
+
+      landliste.shift();//Tar bort første verdi i arrayet
+      document.write(landliste+"<br>");
+
+      landliste.splice(2,1);//sletter verdien med index 2, og et element bortover
+      document.write(landliste+"<br>");
+
+      landliste.splice(2,1, "Spania");//sletter verdien med index 2, og et element bortover, legger til Spania
+      document.write(landliste+"<br>");
+
+      landliste.reverse();//Reverserer rekkefølgen
+      document.write(landliste+"<br>");
+
+      landliste.sort();//Sorterer i alfabetisk rekkefølge
+      document.write(landliste+"<br>");
+
+    </script>
+  </body>
+</html>

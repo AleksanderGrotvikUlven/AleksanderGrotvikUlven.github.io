@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>tall array</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var tallArr = [12, 4, 23, 2, 9];
+      var maks = tallArr[0];
+      var min = tallArr[0];
+
+      //Funksjon som finner den største verdien i arrayet tallArr
+      for (var i = 0; i < tallArr.length; i++) {
+        if (tallArr[i]>maks) {
+          maks = tallArr[i]
+        }
+      }
+      document.write("Maks verdi er "+maks+"<br>")
+
+      //Funksjon som finner den minste verdien i arrayet tallArr
+      for (var i = 0; i < tallArr.length; i++) {
+        if (tallArr[i]<min) {
+          min = tallArr[i];
+        }
+      }
+      document.write("Minste verdi er "+min+"<br>")
+
+      //Utskriftfunksjon for array tallArr
+      function utskrift() {
+        for (var i = 0; i < tallArr.length; i++) {
+          document.write(tallArr[i] + "<br>");
+        }
+      }
+      utskrift();
+
+
+    </script>
+  </body>
+</html>

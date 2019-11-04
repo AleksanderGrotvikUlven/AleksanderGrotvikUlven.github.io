@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hendelsesstyrete funksjoner</title>
+  </head>
+  <body>
+    <button type="button" id="minKnapp" name="button">Trykk her</button>
+    <div id="divElement">
+      <p>Trykk og jeg flytter meg</p>
+    </div>
+
+    <script type="text/javascript">
+      /*
+      window.onclick = function() {
+        alert("Du klikket på siden");
+      }
+      window.onmousemove = function(){
+        javascript:history.go(0);
+      }
+      */
+
+      var minKnapp = document.querySelector("#minKnapp");
+      var divElement = document.querySelector("#divElement");
+      minKnapp.onmouseout = function() {
+        alert("Du beveget musen over knappen");
+      }
+
+      window.onclick = function(evt) {
+        divElement.style.marginLeft = evt.clientX + "px";
+        divElement.style.marginTop = evt.clientY + "px";
+      }
+    </script>
+  </body>
+</html>

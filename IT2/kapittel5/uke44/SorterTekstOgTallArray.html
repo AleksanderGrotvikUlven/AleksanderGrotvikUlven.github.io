@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Slett funksjon</title>
+  </head>
+  <body>
+    <input type="text" id="inpSlett">
+    <button type="button" id="btnSlett">Slett</button>
+    <p id="outputSlett"></p>
+
+    <script type="text/javascript">
+      var inpSlett = document.querySelector("#inpSlett");
+      var btnSlett = document.querySelector("#btnSlett");
+      var outputSlett = document.querySelector("#outputSlett");
+
+      var navnArr = ["Per", "Siri", "Kari", "ane"];
+
+      skrivUt();
+      function skrivUt() {
+        outputSlett.innerHTML = "";
+          for (var navn of navnArr) {
+          outputSlett.innerHTML += navn+"<br>"
+        }
+      }
+
+      btnSlett.onclick = function functionName() {
+        var index = navnArr.indexOf(inpSlett.value);
+        if (index >= 0) {
+          navnArr.splice(index,1);
+        }
+        skrivUt();
+      }
+      navnArr.sort();
+      document.write(navnArr+"<br>");
+
+      //Sorter etter tekst
+      function sammenlignTekst(a,b) {
+        a = a.toUpperCase();
+        b = b.toUpperCase();
+
+        if (a<b) {
+          return -1;
+        }
+        else if (a>b) {
+          return 1;
+        }
+        else {
+          return 0;
+        }
+      }
+
+      navnArr.sort(sammenlignTekst);
+      document.write(navnArr+"<br>");
+
+
+      //Sorter tall
+      var tallArr = [12, 6, 9, 3, 17]
+      tallArr.sort();
+      document.write(tallArr+"<br>");
+
+      //Sammenligner to tall av gangen, returnerer a-b. Hvis funksjonenreturnerer et negativt tall.
+      //Plassseres a foran b fordi a er mindre enn b, blir det et positivt tall bytter de plass.
+      function sammenlignTall(a,b) {
+        return a-b;
+      }
+
+      tallArr.sort(sammenlignTall);
+      document.write(tallArr+"<br>");
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Skriv inn fravær i prosent</h2>
+    <input type="number" id="inp1" value="">
+    <button type="button" id="btn1">Gå videre</button>
+
+    <script type="text/javascript">
+    /*
+      var minVerdi = 5;//Global variabel
+      function leggTilEn() {
+        var minVerdi = 3; //Lokal variabel, gjyldig i funksjonen
+        minVerdi = minVerdi + 1; //Legger til en på den lokale
+        this.minVerdi = minVerdi + 1; //Den globale variabelen settes lik den lokale + 1
+      }
+      leggTilEn();
+      document.write(minVerdi);
+    */
+      //Skrive inn fravær i prosent
+      //Hvis fravær er under 5 prosent skal siden bli grønn
+      //Hvis fravær er 5-10% skal siden bli oransje
+      // Hvis fravær er over 10% skal siden bli rød
+
+      var inp1 = document.querySelector("#inp1");
+      var btn1 = document.querySelector("#btn1");
+
+      btn1.onclick = function() {
+        var prosentFravær = inp1.value
+        if (inp1.value ==="") {
+          alert("skriv fravær");
+          return;
+        }
+
+        if (prosentFravær <= 5) {
+          document.body.style.backgroundColor = "green";
+        }
+        else if (prosentFravær <= 10) {
+          document.body.style.backgroundColor = "orange";
+        }
+        else {
+          document.body.style.backgroundColor = "red";
+        }
+      }
+
+    </script>
+  </body>
+</html>

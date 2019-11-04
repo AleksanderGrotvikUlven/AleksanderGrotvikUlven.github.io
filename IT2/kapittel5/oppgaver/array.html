@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .oppgaver{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      }
+      .oppgave{
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="oppgaver">
+      <div class="oppgave">
+        <h3>Oppgave 1</h3>
+        <h4>Skriv inn navn</h4>
+        <input type="text" id="inp1">
+        <button type="button" id="btn1">Legg til i liste</button>
+        <p id="output1"></p>
+      </div>
+      <div class="oppgave">
+        <h3>Oppgave 2</h3>
+        <h4>Skriv inn nytt tall</h4>
+        <input type="number" id="inp2" value="">
+        <button type="button" id="btn2_1">Legg til</button>
+        <button type="button" id="btn2_2">Summer</button>
+        <button type="button" id="btn2_3">Multipliser</button>
+        <p id="output2"></p>
+      </div>
+      <div class="oppgave">
+        <h3>Oppgave 3</h3>
+        <h4>Henger sammen med oppgave 2</h4>
+        <button type="button" id="btn3">Oppdater</button>
+        <p id="output3"></p>
+      </div>
+      <div class="oppgave">
+        <h3>Oppgave 4</h3>
+        <h4>Henger sammen med 2 og 3</h4>
+        <button type="button" id="btn4">Oppdater</button>
+        <p id="output4"></p>
+      </div>
+      <div class="oppgave">
+        <h3>Oppgave 5</h3>
+        <p id="output5"></p>
+      </div>
+      <div class="oppgave">
+        <h3>Oppgave 6</h3>
+        <p id="output6"></p>
+      </div>
+    </div>
+  </body>
+  <script src="array.js" charset="utf-8"></script>
+</html>
