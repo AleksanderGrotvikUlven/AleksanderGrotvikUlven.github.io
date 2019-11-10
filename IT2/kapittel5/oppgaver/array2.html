@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .oppgaver{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      }
+      .oppgave{
+        margin: 20px;
+      }
+      td{
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="oppgaver">
+      <div class="oppgave">
+        <h2>Registrer bil</h2>
+        <input type="text" placeholder="Merke" id="inpMerke">
+        <input type="text" placeholder="Modell" id="inpModell">
+        <input type="text" placeholder="Registreringsnummer" id="inpRegNr">
+        <button type="button" id="btnLeggTil">Legg til</button>
+        <button type="button" id="btnVis">Vis tabell</button>
+
+        <table id="tabell">
+          <tr>
+            <th>Merke</th>
+            <th>Modell</th>
+            <th>Registreringsnummer</th>
+          </tr>
+        </table>
+      </div>
+      <div class="oppgave">
+        <h2>Registrer film</h2>
+        <input type="text" placeholder="Fornavn" id="inpFornavn">
+        <input type="text" placeholder="Etternavn" id="inpEtternavn">
+        <input type="text" placeholder="Antall filmer sett i år" id="inpFilm">
+        <button type="button" id="btnRegistrer">Registrer</button>
+        <p id="utskrift"></p>
+      </div>
+    </div>
+  </body>
+  <script src="array2.js" charset="utf-8"></script>
+</html>

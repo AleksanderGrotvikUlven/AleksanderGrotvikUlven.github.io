@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lag element</title>
+  </head>
+  <body>
+    <div class="">
+      <ol id="liste">
+
+      </ol>
+    </div>
+
+    <script type="text/javascript">
+      var liste = document.querySelector("#liste");
+
+      var bodyEl = document.querySelector("body");
+      var overskrift = document.createElement("h3");
+      var pElement = document.createElement("p");
+
+      overskrift.innerHTML = "Her er en overskrift"
+      pElement.innerHTML = "Her er en ny paragraf"
+
+      bodyEl.appendChild(overskrift);
+      bodyEl.appendChild(pElement);
+
+      var dyrArr = ["hest", "ku", "sau"];
+      for (var dyr of dyrArr){
+        var listepunkt = document.createElement("li");
+        listepunkt.innerHTML = dyr;
+        liste.appendChild(listepunkt);
+
+        liste.innerHTML += "<li>"+dyr+"</li>";
+      }
+
+    </script>
+  </body>
+</html>
