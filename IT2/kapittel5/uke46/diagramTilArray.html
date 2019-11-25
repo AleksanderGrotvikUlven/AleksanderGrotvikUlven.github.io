@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p>Temperaturer i uke 46</p>
+    <canvas id="canvas" width="500" height="300"></canvas>
+
+    <script type="text/javascript">
+      var temperaturer = [-3, 0, 2, -1, 0, 1];
+      var dager = ["mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
+
+      var canvas = document.querySelector("#canvas");
+      var ctx = canvas.getContext("2d");
+      var xPos = 20;
+      var yPos = 100;
+      var bredde = 30;
+      var i = 0;
+
+      for (var temp of temperaturer) {
+        if (temp < 0) {
+          ctx.fillStyle = "blue";
+          ctx.fillText(temperaturer[i],xPos+10, yPos-10);
+        }
+        else {
+          ctx.fillStyle = "red";
+          ctx.fillText(temperaturer[i],xPos+10, yPos+10);
+        }
+        if (temp===0) {
+          temp=0.1;
+        }
+        ctx.fillRect(xPos, yPos, bredde, -temp*25)
+        //tekst
+        ctx.fillStyle = "black";
+        ctx.fillText(dager[i],xPos, 25);
+        i=i+1;
+        xPos = xPos + 50;
+
+      }
+
+
+    </script>
+  </body>
+</html>

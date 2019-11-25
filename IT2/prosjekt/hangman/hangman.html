@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="hangman.css">
+    <title>Hangman</title>
+  </head>
+  <body>
+    <div class="">
+      <h1>Hangman</h1>
+      <p>Gjett bokstavene før figuren blir hengt</p>
+      <p id="forsok">Antall forsøk: </p>
+      <input type="text" placeholder="Skriv inn en bokstav" maxlength="1" id="bokstavInp">
+      <button type="button" id="btnReg">Registrer</button>
+      <p id="visOrd"></p>
+      <p>Prøvde bokstaver</p>
+      <p id="visPrøvde"></p>
+      <p id="visFeil"></p>
+    </div>
+    <canvas id="canvas" width="800" height="500"></canvas>
+
+  </body>
+  <script src="hangman.js" charset="utf-8"></script>
+</html>
