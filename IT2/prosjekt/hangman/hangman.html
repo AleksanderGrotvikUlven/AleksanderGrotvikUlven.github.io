@@ -8,16 +8,16 @@
   <body>
     <div class="">
       <h1>Hangman</h1>
-      <p>Gjett bokstavene før figuren blir hengt</p>
-      <p id="forsok">Antall forsøk: </p>
-      <input type="text" placeholder="Skriv inn en bokstav" maxlength="1" id="bokstavInp">
+      <p>Gjett ordet før figuren er ferdig tegnet</p>
+      <h3 id="forsok">Antall forsøk: 8</h3>
+      <input type="text" maxlength="1" id="bokstavInp">
       <button type="button" id="btnReg">Registrer</button>
       <p id="visOrd"></p>
-      <p>Prøvde bokstaver</p>
+      <h3>Prøvde bokstaver</h3>
       <p id="visPrøvde"></p>
       <p id="visFeil"></p>
     </div>
-    <canvas id="canvas" width="800" height="500"></canvas>
+    <canvas id="canvas" width="800" height="550"></canvas>
 
   </body>
   <script src="hangman.js" charset="utf-8"></script>

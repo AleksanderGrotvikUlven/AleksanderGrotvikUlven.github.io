@@ -3,3 +3,18 @@
   top: 0;
   right: 0;
 }
+#visFeil {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  font-size: 24px;
+  text-align: center;
+}
+#btnStatus {
+  width: 150px;
+  height: 40px;
+  background-color: rgb(53, 129, 191);
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  padding: 5px;
+}
