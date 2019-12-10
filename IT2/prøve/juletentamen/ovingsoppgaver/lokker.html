@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="number" value="" id="inpTall">
+    <button type="button" id="btnTall">Legg til</button>
+    <p id="print"></p>
+
+    <script type="text/javascript">
+      var inpTall = document.querySelector("#inpTall");
+      var btnTall = document.querySelector("#btnTall");
+      var print = document.querySelector("#print");
+      var liste = [3, 51 , 18, 74, 32, 10, 7];
+      var sum = 0;
+
+      var maks = liste[0];
+
+      btnTall.onclick = function() {
+        sum = 0
+        liste.push(Number(inpTall.value));
+        inpTall.value = "";
+        print.innerHTML ="";
+        for (var element of liste) {
+          if (element>maks) {
+            maks = element;
+          }
+          if (element%2 == 0) {
+            print.innerHTML += element+", ";
+          }
+          sum = sum + element
+        }
+        print.innerHTML += "<br> Summen er "+sum+" og det høyeste tallet er "+maks+"<br>";
+      }
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="number" value="50" placeholder="Fahrenheit" id="inpGrader">
+    <button type="button" name="button" id="btnGrader">Push</button>
+    <br><br>
+    <img src="" id="bilde">
+    <p id="utskriftGrader"></p>
+
+
+    <input type="number" value="350" placeholder="pris i kroner" id="inpVerdi">
+    <button type="button" name="button" id="btnVerdi">Regn ut toll</button>
+    <p id="utskriftVerdi"></p>
+
+    <script type="text/javascript">
+      var inpGrader = document.querySelector("#inpGrader");
+      var btnGrader = document.querySelector("#btnGrader");
+      var utskriftGrader = document.querySelector("#utskriftGrader");
+      var celsius = 1;
+      var bilde = document.querySelector("#bilde");
+
+      //Funksjon som omgjør fahrenheit til celsius
+      btnGrader.onclick = function() {
+        celsius = (inpGrader.value-32)*(5/9);
+        utskriftGrader.innerHTML = inpGrader.value+" grader fahrenheit er det samme som "+celsius+" grader celsius <br>";
+        bilde.src = "termometer.png";
+      }
+
+      var inpVerdi = document.querySelector("#inpVerdi");
+      var btnVerdi = document.querySelector("#btnVerdi");
+      var utskriftVerdi = document.querySelector("#utskriftVerdi");
+      var totalPris = 1;
+
+      btnVerdi.onclick = function() {
+        if (inpVerdi.value >= 350) {
+          totalPris = (inpVerdi.value*1.25)+158;
+        }
+        else {
+          totalPris = inpVerdi.value;
+        }
+        utskriftVerdi.innerHTML = "Den totale prisen med moms og tollgebyr er "+totalPris+" kr. <br>";
+      }
+
+
+    </script>
+
+  </body>
+</html>

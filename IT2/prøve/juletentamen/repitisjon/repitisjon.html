@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>repitisjon</title>
+  </head>
+  <body>
+    <button type="button" name="button" id="btnHei">Hei</button>
+    <input type="number" id="inpNumber" value="">
+
+
+    <script type="text/javascript">
+    var inpNumber = document.querySelector("#inpNumber");
+    var btnHei = document.querySelector("#btnHei");
+
+    btnHei.onclick = function() {
+      for (var i = 1; i < inpNumber.value; i++) {
+        document.write("Hei nr: "+i+"<br>");
+      }
+    }
+
+    </script>
+
+  </body>
+</html>
