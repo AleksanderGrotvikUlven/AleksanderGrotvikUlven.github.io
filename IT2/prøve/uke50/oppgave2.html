@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+  </head>
+  <body>
+    <h3>Oppgave 2 - Rabattkalkulator</h3>
+    <input type="number" placeholder="Pris i kr" id="inpPris">
+    <input type="number" placeholder="Rabatt i prosent" id="inpRabatt">
+    <button type="button" id="btnBeregn">Beregn Rabatt</button>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var inpPris = document.querySelector("#inpPris");
+      var inpRabatt = document.querySelector("#inpRabatt");
+      var btnBeregn = document.querySelector("#btnBeregn");
+      var utskrift = document.querySelector("#utskrift");
+
+//Funksjon som regner ut ny pris med rabatt, ink. begrensninger
+      btnBeregn.onclick = function() {
+        if (Number(inpPris.value) > 0 && Number(inpRabatt.value) < 100) { //Begrensninger
+          var sluttpris = Number(inpPris.value)*(1-Number(inpRabatt.value)/100);
+          utskrift.innerHTML = "Sluttpris: "+sluttpris+" kr";
+        }
+        else { //Feilmelding
+          utskrift.innerHTML = "Du må skrive inn en pris over 0kr og en rabatt under 100%.";
+        }
+      }
+
+    </script>
+  </body>
+</html>

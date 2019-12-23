@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+  </head>
+  <body>
+    <h3>Oppgave 1 - Alderskalkulator for barn</h3>
+    <input type="number" placeholder="Barn 1" id="inpBarn1">
+    <input type="number" placeholder="Barn 2" id="inpBarn2">
+    <button type="button" name="button" id="btnReg">Registrer</button>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var inpBarn1 = document.querySelector("#inpBarn1");
+      var inpBarn2 = document.querySelector("#inpBarn2");
+      var btnReg = document.querySelector("#btnReg");
+      var utskrift = document.querySelector("#utskrift");
+
+//Funksjon som legger sammen samlet alder, og sjekker om den er mindre enn 4 eller 18.
+      btnReg.onclick = function() {
+        var summen = Number(inpBarn1.value) + Number(inpBarn2.value);
+        inpBarn1.value = "";
+        inpBarn2.value = "";
+        if (summen <= 4) {
+          utskrift.innerHTML = "Barn på tilsammen "+summen+" år kommer inn gratis.";
+        }
+        else if (summen <= 18) {
+          utskrift.innerHTML = "Med alderen "+summen+" år må man betale barnebillett.";
+        }
+        else {
+          utskrift.innerHTML = "Med alderen "+summen+" år må man betale voksenbillett.";
+        }
+      }
+    </script>
+
+  </body>
+</html>

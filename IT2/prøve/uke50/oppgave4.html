@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 4</title>
+  </head>
+  <body>
+    <h3>Oppgave 4 - Handleliste</h3>
+    <p>Skriv vare:<input type="text" id="inpVare"> Skriv pris:<input type="text" id="inpPris"> Skriv antall:<input type="text" id="inpAntall"><button type="button" id="btnLeggTil">Legg til</button></p>
+    <p id="utskriftArr"></p>
+    <button type="button" id="btnSlett">Slett</button>
+    <p id="utskriftPris"></p>
+
+    <script type="text/javascript">
+      var inpVare = document.querySelector("#inpVare");
+      var inpPris = document.querySelector("#inpPris");
+      var inpAntall = document.querySelector("#inpAntall");
+      var btnLeggTil = document.querySelector("#btnLeggTil");
+      var btnSlett = document.querySelector("#btnSlett");
+      var utskriftArr = document.querySelector("#utskriftArr");
+      var utskriftPris = document.querySelector("#utskriftPris");
+
+      var vareArr = [
+        {vare:"Potet", pris:"6", antall:"10"},
+        {vare:"Mais", pris:"15", antall:"3"},
+        {vare:"Kanel", pris:"36", antall:"1"}
+      ]
+
+      visArr();
+      visPris();
+//Funksjon som legger til informasjonen om en vare fre input-feltene 
+      btnLeggTil.onclick = function leggTil() {
+        if (inpVare.value !== "" && inpPris.value !== "" && inpAntall.value !== "") {
+          vareArr.push({vare:inpVare.value, pris:inpPris.value, antall:inpAntall.value});
+          visArr();
+          visPris();
+          inpVare.value = "";
+          inpPris.value = "";
+          inpAntall.value = "";
+        }
+        else {
+          utskriftPris.innerHTML = "Du må fylle inn alle feltene";
+        }
+      }
+
+//Funksjon som viser alle varene i et p-element
+      function visArr() {
+        utskriftArr.innerHTML = "";
+        for (var produkt of vareArr) {
+          utskriftArr.innerHTML += "- "+produkt.vare+", pris: "+produkt.pris+", antall: "+produkt.antall+"<br>";
+        }
+      }
+
+//Funksjon som regner ut riktig totalpris på varene
+      function visPris() {
+        var sum = 0;
+        utskriftPris.innerHTML = "";
+        for (var produkt of vareArr) {
+          sum = sum + (produkt.pris*produkt.antall);
+          utskriftPris.innerHTML = "Totalsummen er "+sum+" kr."
+        }
+      }
+
+//Funksjon som sletter siste vare fra vareArr
+      btnSlett.onclick = function() {
+        vareArr.pop();
+        visArr();
+        visPris();
+      }
+    </script>
+
+  </body>
+</html>

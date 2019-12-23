@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 5</title>
+  </head>
+  <body>
+    <h3>Oppgave 5 - Bestillingsverktøy for matkasse</h3>
+    <img src="bilder/middag.png" id="bilde">
+    <div id="prisbestemmelse">
+      <p>Velg antall middager: <button type="button" id="btnMiddag2">2</button> eller <button type="button" id="btnMiddag3">3</button></p>
+      <p>Antall personer: <input type="number" id="inpAntall"> <button type="button" id="btnAntall">Registrer personer</button></p>
+    </div>
+    <div id="info">
+      <p>
+        Registrer navn og adresse:
+        <input type="text" placeholder="Skriv inn navn" id="inpNavn">
+        <input type="text" placeholder="Skriv inn adresse" id="inpAdresse">
+        <button type="button" id="btnReg">Ferdig</button>
+      </p>
+    </div>
+    <p id="visPris"></p>
+
+    <script type="text/javascript">
+      var prisbestemmelse = document.querySelector("#prisbestemmelse");
+      var btnMiddag2 = document.querySelector("#btnMiddag2");
+      var btnMiddag3 = document.querySelector("#btnMiddag3");
+      var inpAntall = document.querySelector("#inpAntall");
+      var btnAntall = document.querySelector("#btnAntall");
+      var bilde = document.querySelector("#bilde");
+
+      var info = document.querySelector("#info");
+      var inpNavn = document.querySelector("#inpNavn");
+      var inpAdresse = document.querySelector("#inpAdresse");
+      var btnReg = document.querySelector("#btnReg");
+
+      var visPris = document.querySelector("#visPris");
+      var middager = 0;
+      var antall = 0;
+      var pris = 0;
+      var totalPris = 0;
+
+//Funksjon som kjører ved valg av 2 middager
+      btnMiddag2.onclick = function middag2() {
+        middager = 2;
+        bilde.src = "bilder/matkasse2.png";
+      }
+//Funksjon som kjører ved valg av 3 middager
+      btnMiddag3.onclick = function middag3() {
+        middager = 3;
+        bilde.src = "bilder/matkasse3.png";
+      }
+//Sjekker hvor mange pers det er bestilt til, og regner ut totalpris
+      btnAntall.onclick = function sjekkAntall() {
+        visPris.innerHTML = "";
+        antall = Number(inpAntall.value);
+        if (antall <=0) {
+          visPris.innerHTML = "Beklager, du må bestille mat for 1 til 8 personer."
+        }
+        else if (antall<5) {
+          pris = 80;
+        }
+        else if (antall <= 8){ //Går ut fra at det ikke er mange familier som bestiller matkasser for mer enn 8 pers
+          pris = 70
+        }
+        totalPris = middager*antall*pris;
+        visPris.innerHTML = "Totalt vil matkassen koste "+totalPris+" kr for "+middager+" middager til "+antall+" personer. Det vil si "+pris+" kr per person.<br>";
+        prisbestemmelse.innerHTML = ""; //Tar bort brukte input og buttons slik at siden ser mer ryddig ut.
+      }
+
+      btnReg.onclick = function() {
+        visPris.innerHTML += "Matkassen sendes til "+inpNavn.value+". Ankommer "+inpAdresse.value+" løpet av neste uke.";
+        info.innerHTML = "";
+      }
+
+    </script>
+  </body>
+</html>

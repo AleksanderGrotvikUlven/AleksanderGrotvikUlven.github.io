@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+  </head>
+  <body>
+    <h3>Oppgave 3 - Ligningsett</h3>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+    var utskrift = document.querySelector("#utskrift");
+
+    regnUt();
+    function regnUt() {
+      for (var x = 0; x < 100; x++) {
+        for (var y = 0; y < 100; y++) {
+          if (x+y == 7 && x-y == 3) {
+            utskrift.innerHTML = "x er "+x+", og y er "+y;
+          }
+        }
+      }
+    }
+
+    </script>
+  </body>
+</html>
