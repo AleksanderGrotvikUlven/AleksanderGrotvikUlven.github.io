@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver</title>
+  </head>
+  <body>
+    <div class="">
+      <input type="text" id="inpNavn" placeholder="Navn">
+      <span id="txtNavn"></span>
+    </div>
+    <div class="">
+      <input type="number" id="inpTelefon" placeholder="Telefon" max="8">
+      <span id="txtTelefon"></span>
+    </div>
+    <div>
+      <input type="range" id="antall" min="0" max="10">
+      <span id="txtAntall"></span>
+    </div>
+    <div>
+      <input type="text" list="middag" id="inpListe" placeholder="Middag">
+      <datalist id="middag">
+        <option value="Hummer">
+        <option value="Biff">
+        <option value="Salat">
+        <option value="Pizza">
+        <option value="Lammebog">
+        <option value="Lasagne">
+        <option value="Burger">
+        <option value="Biffsnadder">
+      </datalist>
+    </div>
+    <div>
+      <input type="color" id="fargevelger">
+    </div>
+    <button type="button" id="btnReg">Registrer</button>
+    <p id="utskrift"></p>
+
+
+    <script type="text/javascript">
+      var inpNavn = document.querySelector("#inpNavn");
+      var txtNavn = document.querySelector("#txtNavn");
+      var inpTelefon = document.querySelector("#inpTelefon");
+      var txtTelefon = document.querySelector("#txtTelefon");
+      var antall = document.querySelector("#antall");
+      var txtAntall = document.querySelector("#txtAntall");
+      var inpListe = document.querySelector("#inpListe");
+      var fargevelger = document.querySelector("#fargevelger");
+      var btnReg = document.querySelector("#btnReg");
+      var utskrift = document.querySelector("#utskrift");
+      var regArr = {navn:"", telefon:"", antall:"", middag:"", farge:""};
+
+      inpNavn.onchange = function() {
+        txtNavn.innerHTML = inpNavn.value;
+        regArr.navn = inpNavn.value;
+        console.log(regArr.navn);
+      }
+      inpTelefon.onchange = function() {
+        txtTelefon.innerHTML = inpTelefon.value;
+        regArr.telefon = inpTelefon.value;
+        console.log(regArr.telefon);
+      }
+      antall.onchange = function() {
+        txtAntall.innerHTML = antall.value;
+        regArr.antall = antall.value;
+        console.log(regArr.antall);
+      }
+      inpListe.onchange = function() {
+        regArr.middag = inpListe.value;
+        console.log(regArr.middag);
+      }
+      fargevelger.onchange = function() {
+        document.body.style.background = fargevelger.value;
+        regArr.farge = fargevelger.value;
+        console.log(regArr.farge);
+      }
+      btnReg.onclick = function() {
+        utskrift.innerHTML = "Navn: "+regArr.navn+"<br> Telefon: "+regArr.telefon+"<br> Antall: "+regArr.antall+"<br> Middag: "+regArr.middag+"<br> Farge: "+regArr.farge
+      }
+    </script>
+  </body>
+</html>

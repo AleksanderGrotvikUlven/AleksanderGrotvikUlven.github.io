@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Velg drikke</title>
+  </head>
+  <body>
+    <p>Velg drikke</p>
+    <label><input type="radio" name="gr1" id="rbTe" value="te">Te</label>
+    <label><input type="radio" name="gr1" id="rbKaffe" value="kaffe">Kaffe</label>
+    <p>Velg tilbehør</p>
+    <label><input type="radio" name="gr2" id="rbSukker" value="sukker">Sukker</label>
+    <input type="radio" name="gr2" id="rb22" value=""><label id="l22"></label>
+    <br>
+    <button id="btnReg">Registrer</button>
+    <p id="print"></p>
+
+    <script type="text/javascript">
+
+      var rb22 = document.querySelector("#rb22");
+      var l22 = document.querySelector("#l22");
+      l22.innerHTML = "Melk";
+      rb22.value = "melk";
+
+      var btnReg = document.querySelector("#btnReg");
+      var print = document.querySelector("#print");
+      var gr1 = document.getElementsByName("gr1"); //Får et array med elemntene i gr1
+      var gr2 = document.getElementsByName("gr2");
+
+      btnReg.onclick = function() {
+        var valgt = false;
+        for (var i = 0; i < gr1.length; i++) {
+          if (gr1[i].checked) {
+            print.innerHTML = "Du har valgt "+gr1[i].value;
+            valgt = true;
+          }
+        }
+        if (valgt == false) {
+          print.innerHTML += "Du må velge drikke";
+          return;
+        }
+        for (var i = 0; i < gr2.length; i++) {
+          if (gr2[i].checked && valgt) {
+            print.innerHTML += " med "+gr2[i].value;
+          }
+        }
+      }
+
+    </script>
+
+  </body>
+</html>

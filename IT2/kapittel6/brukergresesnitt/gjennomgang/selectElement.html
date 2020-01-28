@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nedtrekksliste</title>
+  </head>
+  <body>
+    <select id="aldersgrense">
+      <option value="">Velg aldersgrense</option>
+      <option value="alle">Tillat for alle</option>
+      <option value="seks">6 år</option>
+      <option value="ni">9 år</option>
+      <option value="tolv">12 år</option>
+      <option value="femten">15 år</option>
+    </select>
+
+    <span id="info"></span>
+
+    <script type="text/javascript">
+      var aldersgrense = document.querySelector("#aldersgrense");
+      var info = document.querySelector("#info");
+
+      aldersgrense.onchange = function() {
+        if (aldersgrense.value !== "") {
+          var index = aldersgrense.selectedIndex;
+          var valgt = aldersgrense[index];
+          info.innerHTML = "Du har valgt "+valgt.innerHTML+", PEGI "+aldersgrense.value+"<br>";
+        }
+        else {
+          info.innerHTML = "Du må velge aldersgrense!";
+        }
+      }
+    </script>
+  </body>
+</html>

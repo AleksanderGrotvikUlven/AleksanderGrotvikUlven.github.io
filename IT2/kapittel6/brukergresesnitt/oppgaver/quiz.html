@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Quiz</title>
+  </head>
+  <body>
+    <h1>Quiz</h1>
+    <p id="spm"></p>
+    <input type="" id="cb1" name="cbEl">
+    <label id="l1"></label><br>
+    <input type="" id="cb2" name="cbEl">
+    <label for="cb2" id="l2"></label><br>
+    <input type="" id="cb3" name="cbEl">
+    <label for="cb3" id="l3"></label><br>
+    <button type="button" id="btnSvar" name="button">Angi svar</button>
+
+    <p id="resultat"></p>
+
+    <script type="text/javascript">
+      //for spørsmålene
+      var spm = document.querySelector("#spm");
+      //variabler for de tre alternative svarene
+      var l1 = document.querySelector("#l1");
+      var l2 = document.querySelector("#l2");
+      var l3 = document.querySelector("#l3");
+      //variabel for alle checkboksene - i en array
+      var alleCbEl = document.querySelectorAll("input[name = 'cbEl']");
+      //alternativ måte å få tak i alle checkboksene:
+      //var alleCbEl = document.getElementsByName("cbEl")
+
+      var btnSvar = document.querySelector("#btnSvar");
+      var resultat = document.querySelector("#resultat");
+      var spmNr = 0;
+      var poeng = 0;
+      var sporsmaal = [];
+      //Array med spørsmåltekst, svaralternativer og fasit
+      sporsmaal[0] = {tekst:"Hvilken bil ble kåret til årets beste kjøp i 2019?",
+      alternativer: ["Toyota RAV4 Hybrid", "Tesla Model 3", "VW Passat GTE"],
+      fasit:["galt","riktig","galt"]};
+      sporsmaal[1] = {tekst:"Hvilke bilmodeller tilhører Skoda?",
+      alternativer: ["Rapid", "Vission", "Ignis"],
+      fasit:["riktig","riktig","galt"]};
+      sporsmaal[2] = {tekst:"Hvilken bilprodusent kom med den første masseproduserte bilen?",
+      alternativer: ["VW", "Rolls Royce", "Ford"],
+      fasit:["galt","galt","riktig"]};
+      sporsmaal[3] = {tekst:"Hvilke av disse merkene mottar deler fra VW-gruppen?",
+      alternativer: ["Audi", "Skoda", "Lamborghini "],
+      fasit:["riktig","riktig","riktig"]};
+      sporsmaal[4] = {tekst:"Hvilken bil har høyest toppfart?",
+      alternativer: ["Bugatti Chiron", "Tesla Model S P100D", "Koenigsegg Agera R"],
+      fasit:["riktig","galt","galt"]};
+
+      //viser første spørsmål når vi starter opp
+      visSpm();
+
+      //legger til spørsmål, mulige alternativer og riktig/galt
+      function visSpm(){
+        visEnFlereRiktige();
+        spm.innerHTML = sporsmaal[spmNr].tekst;
+        l1.innerHTML=sporsmaal[spmNr].alternativer[0];
+        l2.innerHTML=sporsmaal[spmNr].alternativer[1];
+        l3.innerHTML=sporsmaal[spmNr].alternativer[2];
+        for(var i= 0; i < alleCbEl.length; i++){
+          alleCbEl[i].value = sporsmaal[spmNr].fasit[i];
+        }
+        //Tar bort eventuelle avkrysninger:
+        cb1.checked = cb2.checked = cb3.checked = false;
+      }
+      //Bestemmer om det skal være radio eller checkbox
+      function visEnFlereRiktige() {
+        var antRiktig = 0
+        for (var i = 0; i < 3; i++) {
+          if (sporsmaal[spmNr].fasit[i] == "riktig") {
+            antRiktig++
+          }
+          if (antRiktig > 1) {
+            cb1.type = "checkbox";
+            cb2.type = "checkbox";
+            cb3.type = "checkbox";
+          }
+          else {
+            cb1.type = "radio";
+            cb2.type = "radio";
+            cb3.type = "radio";
+          }
+        }
+      }
+
+
+      //Skjekker hvilke spm som er riktig, og deler ut poeng
+      btnSvar.onclick = function(){
+        for(var i= 0; i < 3; i++){
+          if(alleCbEl[i].checked){
+            if(alleCbEl[i].value ==="riktig"){
+              poeng ++;
+            }//if
+            else{
+              poeng --;
+            }
+          }
+        }//for
+        spmNr++;
+        if(spmNr < sporsmaal.length){
+          visSpm();
+          resultat.innerHTML = "Antall poeng "+poeng;
+        }
+        else{
+          resultat.innerHTML = "Du fikk "+poeng+" poeng."
+          btnSvar.disabled = true;
+        }
+
+      }
+
+    </script>
+
+  </body>
+</html>

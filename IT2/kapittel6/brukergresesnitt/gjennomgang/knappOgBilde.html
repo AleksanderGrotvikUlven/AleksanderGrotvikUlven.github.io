@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>knapp og bilde</title>
+  </head>
+  <body>
+    <button type="button" id="btnVisBilde">Vis bilde</button>
+    <div id="info">
+      <!-- Her kommer et bilde -->
+
+    </div>
+
+    <script type="text/javascript">
+    var btnVisBilde = document.querySelector("#btnVisBilde");
+    var info = document.querySelector("#info");
+
+    btnVisBilde.onclick = function() {
+      info.innerHTML = "<img src='../lydOgBilde/katt.jpg'>";
+    }
+
+    </script>
+  </body>
+</html>

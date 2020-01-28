@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <select id="ukedag">
+      <option value="">Velg dag</option>
+      <option value="1">Mandag</option>
+      <option value="2">Tirsdag</option>
+      <option value="3">Onsdag</option>
+      <option value="4">Torsdag</option>
+      <option value="5">Fredag</option>
+    </select>
+
+    <span id="utskrift"></span>
+
+    <script type="text/javascript">
+      var ukedag = document.querySelector("#ukedag");
+      var utskrift = document.querySelector("#utskrift");
+
+      ukedag.onchange = function() {
+        if (ukedag.value !== "") {
+          var index = ukedag.selectedIndex;
+          var valgt = ukedag[index];
+          utskrift.innerHTML = "Du skal møte opp: ["+valgt.innerHTML+"] <br>";
+        }
+        else {
+          utskrift.innerHTML = "Du må velge en dag";
+        }
+
+      }
+    </script>
+
+  </body>
+</html>

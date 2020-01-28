@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Velg drikke</title>
+  </head>
+  <body>
+    <label><input type="radio" name="gr1" id="rbTe" value="Te">Te</label>
+    <label><input type="radio" name="gr1" id="rbKaffe" value="Kaffe">Kaffe</label>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+    var rbTe = document.querySelector("#rbTe");
+    var rbKaffe = document.querySelector("#rbKaffe");
+    var utskrift = document.querySelector("#utskrift");
+
+    rbTe.onclick = rbKaffe.onclick = velgDrikke;
+    function velgDrikke(evt) {
+      var rb = evt.target;
+      utskrift.innerHTML = "Du har valgt "+rb.value+"<br>";
+    }
+
+    </script>
+  </body>
+</html>

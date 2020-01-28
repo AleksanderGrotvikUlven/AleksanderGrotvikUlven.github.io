@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgaver</title>
+  </head>
+  <body>
+<!--Oppgave 1 -->
+    <div class="">
+      <button type="button" id="btnInn">Inn</button>
+      <button type="button" id="btnUt">Ut</button>
+      <p id="utskrift"></p>
+    </div>
+
+<!--Oppgave 2 -->
+    <div id="">
+      <button type="button" id="btnFisk" data-bilde="../lydOgBilde/fisk.jpg">Fisk</button>
+      <button type="button" id="btnKatt" data-bilde="../lydOgBilde/katt.jpg">Katt</button>
+      <button type="button" id="btnHund" data-bilde="../lydOgBilde/hund.jpg">Hund</button>
+    </div>
+    <img src="" id="bilde">
+
+<!--Oppgave 3 -->
+    <div id="">
+      <button type="button" id="btn10">10% rabatt</button>
+      <button type="button" id="btn50">50% rabatt</button>
+      <p id="print"></p>
+    </div>
+
+    <script type="text/javascript">
+//Oppgave 1
+    var btnInn = document.querySelector("#btnInn");
+    var btnInn = document.querySelector("#btnInn");
+    var utskrift = document.querySelector("#utskrift");
+    var sum = 0
+
+    btnInn.onclick = tellPersoner;
+    btnUt.onclick = tellPersoner;
+
+    function tellPersoner(a) {
+      var antall = a.target;
+      if (sum<50) {
+        if (antall.id === "btnInn") {
+          sum++;
+          utskrift.innerHTML = "Antall personer: "+sum;
+        }
+        else {
+          sum--;
+          utskrift.innerHTML = "Antall personer: "+sum;
+        }
+      }
+      else {
+        utskrift.innerHTML = "Det er fullt";
+      }
+    }
+
+//Oppgave 2
+    var btnFisk = document.querySelector("#btnFisk");
+    var btnKatt = document.querySelector("#btnKatt");
+    var btnHund = document.querySelector("#btnHund");
+    var bilde = document.querySelector("#bilde");
+
+    btnFisk.onclick = visBilde;
+    btnKatt.onclick = visBilde;
+    btnHund.onclick = visBilde;
+
+    function visBilde(b) {
+      var knapp = b.target;
+      var bildefil = knapp.getAttribute("data-bilde");
+      bilde.src = bildefil;
+    }
+
+//Oppgave 3
+    var btn10 = document.querySelector("#btn10");
+    var btn50 = document.querySelector("#btn50");
+    var print = document.querySelector("#print");
+
+    function rabatt(c) {
+      var rabatt = c.target;
+    }
+
+
+
+    </script>
+  </body>
+</html>

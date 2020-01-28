@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+  </head>
+  <body>
+    <img src="nettside.jpg" alt="" id="bildeJPG" width="400px">
+    <img src="nettsideUtklipp.png" alt="" id="bildePNG" width="400px;">
+    <img src="logo.svg" alt="" id="bildeSVG" width="400px;">
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var bildeJPG = document.querySelector("#bildeJPG");
+      var bildePNG = document.querySelector("#bildePNG");
+      var bildeSVG = document.querySelector("#bildeSVG");
+      var utskrift = document.querySelector("#utskrift");
+
+      bildeJPG.onclick = function() {
+        utskrift.innerHTML = "Anbefalt filformat for dette bildet er JPG, dette er fordi JPG er den enkleste varianten. JPG er en mindre fil som derfor vil laste raskere."
+      }
+    </script>
+  </body>
+</html>

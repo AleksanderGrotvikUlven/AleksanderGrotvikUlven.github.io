@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <select id="lstRett"></select>
+    </div>
+    <div>
+      <span>Antall: </span>
+      <input type="range" id="antall" min="1" max="10">
+      <span id="showAntall">Dra for å velge antall personer</span>
+    </div>
+    <div>
+      <span>Tilbehør: </span>
+      <input type="checkbox" name="chkTilbehør" id="chkRømme">rømme
+      <input type="checkbox" name="chkTilbehør" id="chkKetchup">ketchup
+    </div>
+    <div>
+      <span>Sted: </span>
+      <input type="radio" name="gSted" id="rbSh" checked>Spise her
+      <input type="radio" name="gSted" id="rbTm">Ta med
+    </div>
+    <div>
+      <span>Betaling: </span>
+      <input type="radio" name="gBetaling" id="rbKort" checked>Kort
+      <input type="radio" name="gBetaling" id="rbKontant">Kontant
+    </div>
+    <button type="button" id="btnBestill">Bestill</button>
+    <p id="utskrift"></p>
+
+
+    <script type="text/javascript">
+    //Til liste
+    var lstRett = document.querySelector("#lstRett")
+    var matrett = [];
+    matrett[0] = {rett:"fisk", pris:"240"};
+    matrett[1] = {rett:"biff", pris:"350"};
+    matrett[2] = {rett:"pasta", pris:"200"};
+    //Variabler check-bokser og radio-knapper
+    var chkRømme = document.querySelector("#chkRømme");
+    var chkKetchup = document.querySelector("#chkKetchup");
+    var rbSh = document.querySelector("#rbSh");
+    var rbTm = document.querySelector("#rbTm");
+    var rbKort = document.querySelector("#rbKort");
+    var rbKontant = document.querySelector("#rbKontant");
+    //Andre variabler
+    var antall = document.querySelector("#antall");
+    var showAntall = document.querySelector("#showAntall");
+    var btnBestill = document.querySelector("#btnBestill");
+    var utskrift = document.querySelector("#utskrift")
+
+    //Legger innhold inn i et select-element
+    for (var i = 0; i < matrett.length; i++) {
+      optionText = matrett[i].rett;
+      optionValue = i;
+      lstRett.append(new Option(optionText, i));
+    }
+
+    //Viser antall valgte personer
+    antall.onchange = visAntall;
+    function visAntall() {
+      showAntall.innerHTML = "Vi er "+antall.value+" personer.";
+    }
+
+    //Skriver ut det som er valgt i programmet
+    btnBestill.onclick = visBestilling;
+    function visBestilling() {
+      var rett = matrett[lstRett.value].rett
+      var pris = matrett[lstRett.value].pris
+      var prisTotalt = pris*antall.value;
+
+      utskrift.innerHTML = "Du har valgt "+rett+" til "+pris+"kr per rett. ";
+      if (chkRømme.checked) {
+        prisTotalt=prisTotalt+50;
+        utskrift.innerHTML += "Du har lagt til rømme for 50kr. ";
+      }
+      if (chkKetchup.checked) {
+        prisTotalt=prisTotalt+20;
+        utskrift.innerHTML += "Du har lagt til ketchup for 20kr. ";
+      }
+      if (rbSh.checked) {
+        prisTotalt=prisTotalt+40;
+        utskrift.innerHTML += "Det koster 40kr for å sitte her."
+      }
+      utskrift.innerHTML += "Totalt kommer prisen på"+prisTotalt+"kr.<br>";
+
+      if (rbKort.checked) {
+        utskrift.innerHTML += "Betalingsmetode: Kort";
+      }
+      else {
+        utskrift.innerHTML += "Betalingsmetode: Kontant";
+      }
+    }
+    </script>
+  </body>
+</html>

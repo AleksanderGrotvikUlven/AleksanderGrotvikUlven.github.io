@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>avkryssning</title>
+  </head>
+  <body>
+    <input type="checkbox" id="chkPasta">Pasta
+    <input type="checkbox" id="chkPizza">Pizza
+    <p id="info"></p>
+
+    <script type="text/javascript">
+      var chkPasta = document.querySelector("#chkPasta");
+      var chkPizza = document.querySelector("#chkPizza");
+      var info = document.querySelector("#info");
+
+      chkPasta.onchange = chkPizza.onchange = visMelding;
+
+      function visMelding() {
+        info.innerHTML = "";
+        if (chkPasta.checked) {
+          info.innerHTML += "Jeg liker pasta <br>";
+        }
+        if (chkPizza.checked) {
+          info.innerHTML += "Jeg liker pizza <br>";
+        }
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Juster bredde glider</title>
+  </head>
+  <body>
+    <input type="range" id="inpBredde" min="0" max="10">
+    <img src="../lydOgBilde/katt.jpg" id="bilde" width="">
+
+    <script type="text/javascript">
+      var inpBredde = document.querySelector("#inpBredde");
+      var bilde = document.querySelector("#bilde");
+
+      inpBredde.onchange = function() {
+        bilde.width="inpBredde.value*100"
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Input element</title>
+  </head>
+  <body>
+    <input type="text" id="inpNavn" value="" maxlength="8" placeholder="navn">
+    <span id="txtNavn"></span>
+    <div class="">
+      <input type="color" id="fargevelger" value="">
+      <input type="range" id="antall" min="0" max="10">
+    </div>
+
+    <script type="text/javascript">
+      var inpNavn = document.querySelector("#inpNavn");
+      var txtNavn = document.querySelector("#txtNavn");
+      var fargevelger = document.querySelector("#fargevelger");
+      var antall = document.querySelector("#antall");
+
+      fargevelger.onchange = function() {
+        document.body.style.background = fargevelger.value;
+      }
+
+      inpNavn.oninput = function() {
+        txtNavn.innerHTML = inpNavn.value+" "+antall.value;
+      }
+      inpNavn.onfocus = function() {
+        inpNavn.value = "";
+      }
+      inpNavn.onchange = function() {
+        txtNavn.innerHTML = "Nytt navn";
+      }
+    </script>
+  </body>
+</html>

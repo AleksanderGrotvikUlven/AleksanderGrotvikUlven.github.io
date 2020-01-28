@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Katt eller hund</title>
+  </head>
+  <body>
+    <div class="">
+      <button type="button" id="btnKatt" data-bilde="../lydOgBilde/katt.jpg" data-lyd="../lydOgBilde/kattelyd.mp3">Katt</button>
+      <button type="button" id="btnHund" data-bilde="../lydOgBilde/hund.jpg" data-lyd="../lydOgBilde/hundelyd.mp3">Hund</button>
+    </div>
+    <img src="" id="bilde">
+    <audio src="" id="lyd"></audio>
+
+    <script type="text/javascript">
+      var btnKatt = document.querySelector("#btnKatt");
+      var btnHund = document.querySelector("#btnHund");
+      var bilde = document.querySelector("#bilde");
+      var lyd = document.querySelector("#lyd");
+
+
+      btnKatt.onclick = visBilde;
+      btnHund.onclick = visBilde;
+
+      //Metode 1
+/*
+      function visBilde(evt) {
+        var knapp = evt.target; //Refererer til knappen som ble trykket
+        if (knapp.id === "btnKatt") {
+          bilde.src="../lydOgBilde/katt.jpg";
+        }
+        else {
+          bilde.src="../lydOgBilde/hund.jpg";
+        }
+      }
+*/
+
+      //Metode 2
+      function visBilde(evt) {
+        var knapp = evt.target;
+        var bildefil = knapp.getAttribute("data-bilde");
+        var lydfil = knapp.getAttribute("data-lyd");
+        bilde.src = bildefil;
+        lyd.src = lydfil;
+        lyd.play();
+      }
+
+
+    </script>
+  </body>
+</html>

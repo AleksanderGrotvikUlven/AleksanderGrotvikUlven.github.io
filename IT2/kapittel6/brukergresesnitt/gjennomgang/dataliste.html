@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Velg drikke</title>
+  </head>
+  <body>
+    <input type="text" list="drikke" id="inpListe" placeholder="drikke">
+    <datalist id="drikke">
+      <option value="kaffe">
+      <option value="vann">
+      <option value="iste">
+      <option value="brus">
+    </datalist>
+    <p id="info"></p>
+
+    <script type="text/javascript">
+      var inpListe = document.querySelector("#inpListe");
+      var info = document.querySelector("#info");
+
+      inpListe.onchange = function() {
+        info.innerHTML += inpListe.value+"<br>";
+        
+      }
+    </script>
+  </body>
+</html>
