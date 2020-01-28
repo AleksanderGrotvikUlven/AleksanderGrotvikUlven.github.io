@@ -5,9 +5,9 @@
     <title>Oppgave 1</title>
   </head>
   <body>
-    <img src="nettside.jpg" alt="" id="bildeJPG" width="400px">
-    <img src="nettsideUtklipp.png" alt="" id="bildePNG" width="400px;">
-    <img src="logo.svg" alt="" id="bildeSVG" width="400px;">
+    <img src="bilde1.jpg" alt="" id="bildeJPG" width="400px">
+    <img src="bilde2.jpg" alt="" id="bildePNG" width="400px;">
+    <img src="bilde3.jpg" alt="" id="bildeSVG" width="400px;">
     <p id="utskrift"></p>
 
     <script type="text/javascript">
@@ -17,7 +17,13 @@
       var utskrift = document.querySelector("#utskrift");
 
       bildeJPG.onclick = function() {
-        utskrift.innerHTML = "Anbefalt filformat for dette bildet er JPG, dette er fordi JPG er den enkleste varianten. JPG er en mindre fil som derfor vil laste raskere."
+        utskrift.innerHTML = "Anbefalt filformat for dette bildet er JPG, dette er fordi JPG er den enkleste varianten. JPG er en mindre fil som derfor vil laste raskere. <br> Punktgrafikk."
+      }
+      bildePNG.onclick = function() {
+        utskrift.innerHTML = "Anbefalt filformat for dette bildet er PNG, dette er fordi PNG støtter gjennomsiktighet. <br> Punktgrafikk."
+      }
+      bildeSVG.onclick = function() {
+        utskrift.innerHTML = "Anbefalt filformat for dette bildet er SVG, dette er fordi SVG kan forstørres svært mye uten at det blir kornete. Dette er perfekt for reklameplakater som varierer i størrelse.<br> Vektorgrafikk."
       }
     </script>
   </body>
