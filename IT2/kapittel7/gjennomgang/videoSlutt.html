@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Video er slutt</title>
+  </head>
+  <body>
+    <video src="english_lesson.mp4" controls id="video" width="640px;"></video>
+    <button type="button" name="button" id="btnVis">Vis film</button>
+
+    <script type="text/javascript">
+      var video = document.querySelector("#video");
+      var btnVis = document.querySelector("#btnVis");
+
+      video.onended = videoFerdig;
+      function videoFerdig() {
+        video.style.display = "none";
+      }
+      btnVis.onclick = videoSpiller;
+      function videoSpiller() {
+        video.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

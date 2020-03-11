@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eksamen 2017</title>
+    <style media="screen">
+      body{
+        background-image: url(bilder/bakgrunn.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+      }
+      .vindmølle{
+        position: absolute;
+        left: 1000px;
+        top: 350px;
+      }
+      #stolpe{
+        position: absolute;
+      }
+      #blader{
+        position: absolute;
+        top: -200px;
+        left: -168px;
+        transform-origin: 50% 66%;
+      }
+      #deksel{
+        position: absolute;
+        top: -15px;
+        left: -10px;
+      }
+      .tre{
+        position: absolute;
+        top: 150px;
+        left: 150px;
+      }
+      #bjoerk{
+        transform-origin: bottom;
+      }
+      #lov1{
+        position: absolute;
+        top: 620px;
+        left: 220px;
+      }
+      #lov2{
+        position: absolute;
+        top: 640px;
+        left: 260px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <audio src="bilder/sommervind.mp3" id="vind"></audio>
+    <div class="knapper">
+      <button type="button" id="btnStille">Stille</button>
+      <button type="button" id="btnLettBris">Lett bris</button>
+      <button type="button" id="btnStivKuling">Stiv kuling</button>
+    </div>
+    <div class="vindmølle">
+      <img src="bilder/stolpe.png" id="stolpe">
+      <img src="bilder/blader.png" id="blader">
+      <img src="bilder/deksel.png" id="deksel">
+    </div>
+    <div class="tre">
+      <img src="bilder/bjoerk.png" id="bjoerk">
+    </div>
+    <img src="bilder/lov.png" id="lov1">
+    <img src="bilder/lov.png" id="lov2">
+
+
+    <script type="text/javascript">
+      var vind = document.querySelector("#vind");
+      var btnStille = document.querySelector("#btnStille");
+      var btnLettBris = document.querySelector("#btnLettBris");
+      var btnStivKuling = document.querySelector("#btnStivKuling");
+      var blader = document.querySelector("#blader");
+      var bjoerk = document.querySelector("#bjoerk");
+      var lov1 = document.querySelector("#lov1");
+      var lov2 = document.querySelector("#lov2");
+
+      var animasjonVindmolle = [{transform:"rotate(0deg)"},{transform:"rotate(720deg)"}]
+      var animasjonTre = [{transform:"rotate(-5deg)"},{transform:"rotate(5deg)"},{transform:"rotate(-5deg)"}]
+      var animasjonLov = [{transform:"rotate(60deg)"},{transform:"rotate(-60deg)"},{transform:"rotate(60deg)"}]
+
+      var kontrollObjekt = {
+        duration:4000,
+        iterations:Infinity
+      }
+
+      var aniVindmolle = blader.animate(animasjonVindmolle,kontrollObjekt);
+      var aniTre = bjoerk.animate(animasjonTre,kontrollObjekt);
+      var aniLov1 = lov1.animate(animasjonLov,kontrollObjekt);
+      var aniLov2 = lov2.animate(animasjonLov,kontrollObjekt);
+
+
+      visStille();
+
+      function visStille() {
+        aniVindmolle.playbackRate = 0;
+        aniTre.playbackRate = 0;
+        aniLov1.playbackRate = 0;
+        aniLov2.playbackRate = 0;
+        vind.pause();
+      }
+
+      function visLettBris() {
+        aniVindmolle.playbackRate = 1;
+        aniTre.playbackRate = 1;
+        aniLov1.playbackRate = 1;
+        aniLov2.playbackRate = 1;
+        vind.pause();
+      }
+
+      function visStivKuling() {
+        aniVindmolle.playbackRate = 3;
+        aniTre.playbackRate = 3;
+        aniLov1.playbackRate = 3;
+        aniLov2.playbackRate = 3;
+        vind.play();
+      }
+
+      btnStille.onclick = visStille;
+      btnLettBris.onclick = visLettBris;
+      btnStivKuling.onclick = visStivKuling;
+
+    </script>
+  </body>
+</html>

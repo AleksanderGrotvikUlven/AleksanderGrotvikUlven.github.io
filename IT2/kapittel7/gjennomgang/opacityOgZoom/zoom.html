@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>zoom</title>
+    <style media="screen">
+      #bilderamme{
+        width: 475px;
+        height: 320px;
+        border: 1px solid black;
+        overflow: hidden;
+        margin: 50px auto; /*midtstiller*/
+      }
+      #bilde{
+        cursor: zoom-in;
+        width: 475px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bilderamme">
+      <img src="pingvin.jpg" id="bilde">
+    </div>
+
+    <script type="text/javascript">
+      var bilderamme = document.querySelector("#bilderamme");
+      var bilde = document.querySelector("#bilde");
+
+      bilde.onmousemove = function(evt) {
+        bilde.style.width = "1900px";
+        bilde.style.marginLeft = 3*(-evt.clientX+bilderamme.offsetLeft)+"px";
+        bilde.style.marginTop = 3*(-evt.clientY+bilderamme.offsetTop)+"px";
+      };
+
+      bilde.onmouseout = function() {
+        bilde.style.width = "475px";
+        bilde.style.marginLeft = 0;
+        bilde.style.marginTop = 0;
+      };
+
+    </script>
+  </body>
+</html>

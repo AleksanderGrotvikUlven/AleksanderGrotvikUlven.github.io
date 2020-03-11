@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <style media="screen">
+      .firkant{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transition: .5s;
+        transition-delay: .1s;
+        margin-left: 500px;
+      }
+      .firkant:hover{
+        background-color: blue;
+        transform: translate(50px,50px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="firkant"></div>
+    <button id="btnRight" name="button">Right</button>
+    <button id="btnLeft" name="button">Left</button>
+
+    <script type="text/javascript">
+      var firkant = document.querySelector(".firkant")
+      var btnRight = document.querySelector("#btnRight");
+      var btnLeft = document.querySelector("#btnLeft");
+
+      btnRight.onclick = function() {
+        firkant.style.transform += "translate(200px,0px)";
+      }
+      btnLeft.onclick = function() {
+        firkant.style.transform += "translate(-200px,0px)";
+      }
+    </script>
+
+  </body>
+</html>

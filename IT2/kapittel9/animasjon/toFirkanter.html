@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>To Firkanter</title>
+    <style media="screen">
+      #firkant1{
+        background-color: blue;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 100px;
+        top: 100px;
+      }
+      #firkant2{
+        background-color: red;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        left: 300px;
+        top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btnStart">Start</button>
+    <div id="firkant1"></div>
+    <div id="firkant2"></div>
+
+    <script type="text/javascript">
+      var btnStart = document.querySelector("#btnStart");
+      var firkant1 = document.querySelector("#firkant1");
+      var firkant2 = document.querySelector("#firkant2");
+
+      var animasjon = [{top:"100px", transform:"rotate(0deg)"},{top:"500px", transform:"rotate(360deg)"}];
+      var kontrollObjekt = {
+        duration:1000,
+        iterations:Infinity,
+        direction:"alternate"
+      };
+
+      var minAni1 = firkant1.animate(animasjon,kontrollObjekt);
+      var minAni2 = firkant2.animate(animasjon,kontrollObjekt);
+      minAni1.pause();
+      minAni2.pause();
+      minAni2.currentTime = 1000;
+
+      btnStart.onclick = function() {
+        minAni1.play();
+
+        minAni2.play();
+      }
+
+
+
+    </script>
+  </body>
+</html>

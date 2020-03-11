@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #hoved {
+        display: flex;
+        flex-direction: row;
+      }
+      #tur1{
+        padding: 20px;
+      }
+      #tur2{
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bestilling av tur</h1>
+    <div id="hoved">
+      <div id="tur1">
+        <p>Tur 1: I Nordmarka.</p>
+        <p>Pris: Voksen 500kr, barn 250kr.</p>
+        <img src="bildeOgVideo/nordmarkaNy.jpg" width="250px"> <br>
+        <label>I Nordmarka <input type="radio" id="rNordmarka" name="g1" value="500"></label>
+      </div>
+      <div id="tur2">
+        <p>Tur 2: På fjellet.</p>
+        <p>Pris: Voksen 700kr, barn 350kr.</p>
+        <img src="bildeOgVideo/fjellturNy.jpg"> <br>
+        <label>På fjellet <input type="radio" id="rFjellet" name="g1" value="700"></label>
+      </div>
+    </div>
+    <label>Antall Voksne:
+      <input type="text" list="voksen" id="inpVoksen">
+      <datalist id="voksen">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="4">
+      </datalist>
+    </label><br><br>
+    <label>Antall Barn:
+      <input type="text" list="barn" id="inpBarn">
+      <datalist id="barn">
+        <option value="1">
+        <option value="2">
+        <option value="3">
+        <option value="4">
+        <option value="5">
+      </datalist>
+    </label><br><br>
+    <input type="text" list="guide" id="inpGuide" placeholder="Velg guide">
+    <datalist id="guide">
+      <option value="Severin Suveren">
+      <option value="Lars Monsen">
+      <option value="Elon Musk">
+    </datalist><br><br>
+    <button type="button" name="button" id="bestill">Bestill tur</button>
+    <p id="bestilling"></p>
+
+    <script type="text/javascript">
+    var rNordmarka = document.querySelector("#rNordmarka");
+    var rFjellet = document.querySelector("#rFjellet");
+    var inpVoksen = document.querySelector("#inpVoksen");
+    var inpBarn = document.querySelector("#inpBarn");
+    var inpGuide = document.querySelector("#inpGuide");
+    var bestill = document.querySelector("#bestill");
+    var bestilling = document.querySelector("#bestilling");
+    var pris = 0;
+    var tur = "";
+
+    bestill.onclick = skrivUt;
+
+    function skrivUt() {
+      if (rNordmarka.checked) {
+        tur = "i Nordmarka";
+        sjekkAntall();
+        pris = (rNordmarka.value*inpVoksen.value)+(rNordmarka.value*inpBarn.value*0.5);
+      }
+      else if (rFjellet.checked) {
+        tur = "i Fjellet";
+        sjekkAntall();
+        pris = (rFjellet.value*inpVoksen.value)+(rFjellet.value*inpBarn.value*0.5);
+      }
+      else {
+        bestilling.innerHTML = "Du må velge en av turene.";
+      }
+      utskrift.innerHTML = ""
+    }
+
+    function sjekkAntall() {
+      if (inpVoksen.value === "" || inpBarn.value === "") {
+        bestilling.innerHTML = "Du har valgt turen "+tur+". Du må velge antall deltagere, både voksne og barn.";
+      }
+    }
+    </script>
+
+  </body>
+</html>

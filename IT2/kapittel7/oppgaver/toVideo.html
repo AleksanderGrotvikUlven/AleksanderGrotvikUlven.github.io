@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ny video etter endt annen video</title>
+  </head>
+  <body>
+    <video src="#" autoplay controls id="video"></video>
+    <p id="text"></p>
+
+    <script type="text/javascript">
+      var video = document.querySelector("#video");
+      var text = document.querySelector("#text");
+      var ferdig = 0;
+
+      window.onload = videoStart;
+      function videoStart() {
+        video.src = "video/natriumklorid.mp4";
+      }
+
+      video.onended = videoFerdig;
+      function videoFerdig() {
+        if (prompt("Vil du se ny film?").toLowerCase() === "ja" && ferdig == 0) {
+          ferdig++;
+          video.src = "video/regnskog.mp4";
+        }
+        else if (prompt("Vil du se ny film?").toLowerCase() === "nei" || ferdig > 0)  {
+          video.style.display = "none";
+          text.innerHTML = "Takk for i dag!";
+        }
+      }
+    </script>
+  </body>
+</html>

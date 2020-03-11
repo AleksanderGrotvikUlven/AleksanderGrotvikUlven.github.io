@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Fade</title>
+    <style media="screen">
+      #tekst{
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btnVis">Vis tekst</button>
+    <p id="tekst">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <script type="text/javascript">
+      var btnVis = document.querySelector("#btnVis");
+      var tekst = document.querySelector("#tekst");
+
+      btnVis.onclick = function() {
+        tekst.animate([{opacity:0},{opacity:1}],2000);
+      }
+    </script>
+  </body>
+</html>

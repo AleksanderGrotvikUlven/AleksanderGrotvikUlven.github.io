@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Eksempel side 187</title>
+    <style media="screen">
+      #mediaContainer{
+        position:relative;
+        width:640px;
+        height:360px;
+      }
+      #minFilm{
+        position:absolute;
+      }
+      #divInfo{
+        position:absolute;
+        width:70%;
+        height:60%;
+        margin-left:15%;
+        margin-top:5%;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 0 10px;
+        font-family:sans-serif;
+        display:none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mediaContainer">
+      <video id="minFilm" src="english_lesson.mp4" controls></video>
+      <div id="divInfo">
+        <h1>Les mer om JFK</h1>
+        <ul>
+          <li>
+            <a href="https://no.wikipedia.org/wiki/John_F._Kennedy" target = "_blank">Artikkel på wikipedia</a>
+          </li>
+          <li>
+            <a href="https://snl.no/John_F._Kennedy" target = "_blank">Artikkel 2 leksikon</a>
+          </li>
+        </ul>
+        <button id="btnFortsett">Fortsett videoen</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+        var btnFortsett = document.querySelector("#btnFortsett");
+        var minFilm = document.querySelector("#minFilm");
+
+        minFilm.ontimeupdate = function(){
+          console.log(minFilm.currentTime);
+          if(minFilm.currentTime > 51 && minFilm.currentTime<51.3){
+            divInfo.style.display = "block";
+            minFilm.pause();
+            minFilm.currentTime=51.3;
+          }
+        }
+
+        btnFortsett.onclick = function(){
+          divInfo.style.display = "none";
+          minFilm.play();
+        }
+
+    </script>
+
+  </body>
+</html>

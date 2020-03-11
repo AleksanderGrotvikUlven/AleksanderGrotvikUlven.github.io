@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>video</title>
+  </head>
+  <body>
+    <video id="minFilm" src="english_lesson.mp4" controls width="640" height="400">
+    </video>
+    <br>
+    <button id="btnVis">VisFilm</button>
+    <script type="text/javascript">
+      var minFilm = document.querySelector("#minFilm");
+      var btnVis = document.querySelector("#btnVis");
+
+      minFilm.onended = videoFerdig;
+
+      function videoFerdig(){
+        minFilm.style.display = "none";
+      }
+
+      //viser videoen igjen
+      btnVis.onclick = function(){
+        minFilm.style.display = "block";
+      }
+
+    </script>
+  </body>
+</html>

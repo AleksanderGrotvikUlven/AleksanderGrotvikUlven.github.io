@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <style media="screen">
+      #btnVideo{
+        position: absolute;
+        left: 150px;
+        top: 150px;
+      }
+      #btnLyd{
+        position: absolute;
+        left: 450px;
+        top: 150px;
+      }
+      #videoBox{
+        position: absolute;
+        left: 150px;
+        top: 250px;
+      }
+      #minVideo{
+        display: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <img src="bildeOgVideo/himmel.jpg" id="imgHimmel">
+    <button type="button" name="button" id="btnVideo">Spill video</button>
+    <button type="button" name="button" id="btnLyd">Spill lyd</button>
+      <div id="videoBox">
+        <video src="bildeOgVideo/english_lesson.mp4" id="minVideo"></video>
+      </div>
+      <audio src="bildeOgVideo/Banjo.mp3" id="minLyd"></audio>
+
+    <script type="text/javascript">
+      var btnVideo = document.querySelector("#btnVideo");
+      var btnLyd = document.querySelector("#btnLyd");
+      var minVideo = document.querySelector("#minVideo");
+      var minLyd = document.querySelector("#minLyd");
+      var startSlutt = 0
+
+      btnVideo.onclick = spillVideo;
+      function spillVideo() { //Funksjon som starter videoen når knappen trykkes
+        minVideo.play();
+        minVideo.style.display = "block";
+        minLyd.pause(); //Passer på at video og lyd ikke spiller samtidig.
+        startSlutt = 0; //Passer på at lyden starter neste gang man trykker på lyd knappen
+        minLyd.currentTime = 0; //Passer på at lyden starter fra starten.
+      }
+
+      minVideo.onclick = stoppVideo; //Funksjon som stopper videoen når man trykker på den
+      function stoppVideo() {
+        minVideo.pause();
+        minVideo.style.display = "none";
+      }
+
+      btnLyd.onclick = spillLyd; //Spiller og stopper lyden når man trykker på knappen.
+      function spillLyd() {
+        if (startSlutt == 0) {
+          stoppVideo();
+          minLyd.play();
+          startSlutt++
+        }
+        else {
+          minLyd.pause();
+          startSlutt--
+          minLyd.currentTime = 0;
+        }
+      }
+
+    </script>
+  </body>
+</html>

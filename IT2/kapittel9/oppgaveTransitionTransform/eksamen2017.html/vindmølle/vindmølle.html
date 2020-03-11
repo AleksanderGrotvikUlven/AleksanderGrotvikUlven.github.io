@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vindmølle</title>
+    <style media="screen">
+    body{
+      background-color: rgb(68, 149, 71);
+    }
+      .vindmølle{
+        position: relative;
+      }
+      #stolpe{
+        position: absolute;
+        left: 400px;
+        top: 300px;
+      }
+      #blader{
+        position: absolute;
+        left: 232px;
+        top: 100px;
+        transform-origin: 50% 66%; /*Brukes for å endre midtpunkt på bildet*/
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btnFart4">4 m/s</button>
+    <button type="button" id="btnFart10">10 m/s</button>
+    <div class="vindmølle">
+      <img src="stolpe.png" id="stolpe">
+      <img src="blader.png" id="blader">
+    </div>
+
+    <script type="text/javascript">
+      var blader = document.querySelector("#blader");
+      var btnFart4 = document.querySelector("#btnFart4");
+      var btnFart10 = document.querySelector("#btnFart10");
+
+      var bladerAni = blader.animate([
+          {transform:"rotate(0deg)"},
+          {transform:"rotate(360deg)"}],
+          {duration:20000, iterations:Infinity})
+      bladerAni.play();
+
+      btnFart4.onclick = fart4;
+      function fart4() {
+        bladerAni.playbackRate = 4;
+      }
+
+      btnFart10.onclick = fart10;
+      function fart10() {
+        bladerAni.playbackRate = 10;
+      }
+
+
+
+    </script>
+
+  </body>
+</html>

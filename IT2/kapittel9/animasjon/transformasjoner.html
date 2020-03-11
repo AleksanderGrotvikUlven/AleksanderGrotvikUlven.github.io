@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Transformasjoner</title>
+    <style media="screen">
+      .firkant{
+        width: 500px;
+        height: 500px;
+        background-color: rgb(227, 186, 10);
+        transform: translate(10px,10px);
+        transition: .2s;
+        transition-delay: .1s;
+      }
+      .firkant:hover{
+        transform: translate(200px,400px);
+      }
+      .nyFirkant{
+        width: 400px;
+        height: 200px;
+        background-color: red;
+        transition: all .5s;
+        margin-left: 500px;
+        transform: scale(.8,1.2) skew(20deg);
+      }
+      .nyFirkant:active{
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="firkant"></div>
+    <div class="nyFirkant"></div>
+    <button id="btnRoter" name="button">Roter</button>
+
+    <script type="text/javascript">
+      var btnRoter = document.querySelector("#btnRoter");
+      var nyFirkant = document.querySelector(".nyFirkant");
+
+      btnRoter.onclick = function() {
+        nyFirkant.style.transform += "rotate(40deg)"+"translate(100px,100px)";
+      }
+    </script>
+
+  </body>
+</html>

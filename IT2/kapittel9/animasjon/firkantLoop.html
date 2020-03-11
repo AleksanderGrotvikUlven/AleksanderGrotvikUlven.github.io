@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #firkant{
+        position: absolute;
+        top: 50px;
+        left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="knapper">
+      <button type="button" id="btnStyr">Av/På</button>
+      <button type="button" id="btnRetning">Endre Retning</button>
+      <button type="button" id="btnFart">Fart</button>
+    </div>
+    <div id="firkant"></div>
+
+    <script type="text/javascript">
+      var btnStyr = document.querySelector("#btnStyr");
+      var btnRetning = document.querySelector("#btnRetning");
+      var btnFart = document.querySelector("#btnFart");
+
+      var firkant = document.querySelector("#firkant");
+
+      var minAni = firkant.animate([
+        {opacity: 0, top:"50px" ,left:"50px", transform:"rotate(0deg)", backgroundColor:"blue", height:"200px", width:"200px"},
+        {opacity: 0.5, top:"50px" ,left:(innerWidth - 150)+"px", transform:"rotate(180deg)", backgroundColor:"purple", height:"100px", width:"100px"},
+        {opacity: 1, top:(innerHeight - 150)+"px" ,left:(innerWidth - 150)+"px", transform:"rotate(540deg)", backgroundColor:"red", height:"50px", width:"50px"}],
+        {duration:2000, iterations:Infinity, direction:"alternate"});
+
+      minAni.pause();
+      btnStyr.onclick = function() {
+        if (minAni.playState === "paused") {
+          minAni.play();
+        }
+        else {
+          minAni.pause();
+        }
+      }
+
+      btnRetning.onclick = function() {
+        minAni.reverse();
+      }
+
+      //minAni.onfinish = aniFerdig;
+      function aniFerdig() {
+        minAni.reverse();
+        minAni.play();
+      }
+
+      btnFart.onclick = function() {
+        if (minAni.playbackRate === 1) {
+          minAni.playbackRate = 5;
+        }
+        else {
+          minAni.playbackRate = 1;
+        }
+      }
+
+    </script>
+  </body>
+</html>

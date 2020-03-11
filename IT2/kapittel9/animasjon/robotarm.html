@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Robotarm</title>
+    <style media="screen">
+      .robot{
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+      #robotKropp{
+        position: relative;
+        background-color: blue;
+        width: 300px;
+        height: 300px;
+      }
+      #robotArm{
+        position: absolute;
+        background-color: red;
+        width: 400px;
+        height: 50px;
+        top: 125px;
+        left: 200px;
+        transform-origin: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="robot">
+      <div id="robotKropp"></div>
+      <div id="robotArm"></div>
+    </div>
+    <script type="text/javascript">
+      var robot = document.querySelector(".robot");
+      var robotKropp = document.querySelector("#robotKropp");
+      var robotArm = document.querySelector("#robotArm");
+
+      var animasjon = [{left:"100px"},{left:"800px"}]
+      var animasjonArm = [{transform:"rotate(-30deg)"},{transform:"rotate(30deg)"}]
+      var kontrollObjekt = {
+        duration:1000,
+        iterations:Infinity,
+        direction:"alternate"
+      };
+      var kontrollObjektArm = {
+        duration:400,
+        iterations:Infinity,
+        direction:"alternate"
+      };
+
+      var aniRobot = robot.animate(animasjon,kontrollObjekt);
+      var aniArm = robotArm.animate(animasjonArm,kontrollObjektArm);
+
+    </script>
+  </body>
+</html>

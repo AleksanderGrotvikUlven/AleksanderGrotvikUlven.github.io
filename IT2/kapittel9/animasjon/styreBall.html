@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ball</title>
+    <style media="screen">
+      #sirkel{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: blue;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" id="btnVenstre">Venstre</button>
+    <button type="button" id="btnHøyre">Høyre</button>
+    <button type="button" id="btnOpp">Opp</button>
+    <button type="button" id="btnNed">Ned</button>
+    <div id="sirkel"></div>
+
+    <script type="text/javascript">
+      var btnHøyre = document.querySelector("#btnHøyre");
+      var btnVenstre = document.querySelector("#btnVenstre");
+      var btnOpp = document.querySelector("#btnOpp");
+      var btnNed = document.querySelector("#btnNed");
+      var sirkel = document.querySelector("#sirkel");
+
+      btnHøyre.onclick = retningHøyre;
+      function retningHøyre() {
+        sirkel.animate([{left:"100px"}, {left:"200px"}], {duration:1000, interations:1, fill:"forwards"});
+      }
+
+      btnVenstre.onclick = retningVenstre;
+      function retningVenstre() {
+        sirkel.animate([{left:"200px"}, {left:"100px"}], {duration:1000, interations:1, fill:"forwards"});
+      }
+
+      btnOpp.onclick = retningOpp;
+      function retningOpp() {
+        sirkel.animate([{top:"200px"}, {top:"100px"}], {duration:1000, interations:1, fill:"forwards"});
+      }
+
+      btnNed.onclick = retningNed;
+      function retningNed() {
+        sirkel.animate([{top:"100px"}, {top:"200px"}], {duration:1000, interations:1, fill:"forwards"});
+      }
+
+    </script>
+
+  </body>
+</html>

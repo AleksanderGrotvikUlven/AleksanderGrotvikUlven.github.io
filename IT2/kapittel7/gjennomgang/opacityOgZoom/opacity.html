@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>opacity</title>
+    <style media="screen">
+      #bilde{
+        opacity: 0;
+        transition: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" name="button" id="btnVis">Vis bilde</button>
+    <br>
+    <img src="pingvin.jpg" id="bilde" width="400px;">
+
+    <script type="text/javascript">
+      var btnVis = document.querySelector("#btnVis");
+      var bilde = document.querySelector("#bilde");
+
+      btnVis.onclick = function() {
+        bilde.style.opacity = "1";
+      }
+
+    </script>
+
+  </body>
+</html>

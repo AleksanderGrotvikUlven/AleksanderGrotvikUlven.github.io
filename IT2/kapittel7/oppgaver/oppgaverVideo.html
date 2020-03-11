@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Film i nedtrekksliste</title>
+    <style media="screen">
+      #inpBredde{
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <select id="film">
+      <option value="">Velg film</option>
+      <option value="0">Presentasjon</option>
+      <option value="1">Natriumklorid</option>
+      <option value="2">Regnskog</option>
+    </select>
+
+    <p id="text"></p>
+    <video src="#" id="video" autoplay width="600px"></video>
+    <br>
+    <input type="range" id="inpBredde" value="0">
+
+    <div>
+      <button type="button" name="button" id="btnBack">10sek tilbake</button>
+      <button type="button" name="button" id="btnPlayPause">Pause</button>
+      <button type="button" name="button" id="btnForward">10sek fram</button>
+    </div>
+    <div>
+      <button type="button" name="button" id="btnSlow">0.5xspeed</button>
+      <button type="button" name="button" id="btnNormal">1.0xspeed</button>
+      <button type="button" name="button" id="btnFast">2.0xspeed</button>
+    </div>
+
+    <script type="text/javascript">
+      var film = document.querySelector("#film");
+      var text = document.querySelector("#text");
+      var video = document.querySelector("#video");
+
+      var filmArr = [];
+        filmArr[0] = "video/english_lesson.mp4";
+        filmArr[1] = "video/natriumklorid.mp4";
+        filmArr[2] = "video/regnskog.mp4";
+
+      var inpBredde = document.querySelector("#inpBredde");
+      var btnBack = document.querySelector("#btnBack");
+      var btnPlayPause = document.querySelector("#btnPlayPause");
+      var btnForward = document.querySelector("#btnForward");
+      var btnSlow = document.querySelector("#btnSlow");
+      var btnNormal = document.querySelector("#btnNormal");
+      var btnFast = document.querySelector("#btnFast");
+
+
+      film.onchange = function() {
+        if (film.value !== "") {
+          video.src = filmArr[film.value];
+        }
+        else {
+          text.innerHTML = "Du må velge en film";
+          video.src = "#"
+        }
+      }
+
+      inpBredde.onchange = function() {
+        video.currentTime = inpBredde.value/100*video.duration;
+      }
+      function updateGlider() {
+        inpBredde.value = video.currentTime*100/video.duration;
+      }
+      setInterval(updateGlider,1000);
+
+      btnPlayPause.onclick = function() {
+        if (btnPlayPause.innerHTML == "Spill") {
+          btnPlayPause.innerHTML = "Pause";
+          video.play();
+        }
+        else {
+          btnPlayPause.innerHTML = "Spill";
+          video.pause();
+        }
+      }
+      btnBack.onclick = function() {
+        video.currentTime = video.currentTime-10;
+      }
+      btnForward.onclick = function() {
+        video.currentTime = video.currentTime+10;
+      }
+      btnSlow.onclick = function() {
+        video.playbackRate = 0.5;
+      }
+      btnNormal.onclick = function() {
+        video.playbackRate = 1;
+      }
+      btnFast.onclick = function() {
+        video.playbackRate = 2;
+      }
+
+      video.onended = videoFerdig;
+      function videoFerdig() {
+        video.style.display = "none";
+      }
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>lyd</title>
+  </head>
+  <body>
+    <audio src="oppvarming.mp3" id="minLyd" controls></audio>
+    <button id="btnLyd">Lyd</button>
+    <p id="tekst"></p>
+
+    <script type="text/javascript">
+      var minLyd = document.querySelector("#minLyd");
+      var btnLyd = document.querySelector("#btnLyd");
+      var tekst = document.querySelector("#tekst");
+
+      minLyd.onended = visTekst;
+      function visTekst() {
+        tekst.innerHTML = "Lyden er slutt";
+      }
+      btnLyd.onclick = function functionName() {
+        minLyd.play();
+        if (minLyd.volume === 0) {
+          minLyd.volume = 1;
+        }
+        else {
+          minLyd.volume = 0;
+        }
+      }
+    </script>
+  </body>
+</html>

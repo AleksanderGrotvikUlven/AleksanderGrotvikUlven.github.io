@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Video</title>
+  </head>
+  <body>
+    <h1>Min video</h1>
+    <video src="english_lesson.mp4" width="640px" id="minVideo"></video> <!--controls poster="katt.jpg"-->
+    <div>
+      <button type="button" name="button" id="btnPlay">Spill</button>
+      <button type="button" name="button" id="btnPause">Pause</button>
+      <button type="button" name="button" id="btnFast">speedx2</button>
+      <button type="button" name="button" id="btnNormal">speed normal</button>
+      <button type="button" name="button" id="btnSlow">speedx0.5</button>
+      <button type="button" name="button"><a href="#" id="lnkStart">Restart</a></button>
+
+    </div>
+
+    <script type="text/javascript">
+      var minVideo = document.querySelector("#minVideo");
+      var btnPlay = document.querySelector("#btnPlay");
+      var btnPause = document.querySelector("#btnPause");
+      var btnNormal = document.querySelector("#btnNormal");
+      var btnFast = document.querySelector("#btnFast");
+      var btnSlow = document.querySelector("#btnSlow");
+      var lnkStart = document.querySelector("#lnkStart");
+
+      btnPlay.onclick = function() {
+        minVideo.play();
+      }
+      btnPause.onclick = function() {
+        minVideo.pause();
+      }
+      btnFast.onclick = function() {
+        minVideo.playbackRate = 2;
+      }
+      btnNormal.onclick = function() {
+        minVideo.playbackRate = 1;
+      }
+      btnSlow.onclick = function() {
+        minVideo.playbackRate = 0.5;
+      }
+      lnkStart.onclick = function() {
+        minVideo.currentTime = 0;
+      }
+    </script>
+  </body>
+</html>
