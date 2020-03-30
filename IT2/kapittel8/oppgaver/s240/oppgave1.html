@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <style media="screen">
+      #chart{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: 400px;
+        height: 200px;
+      }
+      #chart>div{
+        background-color: lightblue;
+        margin: 15px;
+        flex-grow: 1;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Antall druer kastet målt i kg.</p>
+    <div id="chart"></div>
+    <script type="text/javascript">
+      var chart = document.querySelector("#chart");
+      var kastetArr = [2.1, 1.7, 2.4, 0.2];
+
+      function finnMaks() {
+        var maks = -Infinity;
+        for (var kast of kastetArr) {
+          if(kast>maks){
+            maks=kast;
+          }
+        }
+        return maks;
+      }
+      function tegnStolper() {
+        for (var kast of kastetArr) {
+          var maks=finnMaks();
+          var hoydeProsent = kast/maks*100;
+          chart.innerHTML += `<div style="height:${hoydeProsent}%">${kast}</div>`;
+        }
+      }
+      tegnStolper();
+
+
+    </script>
+
+  </body>
+</html>

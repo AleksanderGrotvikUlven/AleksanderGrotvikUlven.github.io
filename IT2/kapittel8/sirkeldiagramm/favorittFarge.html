@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Elever</title>
+  </head>
+  <body>
+    <canvas id="chart" width="300" height="300"></canvas>
+
+    <script type="text/javascript">
+      var chart = document.querySelector("#chart");
+      var ctx = chart.getContext("2d");
+      function graderTilRadianer(grader){
+        return Math.PI*grader/180;
+      }
+      var favoritter = [
+        {farge:"PeachPuff",antall:12},
+        {farge:"Peru",antall:9},
+        {farge:"Salmon",antall:7}
+      ]
+      var sum=0;
+      for(var favoritt of favoritter){
+        sum += favoritt.antall;
+      }
+      var startvinkel=-90;
+      for(var favoritt of favoritter){
+        var vinkel = favoritt.antall*360/sum;
+        ctx.fillStyle=favoritt.farge;
+        ctx.beginPath();
+        ctx.moveTo(150,150);
+        ctx.arc(150,150,140,graderTilRadianer(startvinkel),graderTilRadianer(startvinkel+vinkel));
+        ctx.closePath();
+        ctx.fill();
+        startvinkel+=vinkel;
+      }
+
+
+    </script>
+  </body>
+</html>

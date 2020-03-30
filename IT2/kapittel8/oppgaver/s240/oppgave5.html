@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kjæledyr</title>
+  </head>
+  <body>
+    <canvas id="chart" width="300" height="300"></canvas>
+
+    <script type="text/javascript">
+      var chart = document.querySelector("#chart");
+      var ctx = chart.getContext("2d");
+      function graderTilRadianer(grader){
+        return Math.PI*grader/180;
+      }
+      var kjæledyrArr = [
+        {dyr:"hund",antall:5,farge:"blue"},
+        {dyr:"katt",antall:8,farge:"red"},
+        {dyr:"undulat",antall:2,farge:"purple"},
+        {dyr:"ingen kjæledyr",antall:12,farge:"yellow"}
+      ]
+      var sum = 0;
+      for(var kjæledyr of kjæledyrArr){
+        sum += kjæledyr.antall;
+      }
+      var startvinkel=-90;
+      for(var kjæledyr of kjæledyrArr){
+        var vinkel = kjæledyr.antall*360/sum;
+        ctx.fillStyle=kjæledyr.farge;
+        ctx.beginPath();
+        ctx.moveTo(150,150);
+        ctx.arc(150,150,140,graderTilRadianer(startvinkel),graderTilRadianer(startvinkel+vinkel));
+        ctx.closePath();
+        ctx.fill();
+        startvinkel+=vinkel;
+      }
+    </script>
+  </body>
+</html>

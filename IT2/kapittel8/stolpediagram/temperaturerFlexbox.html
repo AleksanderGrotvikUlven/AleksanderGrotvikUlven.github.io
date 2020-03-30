@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Temperaturer</title>
+    <style media="screen">
+    #chart{
+      display: flex;
+      width: 600px;
+      height: 300px;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+      #chart>div{
+        background-color: lightblue;
+        margin: 10px;
+        flex-grow: 1;
+        text-align: center;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Temperaturer på Sicilia</p>
+    <div id="chart"></div>
+    <script type="text/javascript">
+      var chart = document.querySelector("#chart");
+      var temperaturer = [16,16,18,21,25,30,33,33,30,25,20,17];
+
+      function finnMaks() {
+        var maks = -Infinity;
+        for (var temp of temperaturer) {
+          if(temp>maks){
+            maks=temp;
+          }
+        }
+        return maks;
+      }
+      
+      function tegnStolper() {
+        var maks=finnMaks();
+        for (var temp of temperaturer) {
+          var hoydeProsent=temp/maks*100
+          chart.innerHTML += `<div style="height:${hoydeProsent}%">${temp}</div>`;
+        }
+      }
+      tegnStolper();
+
+    </script>
+
+  </body>
+</html>

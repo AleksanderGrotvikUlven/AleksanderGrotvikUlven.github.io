@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flexbox</title>
+    <style media="screen">
+      #chart{
+        display: flex;
+        width: 400px;
+        height: 200px;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+      #chart>div{
+        background-color: lightblue;
+        margin: 10px;
+        flex-grow: 1;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script type="text/javascript">
+      var chart = document.querySelector("#chart");
+      var høydeArr = [30,80,60,40];
+
+      for (var høyde of høydeArr) {
+        chart.innerHTML += "<div style='height:"+høyde*2+"px'>"+høyde+"</div>";
+      }
+
+    </script>
+
+  </body>
+</html>
