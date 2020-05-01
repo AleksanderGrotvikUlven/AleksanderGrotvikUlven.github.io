@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <style media="screen">
+      body{
+        background-color: rgb(255, 221, 162);
+      }
+      main{
+        background-color: rgb(255, 255, 255);
+        width: 60%;
+        padding: 50px;
+        margin: auto;
+      }
+      .navbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      .container{
+        width: 300px;
+        margin: auto;
+      }
+      .container>button{
+        margin: 10px;
+      }
+
+      #opningsbilete{
+        height: 540px;
+        margin: auto;
+      }
+      .byttBilde{
+        margin: auto;
+      }
+      #informasjon{
+        border: 2px solid white;
+      }
+      #priser{
+        border: 2px solid white;
+      }
+      #aapningstider{
+        border: 2px solid white;
+      }
+      #utskrift{
+        text-align: right;
+
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="navbar">
+        <div class="container">
+          <button type="button" name="button">Oppgave 2</button>
+          <button type="button" name="button">Oppgave 3</button>
+        </div>
+      </div>
+      <div class="opningsskjermbilete">
+        <img src="" id="opningsbilete">
+      </div>
+      <div class="navbar">
+        <div class="container">
+          <button type="button" id="btnTilbake">Bla tilbake</button>
+          <button type="button" id="btnFrem">Bla frem</button>
+        </div>
+      </div>
+      <div class="info">
+        <img src="informasjon.jpg" id="informasjon">
+        <img src="priser.jpg" id="priser">
+        <img src="aapningstider.jpg" id="aapningstider">
+      </div>
+      <p id="utskrift"></p>
+    </main>
+
+  </body>
+  <script type="text/javascript">
+    var opningsbilete = document.querySelector("#opningsbilete");
+    var btnFrem = document.querySelector("#btnFrem");
+    var btnTibake = document.querySelector("#btnTibake");
+    var informasjon = document.querySelector("#informasjon");
+    var priser = document.querySelector("#priser");
+    var aapningstider = document.querySelector("#aapningstider");
+
+
+    var bildeArr = ["intro1.jpg", "intro2.jpg","intro3.jpg", "intro4.jpg"];
+    var verdi = 0
+
+    btnFrem.onclick = function nesteBilde() { //Velger neste bilde i rekken
+      if (verdi <3) {
+        verdi++;
+        visBilde();
+      }
+      else {
+        verdi = 0;
+        visBilde();
+      }
+    }
+    btnTilbake.onclick = function forrigeBilde() { //Velger forrige bilde i rekken
+      if (verdi > 0) {
+        verdi--;
+        visBilde();
+      }
+      else {
+        verdi = 3;
+        visBilde();
+      }
+    }
+
+    visBilde();
+    function visBilde() { //Viser bilde
+      for (var element of bildeArr) {
+        opningsbilete.src = bildeArr[verdi];
+      }
+    }
+
+    info.onmouseover = function() {
+      utskrift.innerHTML = "DFGHJKL"
+    }
+    priser.onmouseover = function() {
+      utskrift.innerHTML = "12345"
+    }
+
+    aapningstider.onmouseover = function() {
+      utskrift.innerHTML = "sdfghjk"
+    }
+
+
+  </script>
+</html>

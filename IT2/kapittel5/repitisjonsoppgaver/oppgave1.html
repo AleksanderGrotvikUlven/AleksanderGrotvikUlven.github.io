@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="">
+      Tittel:<input type="text" id="inpTittel">ISBN:<input type="text" id="inpISBN"><button type="button" id="btnReg">Registrer</button><button type="button" id="btnSlett">Slett</button>
+    </div>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var inpTittel = document.querySelector("#inpTittel");
+      var inpISBN = document.querySelector("#inpISBN");
+      var btnReg = document.querySelector("#btnReg");
+      var btnSlett = document.querySelector("#btnSlett");
+      var utskrift = document.querySelector("#utskrift");
+
+      var bøker = [
+        {tittel:"Matematikk 1T", isbn:"978-82-03-3"},
+        {tittel:"Matematikk S1", isbn:"978-82-05-3"},
+        {tittel:"Kode 2", isbn:"978-82-02-44790-8"}
+      ];
+
+      btnReg.onclick = leggTil;
+
+      function leggTil() {
+        var reg = false;
+        for (var bok of bøker) {
+          if (inpISBN.value === bok.isbn) {
+            var reg = true;
+            utskrift.innerHTML += "Du har allerede lagt til denne boken."
+          }
+        }
+        if (!reg) {
+            bøker.push({tittel:inpTittel.value,isbn:inpISBN.value});
+            inpTittel.value = "";
+            inpISBN.value = "";
+            skrivUt();
+        }
+      }
+
+      function trekkFra() {
+        for (var bok of bøker) {
+          array[i]
+        }
+      }
+
+      function skrivUt() {
+        utskrift.innerHTML = "";
+        for (var bok of bøker) {
+          utskrift.innerHTML += "Bok: "+bok.tittel+", ISBN: "+bok.isbn+"<br>";
+        }
+      }
+      skrivUt();
+    </script>
+
+  </body>
+</html>

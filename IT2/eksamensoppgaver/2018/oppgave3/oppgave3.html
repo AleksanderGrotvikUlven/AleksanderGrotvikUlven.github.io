@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Instrument</title>
+    <style media="screen">
+      .lydBilde{
+        display: flex;
+        flex-direction: row;
+      }
+      .lydBilde>div{
+        padding: 5px;
+        background-color: rgb(173, 173, 173);
+        margin: auto;
+      }
+      #btnGjemt{
+        opacity: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <p>Trykk på bildet for å gjette etter at du har startet quizen.</p>
+    <div class="lydBilde">
+      <div>
+        <img src="fagott.jpg" id="fagott">
+        <p>Fagott</p>
+      </div>
+      <div>
+        <img src="floyte.jpg" id="floyte">
+        <p>Fløyte</p>
+      </div>
+      <div>
+        <img src="klarinett.jpg" id="klarinett">
+        <p>Klarinett</p>
+      </div>
+      <div>
+        <img src="obo.jpg" id="obo">
+        <p>Obo</p>
+      </div>
+      <div>
+        <img src="valthorn.jpg" id="valthorn">
+        <p>Valthorn</p>
+      </div>
+    </div>
+    <div class="">
+      <audio src="" id="minLyd"></audio>
+      <button type="button" id="btnStart">Start</button>
+      <button type="button" id="btnGjemt">Spill igjen</button>
+      <p id="antGjett">Antall gjett:</p>
+      <p id="highscore">Highscore:</p>
+    </div>
+
+    <script type="text/javascript">
+      var fagott = document.querySelector("#fagott");
+      var floyte = document.querySelector("#floyte");
+      var klarinett = document.querySelector("#klarinett");
+      var obo = document.querySelector("#obo");
+      var valthorn = document.querySelector("#fagott");
+
+      var btnStart = document.querySelector("#btnStart");
+      var antGjett = document.querySelector("#antGjett");
+
+      var lydArr = [
+        {lyd:"fagott.mp3",navn:"fagott"},
+        {lyd:"floyte.mp3",navn:"floyte"},
+        {lyd:"klarinett.mp3",navn:"klarinett"},
+        {lyd:"obo.mp3",navn:"obo"},
+        {lyd:"valthorn.mp3",navn:"valthorn"}
+      ];
+      var antallGjett = 0;
+      var math = "";
+      var antallInstrument = 5;
+      var lyd = "";
+      var navn = "";
+
+      btnStart.onclick = spillTilfeldig;
+      function spillTilfeldig() {
+        math = Math.floor(Math.random()*antallInstrument)
+        lyd = lydArr[math].lyd;
+        navn = lydArr[math].navn;
+        minLyd.src = lyd;
+        minLyd.play();
+        visBtn();
+      }
+      function visBtn() {
+        btnGjemt.style.opacity = 1;
+      }
+      btnGjemt.onclick = spillIgjen;
+      function spillIgjen() {
+        minLyd.play();
+      }
+      fagott.onclick = floyte.onclick = klarinett.onclick = obo.onclick = valthorn.onclick = gjett;
+      function gjett(evt) {
+        var valg = evt.target.id;
+        if (valg == navn) {
+          flereGjett();
+          fjernInstrument();
+        }
+        else {
+          flereGjett();
+        }
+      }
+
+      function flereGjett() {
+        antallGjett++
+        antGjett.innerHTML = "Antall gjett: "+antallGjett;
+      }
+
+      function fjernInstrument() {
+        function deleteRow(arr, row) {
+          arr = arr.slice(0); // make copy
+          arr.splice(row - 1, 1);
+          return arr;
+        }
+        console.log(lydArr)
+      }
+    </script>
+
+
+
+    spill av tilfeldig lyd
+        lyden lagres som "midlertidig lyd" helt til riktig lyd er gjettet
+        mulighet til å spille av på nytt
+        Per gang man gjetter legges det til 1 på "antall gjett"
+
+        Ved riktig
+          Bilde og tekst forsvinner
+          knapp "gå videre vises"
+          spiller av ny tilfeldig lyd når knappen trykkes
+          Antall gjett settes som "highscore", må være fast variabel som ligger utenfor funksjonene (med unntak av den som skjekker)
+
+
+  </body>
+</html>

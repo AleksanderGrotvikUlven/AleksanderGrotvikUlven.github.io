@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+  </head>
+  <body>
+    <select id="arrangement">
+      <option value="">Velg arrangement</option>
+      <option value="1">Trondheim kammermusikkfestival: Fabelaktig formiddag</option>
+      <option value="2">Spel opp!</option>
+      <option value="3">Onsdagskonsert</option>
+      <option value="4">Juiogat: Joik for folk</option>
+    </select>
+    <br>
+    <br>
+    <div class="">
+      Antall voksne:<input type="number" id="voksen" value="0">
+      Antall barn:<input type="number" id="barn" value="0">
+      <button type="button" id="btnReg">Registrer</button>
+    </div>
+    <br>
+    <span id="utskrift"></span>
+
+    <script type="text/javascript">
+    var arrangement = document.querySelector("#arrangement");
+    var utskrift = document.querySelector("#utskrift");
+    var voksen = document.querySelector("#voksen");
+    var barn = document.querySelector("#barn");
+    var btnReg = document.querySelector("#btnReg");
+
+    btnReg.onclick = velgArrangement;
+    function velgArrangement() {
+      utskrift.innerHTML = "";
+      if (arrangement.value == "") {
+        utskrift.innerHTML = "Du må velge konsert";
+        return;
+      }
+      else {
+        var index = arrangement.selectedIndex;
+        var valgt = arrangement[index];
+        utskrift.innerHTML = "Du har bestilt billetter til "+valgt.innerHTML+". ";
+        prisPerson();
+      }
+    }
+
+    function prisPerson() {
+      var pris = voksen.value*100+barn.value*50
+      if (Number(voksen.value)+Number(barn.value) >= 5) {
+        pris = pris*0.8;
+      }
+      if (voksen.value !== "0" && barn.value !== "0") {
+        utskrift.innerHTML += "Det er bestilt biletter til "+voksen.value+" voksne og "+barn.value+" barn for totalt "+pris+" kr."
+      }
+      else if (voksen.value !== 0 && barn.value == 0){
+        utskrift.innerHTML += "Det er bestilt biletter til "+voksen.value+" voksne for totalt "+pris+" kr."
+      }
+      else {
+        utskrift.innerHTML += "Det er bestilt biletter til "+barn.value+" barn for totalt "+pris+" kr."
+      }
+    }
+
+    </script>
+  </body>
+</html>
