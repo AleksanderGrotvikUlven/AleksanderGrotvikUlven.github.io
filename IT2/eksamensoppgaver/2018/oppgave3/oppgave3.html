@@ -45,7 +45,7 @@
     </div>
     <div class="">
       <audio src="" id="minLyd"></audio>
-      <button type="button" id="btnStart">Start</button>
+      <button type="button" id="btnStart">Spill ny sang</button>
       <button type="button" id="btnGjemt">Spill igjen</button>
       <p id="antGjett">Antall gjett:</p>
       <p id="highscore">Highscore:</p>
@@ -56,24 +56,24 @@
       var floyte = document.querySelector("#floyte");
       var klarinett = document.querySelector("#klarinett");
       var obo = document.querySelector("#obo");
-      var valthorn = document.querySelector("#fagott");
+      var valthorn = document.querySelector("#valthorn");
 
       var btnStart = document.querySelector("#btnStart");
       var antGjett = document.querySelector("#antGjett");
 
       var lydArr = [
-        {lyd:"fagott.mp3",navn:"fagott"},
-        {lyd:"floyte.mp3",navn:"floyte"},
-        {lyd:"klarinett.mp3",navn:"klarinett"},
-        {lyd:"obo.mp3",navn:"obo"},
-        {lyd:"valthorn.mp3",navn:"valthorn"}
+        {lyd:"fagott.mp3",navn:"fagott",bilde:"fagott.jpg"},
+        {lyd:"floyte.mp3",navn:"floyte",bilde:"floyte.jpg"},
+        {lyd:"klarinett.mp3",navn:"klarinett",bilde:"klarinett.jpg"},
+        {lyd:"obo.mp3",navn:"obo",bilde:"obo.jpg"},
+        {lyd:"valthorn.mp3",navn:"valthorn",bilde:"valthorn.jpg"}
       ];
       var antallGjett = 0;
       var math = "";
       var antallInstrument = 5;
       var lyd = "";
       var navn = "";
-
+      //Spiller av en tilfeldig sang
       btnStart.onclick = spillTilfeldig;
       function spillTilfeldig() {
         math = Math.floor(Math.random()*antallInstrument)
@@ -83,13 +83,16 @@
         minLyd.play();
         visBtn();
       }
+      //Viser knappen som lar brukeren spille av lyden på nytt
       function visBtn() {
         btnGjemt.style.opacity = 1;
       }
+      //Gir brukeren muligheten til å spille lyd på nytt.
       btnGjemt.onclick = spillIgjen;
       function spillIgjen() {
         minLyd.play();
       }
+      //Skjekker om bruker har gjettet riktig
       fagott.onclick = floyte.onclick = klarinett.onclick = obo.onclick = valthorn.onclick = gjett;
       function gjett(evt) {
         var valg = evt.target.id;
@@ -101,20 +104,20 @@
           flereGjett();
         }
       }
-
+      //Legger til 1 på antall gjett
       function flereGjett() {
         antallGjett++
         antGjett.innerHTML = "Antall gjett: "+antallGjett;
       }
 
       function fjernInstrument() {
-        function deleteRow(arr, row) {
-          arr = arr.slice(0); // make copy
-          arr.splice(row - 1, 1);
-          return arr;
-        }
-        console.log(lydArr)
+        lydArr.splice(math,1);
+        antallInstrument = antallInstrument-1;
+        document.getElementById(navn).style.src = "";
+        console.log(lydArr);
+        navn.
       }
+
     </script>
 
 
