@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+  </head>
+  <body>
+    <p>Skriv inn vindhastighet i m/s</p>
+    <input type="number" min="0" id="vindHastighet">
+    <button type="button" id="btnWatt">Vis wattproduksjon</button>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var vindHastighet = document.querySelector("#vindHastighet");
+      var btnWatt = document.querySelector("#btnWatt");
+      var utskrift = document.querySelector("#utskrift");
+      var wattproduksjon = 0;
+
+      btnWatt.onclick = finnWatt;
+
+      function finnWatt() {
+        if (vindHastighet.value >= 17.2 || vindHastighet.value <= 1.5) {
+          wattproduksjon = 0;
+        }
+        else if (vindHastighet.value >= 13.9) {
+          wattproduksjon = 500;
+        }
+        else if (vindHastighet.value >= 10.8) {
+          wattproduksjon = 400;
+        }
+        else if (vindHastighet.value >= 8) {
+          wattproduksjon = 150;
+        }
+        else if (vindHastighet.value >= 5.5) {
+          wattproduksjon = 60;
+        }
+        else if (vindHastighet.value >= 3.4) {
+          wattproduksjon = 10;
+        }
+        else if (vindHastighet.value >= 1.6) {
+          wattproduksjon = 2;
+        }
+        skrivUt()
+      }
+
+      function skrivUt() {
+        utskrift.innerHTML = "Med en vindhastighet på "+vindHastighet.value+" m/s. Lager vindmøllen ca. "+wattproduksjon+" watt i timen";
+      }
+    </script>
+
+  </body>
+</html>

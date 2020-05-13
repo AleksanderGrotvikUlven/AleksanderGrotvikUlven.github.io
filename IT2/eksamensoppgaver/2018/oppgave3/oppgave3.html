@@ -16,50 +16,32 @@
       #btnGjemt{
         opacity: 0;
       }
-
     </style>
   </head>
   <body>
     <p>Trykk på bildet for å gjette etter at du har startet quizen.</p>
-    <div class="lydBilde">
-      <div>
-        <img src="fagott.jpg" id="fagott">
-        <p>Fagott</p>
-      </div>
-      <div>
-        <img src="floyte.jpg" id="floyte">
-        <p>Fløyte</p>
-      </div>
-      <div>
-        <img src="klarinett.jpg" id="klarinett">
-        <p>Klarinett</p>
-      </div>
-      <div>
-        <img src="obo.jpg" id="obo">
-        <p>Obo</p>
-      </div>
-      <div>
-        <img src="valthorn.jpg" id="valthorn">
-        <p>Valthorn</p>
-      </div>
+    <div class="lydBilde" id="lydBilde">
+      <h1>Trykk på knappen under for å starte</h1>
     </div>
     <div class="">
       <audio src="" id="minLyd"></audio>
       <button type="button" id="btnStart">Spill ny sang</button>
-      <button type="button" id="btnGjemt">Spill igjen</button>
+      <button type="button" id="btnIgjen">Spill igjen</button>
       <p id="antGjett">Antall gjett:</p>
       <p id="highscore">Highscore:</p>
     </div>
 
     <script type="text/javascript">
-      var fagott = document.querySelector("#fagott");
-      var floyte = document.querySelector("#floyte");
-      var klarinett = document.querySelector("#klarinett");
-      var obo = document.querySelector("#obo");
-      var valthorn = document.querySelector("#valthorn");
-
       var btnStart = document.querySelector("#btnStart");
+      var btnIgjen = document.querySelector("#btnIgjen");
       var antGjett = document.querySelector("#antGjett");
+
+      var antallGjett = 0;
+      var antallHighscore = 100;
+      var math = "";
+      var antallInstrument = 5;
+      var lyd = "";
+      var navn = "";
 
       var lydArr = [
         {lyd:"fagott.mp3",navn:"fagott",bilde:"fagott.jpg"},
@@ -68,14 +50,26 @@
         {lyd:"obo.mp3",navn:"obo",bilde:"obo.jpg"},
         {lyd:"valthorn.mp3",navn:"valthorn",bilde:"valthorn.jpg"}
       ];
-      var antallGjett = 0;
-      var math = "";
-      var antallInstrument = 5;
-      var lyd = "";
-      var navn = "";
+
+      var lydBilde = document.querySelector(".lydBilde");
+      //Tegner opp elementene i html
+      function tegnOpp() {
+        lydBilde.innerHTML = "";
+        for (var instrument of lydArr) {
+          lydBilde.innerHTML += '<div><img src="'+instrument.bilde+'" id="'+instrument.navn+'"><p>'+instrument.navn+'</p></div>'
+        }
+      }
+
+      var fagott = document.querySelector("#fagott");
+      var floyte = document.querySelector("#floyte");
+      var klarinett = document.querySelector("#klarinett");
+      var obo = document.querySelector("#obo");
+      var valthorn = document.querySelector("#valthorn");
+
       //Spiller av en tilfeldig sang
       btnStart.onclick = spillTilfeldig;
       function spillTilfeldig() {
+        tegnOpp();
         math = Math.floor(Math.random()*antallInstrument)
         lyd = lydArr[math].lyd;
         navn = lydArr[math].navn;
@@ -85,15 +79,21 @@
       }
       //Viser knappen som lar brukeren spille av lyden på nytt
       function visBtn() {
-        btnGjemt.style.opacity = 1;
+        btnIgjen.style.opacity = 1;
       }
       //Gir brukeren muligheten til å spille lyd på nytt.
-      btnGjemt.onclick = spillIgjen;
+      btnIgjen.onclick = spillIgjen;
       function spillIgjen() {
         minLyd.play();
       }
+
+      //skjekker om brukeren har trykket på et bilde eller
+      lydBilde.onclick = function(evt) {
+        if (evt.target.id != "lydBilde") {
+          gjett(evt);
+        }
+      }
       //Skjekker om bruker har gjettet riktig
-      fagott.onclick = floyte.onclick = klarinett.onclick = obo.onclick = valthorn.onclick = gjett;
       function gjett(evt) {
         var valg = evt.target.id;
         if (valg == navn) {
@@ -110,13 +110,22 @@
         antGjett.innerHTML = "Antall gjett: "+antallGjett;
       }
 
+      //Fjerner et element fra arrayet
       function fjernInstrument() {
         lydArr.splice(math,1);
         antallInstrument = antallInstrument-1;
-        document.getElementById(navn).style.src = "";
-        console.log(lydArr);
-        navn.
+        tegnOpp();
+        if (lydArr.length == 0) {
+          lydBilde.innerHTML = '<h1>Du er nå ferdig!</h1>'
+
+          if (antallGjett < antallHighscore) {
+            antallHighscore = antallGjett;
+            highscore.innerHTML = "Highscore: "+antallHighscore;
+          }
+        }
       }
+
+
 
     </script>
 

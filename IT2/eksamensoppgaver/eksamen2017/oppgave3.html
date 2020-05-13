@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+  </head>
+  <body>
+    <p>Skriv inn vindhastighet i m/s</p>
+    Kl. 02:00-08:00 <input type="number" min="0" id="vindNatt"><br>
+    Kl. 08:00-14:00 <input type="number" min="0" id="vindMorgen"><br>
+    Kl. 14:00-20:00 <input type="number" min="0" id="vindDag"><br>
+    Kl. 20:00-02:00 <input type="number" min="0" id="vindKveld"><br>
+    <button type="button" id="btnReg">Vis wattproduksjon</button>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var vindNatt = document.querySelector("#vindNatt");
+      var vindMorgen = document.querySelector("#vindMorgen");
+      var vindDag = document.querySelector("#vindDag");
+      var vindKveld = document.querySelector("#vindKveld");
+      var btnReg = document.querySelector("#btnReg");
+      var utskrift = document.querySelector("#utskrift");
+
+      var wattproduksjon = 0
+
+      var vindArr = []
+
+      btnReg.onclick = leggTil;
+
+      //Legger til alle verdiene for vindstyrker i ett array
+      function leggTil() {
+        vindArr.push(vindNatt.value);
+        vindArr.push(vindMorgen.value);
+        vindArr.push(vindDag.value);
+        vindArr.push(vindKveld.value);
+        produksjonDag();
+      }
+
+      //Bestemmer wattproduksjoenen i hver tidsperiode og legger verdiene sammen som en variabel
+      function produksjonDag() {
+        wattproduksjon = 0
+        for (var vind of vindArr) {
+          if (vind >= 17.2 || vind <= 1.5) {
+            wattproduksjon = wattproduksjon+0*6;
+          }
+          else if (vind >= 13.9) {
+            wattproduksjon = wattproduksjon+500*6;
+          }
+          else if (vind >= 10.8) {
+            wattproduksjon = wattproduksjon+400*6;
+          }
+          else if (vind >= 8) {
+            wattproduksjon = wattproduksjon+150*6;
+          }
+          else if (vind >= 5.5) {
+            wattproduksjon = wattproduksjon+60*6;
+          }
+          else if (vind >= 3.4) {
+            wattproduksjon = wattproduksjon+10*6;
+          }
+          else if (vind >= 1.6) {
+            wattproduksjon = wattproduksjon+2*6;
+          }
+        }
+        skrivUt();
+      }
+
+      //Skriver ut på skjermen
+      function skrivUt() {
+        utskrift.innerHTML = "Med vindhastigheter på "+vindNatt.value+" m/s, "+vindMorgen.value+" m/s, "+vindDag.value+" m/s og "+vindKveld.value+" m/s. Lager vindmøllen ca. "+wattproduksjon+" watt den dagen.";
+      }
+
+
+    </script>
+  </body>
+</html>
