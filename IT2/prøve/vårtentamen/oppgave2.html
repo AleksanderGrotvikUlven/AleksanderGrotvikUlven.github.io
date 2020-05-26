@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+  </head>
+  <body>
+    <h1>Hundeslottet hundehotell</h1>
+    <p>Velg hvilket rom du ønsker</p>
+    <input type="radio" id="inpLuksus" name="valgtRom" value="luksus" checked>
+    <label for="luksus">Luksus: kr 300/hund</label><br>
+    <input type="radio" id="inpStandard" name="valgtRom" value="standard">
+    <label for="standard">Standard: kr 200/hund</label><br>
+    <input type="radio" id="inpØkonomi" name="valgtRom" value="økonomi">
+    <label for="økonomi">Økonomi: kr 100/hund</label>
+    <p>Skriv inn antall hunder</p>
+    <input type="number" min="0" id="antHunder" placeholder="0">
+    <p>Skriv inn antall døgn</p>
+    <input type="number" min="0" id="antDøgn" placeholder="0">
+    <p>Ønsker dere klipp og vask?</p>
+    <input type="radio" id="inpJa" name="frokost" value="ja" checked>
+    <label for="ja">Ja</label><br>
+    <input type="radio" id="inpNei" name="frokost" value="nei">
+    <label for="nei">Nei</label><br><br>
+    <button type="button" id="btnRegistrer">Registrer bestilling</button>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var inpLuksus = document.querySelector("#inpLuksus");
+      var inpStandard = document.querySelector("#inpStandard");
+      var inpØkonomi = document.querySelector("#inpØkonomi");
+      var antHunder = document.querySelector("#antHunder");
+      var antDøgn = document.querySelector("#antDøgn");
+      var inpJa = document.querySelector("#inpJa");
+      var inpNei = document.querySelector("#inpNei");
+      var btnRegistrer = document.querySelector("#btnRegistrer");
+      var utskrift = document.querySelector("#utskrift")
+
+      btnRegistrer.onclick = registrerBestilling;
+      function registrerBestilling() {
+        utskrift.innerHTML = "";
+        sjekkFeil();
+        finnPris();
+      }
+
+      //Viser feilmelding ved feil i bestilling
+      function sjekkFeil() {
+        if (antHunder.value == "" || antDøgn.value == "") {
+          utskrift.innerHTML = "Du må skrive inn antall hunder og netter du ønsker å bestille for";
+        }
+      }
+
+      //Regner ut prisen til kunden
+      function finnPris() {
+        var pris = 0;
+        if (inpLuksus.checked == true) {
+          pris = antHunder.value*antDøgn.value*300;
+          utskrift.innerHTML = "Luksus rom er valgt for "+antHunder.value+" hunder i "+antDøgn.value+" døgn. ";
+        }
+        else if (inpStandard.checked == true) {
+          pris = antHunder.value*antDøgn.value*200;
+          utskrift.innerHTML = "Standard rom er valgt for "+antHunder.value+" hunder i "+antDøgn.value+" døgn. ";
+        }
+        else{
+          pris = antHunder.value*antDøgn.value*100;
+          utskrift.innerHTML = "Økonomi rom er valgt for "+antHunder.value+" hunder i "+antDøgn.value+" døgn. ";
+        }
+        if (inpJa.checked == true) {
+          pris = pris + antHunder.value*100;
+          utskrift.innerHTML += "Dere har valgt klipp og vask til 100 kr per hund. Totalprisen kommer da på "+pris+" kr.";
+        }
+        else {
+          utskrift.innerHTML += "Dere har ikke valgt klipp og vask. Totalprisen blir da "+pris+" kr.";
+        }
+      }
+
+
+
+    </script>
+
+
+  </body>
+</html>

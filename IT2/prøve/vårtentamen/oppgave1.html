@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <style media="screen">
+      #imgUnghund{
+        position: absolute;
+        top: 10px;
+        left: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="valp.jpg" id="imgValp">
+    <audio src="litenHund.mp3" id="lydValp"></audio>
+    <div class="">
+      <img src="unghund.jpg" id="imgUnghund">
+    </div>
+
+    <script type="text/javascript">
+    var imgValp = document.querySelector("#imgValp");
+    var lydValp = document.querySelector("#lydValp");
+    var imgUnghund = document.querySelector("#imgUnghund");
+
+    var trykk = 0
+
+    var animasjon = [{left:"200px", transform:"rotate(0deg)"},{left:"1300px", transform:"rotate(360deg)"}];
+    var kontrollObjekt = {
+      duration:1500,
+      iterations:2,
+      direction:"alternate"
+    };
+
+    //Funksjon som starter og stopper lyd etter trykk på bildet
+    imgValp.onclick = function() {
+      if (trykk == 0) {
+        lydValp.play();
+        trykk=trykk+1
+      }
+      else {
+        lydValp.currentTime=0
+        lydValp.pause();
+        trykk=trykk-1
+      }
+    }
+
+    //Flytter og roterer bildet, før det returnerer
+    imgUnghund.onclick = function() {
+      var minAni = imgUnghund.animate(animasjon,kontrollObjekt);
+    }
+    </script>
+  </body>
+</html>

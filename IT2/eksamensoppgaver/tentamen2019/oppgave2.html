@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 2</title>
+  </head>
+  <body>
+    <h1>Overnatting på gården</h1>
+    <p>Skriv inn antall personer som skal overnatte</p>
+    <input type="number" min="0" id="antPersoner" placeholder="Antall personer">
+    <p>Skriv inn antall netter dere skal overnatte</p>
+    <input type="number" min="0" id="antNetter" placeholder="Antall netter">
+    <p>Ønsker dere frokost?</p>
+    <input type="radio" id="inpJa" name="frokost" value="ja" checked>
+    <label for="ja">Ja</label><br>
+    <input type="radio" id="inpNei" name="frokost" value="nei">
+    <label for="nei">Nei</label><br><br>
+    <button type="button" id="btnReg">Registrer bestilling</button>
+    <p id="utskrift"></p>
+
+    <script type="text/javascript">
+      var antPersoner = document.querySelector("#antPersoner");
+      var antNetter = document.querySelector("#antNetter");
+      var inpJa = document.querySelector("#inpJa");
+      var inpNei = document.querySelector("#inpNei");
+      var btnReg = document.querySelector("#btnReg");
+      var utskrift = document.querySelector("#utskrift");
+      var pris = 0;
+
+      btnReg.onclick = function() {
+        utskrift.innerHTML = "";
+        if (antPersoner.value == "" || antNetter.value == "") {
+          utskrift.innerHTML = "Du må skrive inn antalle personer og netter og krysse av for om dere skal ha frokost";
+        }
+        if (antNetter.value >= 3) {
+          pris = antPersoner.value*antNetter.value*900*0.85;
+        }
+        else {
+          pris = antPersoner.value*antNetter.value*900;
+        }
+        if (inpJa.checked == true) {
+          pris = pris + antPersoner.value*antNetter.value*90;
+          utskrift.innerHTML = "Dere har valgt frokost til 90kr per person. ";
+        }
+        else {
+          utskrift.innerHTML = "Dere har ikke valgt frokost. ";
+        }
+        utskrift.innerHTML += "Prisen blir da "+pris+" kr. for "+antPersoner.value+" personer med overnating i "+antNetter.value+" netter. ";
+      }
+
+    </script>
+  </body>
+</html>

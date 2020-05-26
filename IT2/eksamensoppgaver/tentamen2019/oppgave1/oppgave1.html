@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 1</title>
+    <style media="screen">
+      #ku{
+        position: absolute;
+        width: 400px;
+        height: 270px;
+        top: 270px;
+        left: 10px;
+      }
+      #tekst{
+        text-align: center;
+      }
+      #boks{
+        position: absolute;
+        top: 300px;
+        left: -200px;
+        width: 100px;
+        background-color: rgb(167, 167, 167);
+        padding: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Klikk på kua</h1>
+    <div id="bilde">
+      <img src="husdyr.jpg" id="husdyr">
+      <audio src="" id="lyd"></audio>
+      <div id="ku"></div>
+    </div>
+    <div id="boks">
+      <p id="tekst"></p>
+    </div>
+
+
+    <script type="text/javascript">
+      var ku = document.querySelector("#ku");
+      var lyd = document.querySelector("#lyd");
+      var boks = document.querySelector("#boks");
+      var tekst = document.querySelector("#tekst");
+      var riktigLyd = "riktig.mp3";
+      var galLyd = "galt.mp3";
+
+      var animasjon = [{left:"-200px"},{left:"1500px"}]
+      var kontrollObjekt = {duration:5000};
+
+      ku.onclick = spillLyd;
+      window.onclick = spillLyd;
+      window.onclick = flyttTekst;
+
+      function spillLyd(evt) {
+        if (evt.target == ku) {
+          lyd.src = riktigLyd;
+        }
+        else {
+          lyd.src = galLyd;
+        }
+        if (lyd.playing == false) {
+          lyd.play();
+        }
+      }
+
+      function flyttTekst(evt) {
+        if (evt.target == ku) {
+          tekst.innerHTML = "riktig";
+        }
+        else {
+          tekst.innerHTML = "prøv igjen";
+        }
+        var aniBoks = boks.animate(animasjon,kontrollObjekt);
+      }
+
+    </script>
+
+  </body>
+</html>

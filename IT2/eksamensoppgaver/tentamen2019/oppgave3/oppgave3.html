@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+    <h1>Økolag</h1>
+    <p>Økologisk mat fra ditt nabolag</p>
+    <select id="velgMatvare">
+      <option value="">Velg matvare</option>
+      <option value="0">Løk</option>
+      <option value="1">Paprika</option>
+      <option value="2">Tomat</option>
+      <option value="3">Potet</option>
+      <option value="4">Agurk</option>
+      <option value="5">Gulrot</option>
+    </select>
+    <button type="button" name="button" id="btnLeggTil">Legg til i handlekurv</button>
+    <button type="button" name="button" id="btnTrekkFra">Trekk fra handlekurv</button>
+    <br><br>
+    <img src="" id="imgMatvare">
+
+    <div class="handlekurv">
+      <h3>Handlekurv:</h3>
+      <p id="utskrift"></p>
+      <p id="visPris"></p>
+    </div>
+
+
+    <script type="text/javascript">
+      var velgMatvare = document.querySelector("#velgMatvare");
+      var btnLeggTil = document.querySelector("#btnLeggTil");
+      var btnTrekkFra = document.querySelector("#btnTrekkFra");
+      var imgMatvare = document.querySelector("#imgMatvare");
+      var utskrift = document.querySelector("#utskrift");
+      var visPris = document.querySelector("#visPris");
+
+      var matArr = [
+        {vare:"løk", pris:5, bilde:"mat_01.png", antall:0, totalPris:0},
+        {vare:"paprika", pris:12, bilde:"mat_02.png", antall:0, totalPris:0},
+        {vare:"tomat", pris:8, bilde:"mat_03.png", antall:0, totalPris:0},
+        {vare:"potet", pris:3, bilde:"mat_04.png", antall:0, totalPris:0},
+        {vare:"agurk", pris:10, bilde:"mat_05.png", antall:0, totalPris:0},
+        {vare:"gulrot", pris:5, bilde:"mat_06.png", antall:0, totalPris:0}
+      ]
+
+      velgMatvare.onchange = visMatvare;
+      //Viser bildet til matvaren på siden
+      function visMatvare() {
+        imgMatvare.src = matArr[velgMatvare.value].bilde;
+      }
+
+      //
+      btnLeggTil.onclick = leggTilVare;
+      function leggTilVare() {
+        matArr[velgMatvare.value].antall = matArr[velgMatvare.value].antall+1;
+        visHandlekurv();
+      }
+
+      btnTrekkFra.onclick = trekkFraVare;
+      function trekkFraVare() {
+        matArr[velgMatvare.value].antall = matArr[velgMatvare.value].antall-1;
+        visHandlekurv();
+      }
+
+      function visHandlekurv() {
+        utskrift.innerHTML = "";
+        var sumPris = 0
+        for (var mat of matArr) {
+          if (mat.antall > 0) {
+            mat.totalPris = mat.pris*mat.antall
+            utskrift.innerHTML += mat.antall+" "+mat.vare+" ("+mat.totalPris+" kr.) <br>";
+            sumPris = sumPris + mat.totalPris;
+            visPris.innerHTML = "<br>Totalt "+sumPris+" kr.";
+          }
+        }
+
+      }
+
+
+    </script>
+  </body>
+</html>

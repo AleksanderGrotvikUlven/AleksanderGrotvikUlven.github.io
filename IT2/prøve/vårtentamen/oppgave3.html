@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oppgave 3</title>
+    <style media="screen">
+      #visPaameldte{
+        border: 1px solid black;
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Registrer din hund</h3>
+    <label>Navn:</label>
+    <input type="text" id="inpNavn"><br>
+    <label>Rase:</label>
+    <select id="velgRase">
+      <option value="">Velg rase</option>
+      <option value="Vorsteh">Vorsteh</option>
+      <option value="Golden Retriver">Golden Retriver</option>
+      <option value="Kinesisk nakenhund">Kinesisk nakenhund</option>
+    </select><br>
+    <label>Klasse:</label>
+    <select id="velgKlasse">
+      <option value="">Velg klasse</option>
+      <option value="Valp">Valp (4-9 mnd)</option>
+      <option value="Unghund">Unghund (9-18 mnd)</option>
+    </select><br>
+    <button type="button" id="btnRegistrer">Registrer hund</button><br>
+    <img src="" id="imgKlasse">
+    <p id="visRegistrerte"></p>
+    <h4>Under kan du se alle registrete hunder</h4>
+    <table id="visPaameldte"></table><br>
+    <label>Ønsker du å melde av en hund? Skriv inn navnet på hunden under.</label><br>
+    <input type="text" id="slettNavn">
+    <button type="button" id="btnSlett">Slett</button><br><br>
+    <h4>Antall hunder i de ulike klassene</h4>
+    <p id="visAntKlasse"></p>
+
+    <script type="text/javascript">
+      var inpNavn = document.querySelector("#inpNavn");
+      var velgRase = document.querySelector("#velgRase");
+      var velgKlasse = document.querySelector("#velgKlasse");
+      var btnRegistrer = document.querySelector("#btnRegistrer");
+      var imgKlasse = document.querySelector("#imgKlasse");
+      var visRegistrerte = document.querySelector("#visRegistrerte");
+      var visPaameldte = document.querySelector("#visPaameldte");
+      var slettNavn = document.querySelector("#slettNavn");
+      var btnSlett = document.querySelector("#btnSlett");
+      var visAntKlasse = document.querySelector("#visAntKlasse");
+
+      var hundeArr = [
+        {hundenavn:"Storm",rase:"Vorsteh",klasse:"Unghund"},
+        {hundenavn:"Karo",rase:"Golden Retriver",klasse:"Valp"},
+        {hundenavn:"Pedro",rase:"Vorsteh",klasse:"Unghund"}
+      ]
+
+      btnRegistrer.onclick = sjekkFeil;
+      //Sjekker om nødvendig informason er vedlagt
+      function sjekkFeil() {
+        if (inpNavn.value == "" || velgRase.value == "" || velgKlasse.value == "") {
+          visRegistrerte.innerHTML = "Du må skrive inn navn, rase og klasse";
+        }
+        else {
+          leggTilHund();
+        }
+      }
+
+      //Legger til hunden i Array, og starter nye funksjoner
+      function leggTilHund() {
+        hundeArr.push({hundenavn:inpNavn.value,rase:velgRase.value,klasse:velgKlasse.value});
+        visRegistrert();
+        visPaameldt();
+        visHundKlasse();
+      }
+
+      //Viser informasjonen til hunden som nylig er registrert
+      function visRegistrert() {
+        if (velgKlasse.value == "Valp") {
+          imgKlasse.src = "valp.jpg";
+        }
+        else if (velgKlasse.value == "Unghund") { //Velger å sette else if, slik det ville blitt gjort hvis det var flere klasser.
+          imgKlasse.src = "unghund.jpg";
+        }
+        visRegistrerte.innerHTML = inpNavn.value+" er registrert som "+velgRase.value+" i klassen "+velgKlasse.value;
+        inpNavn.value="";
+        velgRase.value="";
+        velgKlasse.value="";
+      }
+
+      visPaameldt() //Viser informasjonen når siden åpnes
+      //Viser alle påmeldte hunder
+      function visPaameldt() {
+        visPaameldte.innerHTML = "<table id='visPaameldte'><tr><th>Hundenavn</th><th>Rase</th><th>Klasse</th></tr></table>";
+        for (var hund of hundeArr) {
+          visPaameldte.innerHTML += "<tr><td>"+hund.hundenavn+"</td><td>"+hund.rase+"</td><td>"+hund.klasse+"</td></tr>";
+        }
+      }
+
+      visHundKlasse() //Viser informasjonen når siden åpnes
+      //Viser antall hunder påmeldt i hver klasse
+      function visHundKlasse() {
+        visAntKlasse.innerHTML = "";
+        var antUnghund = 0
+        var antValp = 0
+        for (var hund of hundeArr) {
+          if (hund.klasse == "Unghund") {
+            antUnghund++
+          }
+          else if (hund.klasse == "Valp") { //Bruker også else if her, siden det må benyttes ved bruk av flere klasser.
+            antValp++
+          }
+        }
+        visAntKlasse.innerHTML = "Antall i klassen valp: "+antValp+"<br>";
+        visAntKlasse.innerHTML += "Antall i klassen unghund: "+antUnghund;
+      }
+
+      //Funksjon som sletter hund fra arrayet, hvis brukeren skriver inn navnet til hunden
+      btnSlett.onclick = slettHund;
+      function slettHund() {
+        for (var i = 0; i < hundeArr.length; i++) {
+          if (slettNavn.value == hundeArr[i].hundenavn) {
+            hundeArr.splice(i,1);
+          }
+        }
+        slettNavn.value = "";
+        visPaameldt();
+        visHundKlasse();
+      }
+
+    </script>
+  </body>
+</html>
