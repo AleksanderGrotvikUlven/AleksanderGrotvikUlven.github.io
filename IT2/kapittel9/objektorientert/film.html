@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      class Film{
+        constructor(tittel,aar,hovedrolle){
+          this.tittel=tittel;
+          this.aar=aar;
+          this.hovedrolle=hovedrolle;
+        }
+      }
+      var fastFurious = new Film("The Fast and the Furious", 2001, "Vin Diesel");
+      var transformers = new Film("Transformers", 2007, "Shia LaBeouf");
+      var pirate = new Film("The Curse of the Black Pearl", 2003, "Johnny Depp");
+      var grownUps = new Film("Grown Ups", 2010, "Adam Sandler");
+
+
+      class Spiller{
+        constructor(navn, lag, foedt, alder){
+          this.navn=navn;
+          this.lag=lag;
+          this.foedt=foedt;
+          this.alder=alder;
+        }
+      }
+      var messi = new Spiller("Lionel Messi", "FC Barcelona", 1987, 32);
+
+    </script>
+  </body>
+</html>

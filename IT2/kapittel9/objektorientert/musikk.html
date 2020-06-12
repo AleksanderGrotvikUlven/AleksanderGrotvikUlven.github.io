@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      class Musikkinstrument{
+        constructor(type,pris){
+          this.type=type;
+          this.pris=pris;
+        }
+      }
+
+      class Strengisntrument extends Musikkinstrument{
+        constructor(type,pris,antallStrenger){
+          super(type,pris);
+          this.antallStrenger=antallStrenger;
+        }
+      }
+
+      var trompet = new Musikkinstrument("blåseinstrument",2000);
+      var fiolin = new Strengisntrument("strengisntrument",3000,4);
+
+    </script>
+  </body>
+</html>

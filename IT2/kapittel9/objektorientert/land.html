@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      class Land{
+        constructor(navn,areal,folketall){
+          this.navn=navn;
+          this.areal=areal;
+          this.folketall=folketall;
+        }
+        get innbyggerePerKvadratmeter(){
+          return this.folketall/this.areal
+        }
+      }
+
+      var norge = new Land("Norge",385000000000,5370000);
+      var sverige = new Land("Sverige",450000000000,10230000);
+      var danmark = new Land("Danmark",43000000000,5800000);
+      var island = new Land("Island",103000000000,365000);
+
+      console.log(norge.innbyggerePerKvadratmeter);
+      console.log(sverige.innbyggerePerKvadratmeter);
+      console.log(danmark.innbyggerePerKvadratmeter);
+      console.log(island.innbyggerePerKvadratmeter);
+
+    </script>
+  </body>
+</html>

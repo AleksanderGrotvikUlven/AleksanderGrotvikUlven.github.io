@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      class Rektangel{
+        constructor(lengde,bredde){
+          this.lengde=lengde;
+          this.bredde=bredde;
+        }
+        get areal(){
+          return this.lengde*this.bredde;
+        }
+        get omkrets(){
+          return 2*this.lengde+2*this.bredde;
+        }
+      }
+
+      var figur1 = new Rektangel(5,8)
+      console.log(figur1.areal);
+      console.log(figur1.omkrets);
+
+      var figur2 = new Rektangel(2,3)
+      console.log(figur2.areal);
+      console.log(figur2.omkrets);
+
+      class Kvadrat extends Rektangel{
+        constructor(side){
+          super(side,side);
+        }
+      }
+
+      var figur3 = new Kvadrat(3)
+      console.log(figur3.areal);
+      console.log(figur3.omkrets);
+
+    </script>
+  </body>
+</html>
